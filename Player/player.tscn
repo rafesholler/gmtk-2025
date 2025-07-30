@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf2nbw1l4orcf"]
+[gd_scene load_steps=16 format=3 uid="uid://cf2nbw1l4orcf"]
 
 [ext_resource type="Script" uid="uid://vejok7400jcd" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="2_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://cr6g0wnchyed0" path="res://Player/player.png" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://dk2o0ibvh8kp4" path="res://Player/StateMachine/state_machine.gd" id="4_k53q1"]
+[ext_resource type="Script" uid="uid://dbgf047ynunmq" path="res://Player/idle.gd" id="5_k53q1"]
+[ext_resource type="Script" uid="uid://c3foq0y4ylluv" path="res://Player/run.gd" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://ddy35x03yiq00" path="res://Player/jump.gd" id="7_vtle1"]
+[ext_resource type="Script" uid="uid://cr7hm48hjbb3f" path="res://Player/fall.gd" id="8_od3ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(7, 21)
@@ -51,6 +56,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_btcbx"]
+radius = 10.5119
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -84,4 +92,40 @@ position = Vector2(-1, -11)
 sprite_frames = SubResource("SpriteFrames_od3ui")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.407996
+frame_progress = 0.917079
+
+[node name="PullRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PullRange"]
+position = Vector2(0.5, -10.5)
+shape = SubResource("CircleShape2D_btcbx")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("4_k53q1")
+metadata/_custom_type_script = "uid://dk2o0ibvh8kp4"
+
+[node name="Idle" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("target")]
+script = ExtResource("5_k53q1")
+target = NodePath("../..")
+
+[node name="Run" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("target")]
+script = ExtResource("6_fhl08")
+target = NodePath("../..")
+
+[node name="Jump" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("target")]
+script = ExtResource("7_vtle1")
+target = NodePath("../..")
+
+[node name="JumpHoldTimer" type="Timer" parent="StateMachine/Jump"]
+
+[node name="Fall" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("target")]
+script = ExtResource("8_od3ui")
+target = NodePath("../..")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -46.0
+offset_right = 22.0
+offset_bottom = -23.0
+
+[connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_jump_hold_timer_timeout"]
