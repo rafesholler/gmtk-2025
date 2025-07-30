@@ -24,15 +24,16 @@ func _physics_process(delta: float) -> void:
 			for object in part.loopable.properties:
 				for property in part.loopable.properties[object]:
 					part.recorded_values[property].append(object.get(property))
-					print("Recorded property " + property + " with value " + str(object.get(property)))
+					#print("Recorded property " + property + " of object " + object.name + " with value " + str(object.get(property)))
 				
 	for loop in loops:
 		if loop.is_ready:
 			for part in loop.parts:
 				for object in part.loopable.properties:
 					for property in part.loopable.properties[object]:
+						print(loop.is_ready)
 						object.set(property, part.recorded_values[property][loop.index])
-						print("Played property " + property + " with value " + str(part.recorded_values[property][loop.index]))
+						#print("Played property " + property + " of object " + object.name + " with value " + str(part.recorded_values[property][loop.index]))
 					
 			loop.index += 1
 			if loop.index >= loop.max_index:
@@ -77,15 +78,22 @@ func stop_recording() -> void:
 	for part in loops[index].parts:
 		if part.loopable.make_afterimage:
 			var afterimage = afterimage_path.instantiate()
-			part.object.get_parent().add_child(afterimage)
-			part.object = afterimage
+			for object in part.loopable.properties:
+				if object is Player:
+					object.get_parent().add_child(afterimage)
+			
+			part.loopable = afterimage.get_node("Loopable")
 		part.loopable.begin_playback()
 
 
 func cancel_loop(loop_index: int) -> void:
 	loops[loop_index].is_ready = false
 	loops[loop_index].max_index = 0
+	loops[loop_index].index = 0
 	for part in loops[loop_index].parts:
-		if part.object.is_in_group("afterimage"):
-			part.object.call_deferred("queue_free")
+		part.loopable.end_playback()
+		for object in part.loopable.properties:
+			if object.is_in_group("afterimage"):
+				object.call_deferred("queue_free")
+		part.recorded_values.clear()
 	loops[loop_index].parts = []

@@ -1,21 +1,30 @@
 extends CharacterBody2D
+class_name Player
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var push_force = 200
 
-func _physics_process(delta: float) -> void:
-	velocity.x = Input.get_axis("move_left", "move_right") * 300
-	
-	if velocity.x != 0:
+var is_afterimage = false
+
+func _process(delta: float) -> void:
+	if velocity.x != 0 and $AnimatedSprite2D.animation != "run":
 		$AnimatedSprite2D.play("run")
-	else:
+	elif velocity.x == 0 and $AnimatedSprite2D.animation != "idle":
 		$AnimatedSprite2D.play("idle")
 	
 	if velocity.x < 0 and not $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = true
 	if velocity.x > 0 and $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = false
+
+
+func _physics_process(delta: float) -> void:
+	if is_afterimage:
+		move_and_slide()
+		return
+	
+	velocity.x = Input.get_axis("move_left", "move_right") * 300
 	
 	if Input.is_action_pressed("jump"):
 		velocity.y = -400
