@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0y011d078tou"]
+
+[ext_resource type="Script" uid="uid://bx78xj6fdhvxk" path="res://Objects/Box/box.gd" id="1_ite0f"]
+[ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="2_lde1j"]
+[ext_resource type="Texture2D" uid="uid://cnkkqber3c0l7" path="res://Objects/Box/box.png" id="3_glifb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lde1j"]
+size = Vector2(32, 32)
+
+[node name="Box" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_ite0f")
+
+[node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]
+script = ExtResource("2_lde1j")
+properties = {
+NodePath(".."): ["position", "rotation"]
+}
+metadata/_custom_type_script = "uid://dxmffxw51dhku"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lde1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_glifb")
+
+[connection signal="playback_ended" from="Loopable" to="." method="_on_loopable_playback_ended"]
+[connection signal="playback_started" from="Loopable" to="." method="_on_loopable_playback_started"]
