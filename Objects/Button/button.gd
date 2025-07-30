@@ -9,11 +9,11 @@ var pressed = false
 func _process(delta: float) -> void:
 	if bodies_in_area.size() >= 1:
 		pressed = true
-	
-	if pressed:
 		$AnimatedSprite2D.play("pressed")
 	else:
+		pressed = false
 		$AnimatedSprite2D.play("default")
+		
 
 func _on_body_entered(body: Node2D) -> void:
 	bodies_in_area.append(body)
