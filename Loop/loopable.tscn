@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7wp26p555h0u"]
+
+[ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="1_14n0k"]
+
+[node name="Loopable" type="Node"]
+script = ExtResource("1_14n0k")
