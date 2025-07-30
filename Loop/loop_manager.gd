@@ -21,16 +21,18 @@ func _physics_process(delta: float) -> void:
 	if is_recording:
 		loops[index].max_index += 1
 		for part in loops[index].parts:
-			for property in part.loopable.properties:
-				part.recorded_values[property].append(part.object.get(property))
-				print("Recorded property " + property + " with value " + str(part.object.get(property)))
+			for object in part.loopable.properties:
+				for property in part.loopable.properties[object]:
+					part.recorded_values[property].append(object.get(property))
+					print("Recorded property " + property + " with value " + str(object.get(property)))
 				
 	for loop in loops:
 		if loop.is_ready:
 			for part in loop.parts:
-				for property in part.loopable.properties:
-					part.object.set(property, part.recorded_values[property][loop.index])
-					print("Played property " + property + " with value " + str(part.recorded_values[property][loop.index]))
+				for object in part.loopable.properties:
+					for property in part.loopable.properties[object]:
+						object.set(property, part.recorded_values[property][loop.index])
+						print("Played property " + property + " with value " + str(part.recorded_values[property][loop.index]))
 					
 			loop.index += 1
 			if loop.index >= loop.max_index:
@@ -55,14 +57,14 @@ func start_recording() -> void:
 		if not loopable_node:
 			printerr("Can't find loopable node!")
 		
-		part.object = obj
 		part.loopable = loopable_node
 		loops[index].parts.append(part)
 	
 	# initialize property arrays
 	for part in loops[index].parts:
-			for property in part.loopable.properties:
-				part.recorded_values[property] = []
+			for object in part.loopable.properties:
+				for property in part.loopable.properties[object]:
+					part.recorded_values[property] = []
 	
 	curr_loop_objects = []
 	loops[index].max_index = 0

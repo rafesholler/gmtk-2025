@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfyylweqwg4ad"]
+[gd_scene load_steps=4 format=3 uid="uid://dfyylweqwg4ad"]
 
-[ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="1_ia1lp"]
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="1_uhqqe"]
+[ext_resource type="PackedScene" uid="uid://d0y011d078tou" path="res://Objects/Box/box.tscn" id="2_ia1lp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6adnx"]
 size = Vector2(1147, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhqqe"]
-size = Vector2(38, 40)
 
 [node name="TestScene" type="Node2D"]
 
@@ -24,24 +21,8 @@ position = Vector2(597, 359)
 position = Vector2(-15.5, 1.5)
 shape = SubResource("RectangleShape2D_6adnx")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(376, 306)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, 14)
-shape = SubResource("RectangleShape2D_uhqqe")
-
-[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
-offset_left = -20.0
-offset_top = -6.0
-offset_right = 20.0
-offset_bottom = 34.0
-color = Color(0.603278, 0, 0.288795, 1)
-
-[node name="Loopable" type="Node" parent="RigidBody2D"]
-script = ExtResource("1_ia1lp")
-properties = Array[String](["position", "rotation"])
-metadata/_custom_type_script = "uid://dxmffxw51dhku"
-
 [node name="Player" parent="." instance=ExtResource("1_uhqqe")]
 position = Vector2(633, 324)
+
+[node name="Box" parent="." instance=ExtResource("2_ia1lp")]
+position = Vector2(413, 319)

@@ -2,8 +2,20 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export var push_force = 200
+
 func _physics_process(delta: float) -> void:
 	velocity.x = Input.get_axis("move_left", "move_right") * 300
+	
+	if velocity.x != 0:
+		$AnimatedSprite2D.play("run")
+	else:
+		$AnimatedSprite2D.play("idle")
+	
+	if velocity.x < 0 and not $AnimatedSprite2D.flip_h:
+		$AnimatedSprite2D.flip_h = true
+	if velocity.x > 0 and $AnimatedSprite2D.flip_h:
+		$AnimatedSprite2D.flip_h = false
 	
 	if Input.is_action_pressed("jump"):
 		velocity.y = -400
@@ -24,8 +36,8 @@ func _physics_process(delta: float) -> void:
 	
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() is RigidBody2D:
-			c.get_collider().apply_central_impulse(-c.get_normal() * 200)
+		if c.get_collider() is Box and not c.get_collider().is_in_loop:
+			c.get_collider().velocity = -c.get_normal() * push_force
 	
 	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
 	
