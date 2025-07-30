@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 
 [node name="Box" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_ite0f")
 
 [node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]
