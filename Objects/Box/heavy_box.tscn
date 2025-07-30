@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce0fyafaupkhg"]
+
+[ext_resource type="Script" uid="uid://cff02ul8i74cw" path="res://Objects/Box/heavy_box.gd" id="1_lrl7b"]
+[ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="1_sn3pl"]
+[ext_resource type="Texture2D" uid="uid://cnkkqber3c0l7" path="res://Objects/Box/box.png" id="2_lrl7b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrdgm"]
+size = Vector2(32, 32)
+
+[node name="HeavyBox" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_lrl7b")
+
+[node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]
+script = ExtResource("1_sn3pl")
+properties = {
+NodePath(".."): ["position", "rotation"]
+}
+metadata/_custom_type_script = "uid://dxmffxw51dhku"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rrdgm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+texture = ExtResource("2_lrl7b")
