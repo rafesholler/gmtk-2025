@@ -3,36 +3,24 @@ class_name Player
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export var speed = 100
 @export var push_force = 200
 
-var is_afterimage = false
-
 func _process(delta: float) -> void:
-	if velocity.x != 0 and $AnimatedSprite2D.animation != "run":
+	var dir = Input.get_axis("move_left", "move_right")
+	if dir != 0 and $AnimatedSprite2D.animation != "run":
 		$AnimatedSprite2D.play("run")
-	elif velocity.x == 0 and $AnimatedSprite2D.animation != "idle":
+	elif dir == 0 and $AnimatedSprite2D.animation != "idle":
 		$AnimatedSprite2D.play("idle")
 	
-	if velocity.x < 0 and not $AnimatedSprite2D.flip_h:
+	if dir < 0 and not $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = true
-	if velocity.x > 0 and $AnimatedSprite2D.flip_h:
+	if dir > 0 and $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = false
+	
 
 
 func _physics_process(delta: float) -> void:
-	if is_afterimage:
-		move_and_slide()
-		return
-	
-	velocity.x = Input.get_axis("move_left", "move_right") * 300
-	
-	if Input.is_action_pressed("jump"):
-		velocity.y = -400
-	
-	elif not is_on_floor():
-		velocity.y = gravity
-	
-	
 	if Input.is_action_just_pressed("toggle_record") or Input.is_action_just_pressed("record_with_player"):
 		if Input.is_action_just_pressed("record_with_player"):
 			LoopManager.add_loop_object(self)

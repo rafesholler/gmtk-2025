@@ -23,13 +23,6 @@ sources/1 = SubResource("TileSetScenesCollectionSource_coq8p")
 
 [node name="TestScene" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = 6.0
-offset_top = 340.0
-offset_right = 1154.0
-offset_bottom = 380.0
-
 [node name="Player" parent="." instance=ExtResource("1_uhqqe")]
 position = Vector2(633, 324)
 
