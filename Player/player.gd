@@ -3,6 +3,9 @@ class_name Player
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var nearby_box
+var box_vector
+
 @export var speed = 100
 @export var push_force = 200
 
@@ -17,10 +20,25 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = true
 	if dir > 0 and $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = false
-	
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("pull"):
+		if nearby_box:
+			box_vector = nearby_box.position - position
+	if Input.is_action_pressed("pull"):
+		if nearby_box:
+			nearby_box.position = position + box_vector
+	
+	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
+	
+	if Input.is_action_just_pressed("fire"):
+		if $RayCast2D.is_colliding():
+			for child in $RayCast2D.get_collider().get_children():
+				if child is Loopable:
+					LoopManager.add_loop_object($RayCast2D.get_collider())
+					break
+	
 	if Input.is_action_just_pressed("toggle_record") or Input.is_action_just_pressed("record_with_player"):
 		if Input.is_action_just_pressed("record_with_player"):
 			LoopManager.add_loop_object(self)
@@ -35,15 +53,8 @@ func _physics_process(delta: float) -> void:
 		var c = get_slide_collision(i)
 		if c.get_collider() is Box and not c.get_collider().is_in_loop:
 			c.get_collider().velocity = -c.get_normal() * push_force
-	
-	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
-	
-	if Input.is_action_just_pressed("fire"):
-		if $RayCast2D.is_colliding():
-			for child in $RayCast2D.get_collider().get_children():
-				if child is Loopable:
-					LoopManager.add_loop_object($RayCast2D.get_collider())
-					break
+		if c.get_collider() is HeavyBox and not c.get_collider().is_in_loop:
+			c.get_collider().velocity = -c.get_normal() * push_force
 
 	if Input.is_action_just_pressed("change_loop"):
 		if LoopManager.is_recording:
@@ -58,3 +69,13 @@ func _physics_process(delta: float) -> void:
 	$Label.text = str(LoopManager.index)
 
 	move_and_slide()
+
+
+func _on_pull_range_body_entered(body: Node2D) -> void:
+	if body is Box:
+		nearby_box = body
+
+
+func _on_pull_range_body_exited(body: Node2D) -> void:
+	if body == nearby_box:
+		nearby_box = null

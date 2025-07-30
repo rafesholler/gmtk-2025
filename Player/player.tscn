@@ -57,7 +57,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btcbx"]
-radius = 10.5119
+radius = 17.5071
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -92,9 +92,11 @@ position = Vector2(-1, -11)
 sprite_frames = SubResource("SpriteFrames_od3ui")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.917079
+frame_progress = 0.180631
 
 [node name="PullRange" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PullRange"]
 position = Vector2(0.5, -10.5)
@@ -122,10 +124,6 @@ target = NodePath("../..")
 script = ExtResource("8_od3ui")
 target = NodePath("../..")
 
-[node name="Label2" type="Label" parent="."]
-offset_left = -18.0
-offset_top = -46.0
-offset_right = 22.0
-offset_bottom = -23.0
-
+[connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
+[connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]
 [connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_jump_hold_timer_timeout"]
