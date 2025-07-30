@@ -81,8 +81,13 @@ func stop_recording() -> void:
 			for object in part.loopable.properties:
 				if object is Player:
 					object.get_parent().add_child(afterimage)
+					afterimage.modulate = _get_loop_color(index)
 			
 			part.loopable = afterimage.get_node("Loopable")
+		else:
+			for object in part.loopable.properties:
+				if object is not Player:
+					object.modulate = _get_loop_color(index)
 		part.loopable.begin_playback()
 
 
@@ -93,7 +98,19 @@ func cancel_loop(loop_index: int) -> void:
 	for part in loops[loop_index].parts:
 		part.loopable.end_playback()
 		for object in part.loopable.properties:
+			object.modulate = Color(1, 1, 1)
 			if object.is_in_group("afterimage"):
 				object.call_deferred("queue_free")
 		part.recorded_values.clear()
 	loops[loop_index].parts = []
+
+
+func _get_loop_color(loop_index: int) -> Color:
+	match loop_index:
+		0:
+			return Color(1, 0, 0)
+		1:
+			return Color(0, 1, 0)
+		2:
+			return Color(0, 0, 1)
+	return Color(1, 1, 1)
