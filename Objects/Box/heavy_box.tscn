@@ -15,7 +15,8 @@ script = ExtResource("1_lrl7b")
 [node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]
 script = ExtResource("1_sn3pl")
 properties = {
-NodePath(".."): ["position", "rotation"]
+NodePath(".."): ["position", "rotation", "visible"],
+NodePath("../CollisionShape2D"): ["disabled"]
 }
 metadata/_custom_type_script = "uid://dxmffxw51dhku"
 

@@ -16,6 +16,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func toggle_destroy() -> void:
+	visible = not visible
+	$CollisionShape2D.disabled = not $CollisionShape2D.disabled
+
+
 func _on_loopable_playback_started() -> void:
 	is_in_loop = true
 

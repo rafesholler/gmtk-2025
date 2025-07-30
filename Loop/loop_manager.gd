@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 			for part in loop.parts:
 				for object in part.loopable.properties:
 					for property in part.loopable.properties[object]:
-						print(loop.is_ready)
 						object.set(property, part.recorded_values[property][loop.index])
 						#print("Played property " + property + " of object " + object.name + " with value " + str(part.recorded_values[property][loop.index]))
 					
