@@ -51,7 +51,7 @@ animations = [{
 }]
 
 [node name="Afterimage" type="CharacterBody2D" groups=["afterimage"]]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 0
 
 [node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]
