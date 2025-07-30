@@ -39,3 +39,6 @@ tile_set = SubResource("TileSet_sasra")
 
 [node name="HeavyBox" parent="." instance=ExtResource("5_2nij2")]
 position = Vector2(318, 285)
+
+[connection signal="body_entered" from="TileMapLayer/Button" to="TileMapLayer/Button" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/Button" to="TileMapLayer/Button" method="_on_body_exited"]
