@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var is_recording = false
-
 func _physics_process(delta: float) -> void:
 	velocity.x = Input.get_axis("move_left", "move_right") * 300
 	
@@ -17,9 +15,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("toggle_record") or Input.is_action_just_pressed("record_with_player"):
 		if Input.is_action_just_pressed("record_with_player"):
 			LoopManager.add_loop_object(self)
-		is_recording = not is_recording
+		LoopManager.is_recording = not LoopManager.is_recording
 		
-		if is_recording:
+		if LoopManager.is_recording:
 			LoopManager.start_recording()
 		else:
 			LoopManager.stop_recording()
@@ -38,5 +36,16 @@ func _physics_process(delta: float) -> void:
 					LoopManager.add_loop_object($RayCast2D.get_collider())
 					break
 
+	if Input.is_action_just_pressed("change_loop"):
+		if LoopManager.is_recording:
+			return
+		LoopManager.index += 1
+		if LoopManager.index >= 3:
+			LoopManager.index = 0
 	
+	if Input.is_action_just_pressed("delete_loop"):
+		LoopManager.cancel_loop(LoopManager.index)
+
+	$Label.text = str(LoopManager.index)
+
 	move_and_slide()

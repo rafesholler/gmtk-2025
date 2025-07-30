@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 				
 	for loop in loops:
 		if loop.is_ready:
-			for part in loops[index].parts:
+			for part in loop.parts:
 				for property in part.loopable.properties:
 					part.object.set(property, part.recorded_values[property][loop.index])
 					print("Played property " + property + " with value " + str(part.recorded_values[property][loop.index]))
@@ -44,7 +44,7 @@ func add_loop_object(object: Node) -> void:
 
 func start_recording() -> void:
 	is_recording = true
-	loops[index] = Loop.new()
+	cancel_loop(index)
 	for obj in curr_loop_objects:
 		var part = LoopPart.new()
 		
@@ -83,4 +83,7 @@ func stop_recording() -> void:
 func cancel_loop(loop_index: int) -> void:
 	loops[loop_index].is_ready = false
 	loops[loop_index].max_index = 0
+	for part in loops[loop_index].parts:
+		if part.object.is_in_group("afterimage"):
+			part.object.call_deferred("queue_free")
 	loops[loop_index].parts = []

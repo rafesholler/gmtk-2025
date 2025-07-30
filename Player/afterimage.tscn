@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m7t0"]
 size = Vector2(38, 51)
 
-[node name="Afterimage" type="CharacterBody2D"]
+[node name="Afterimage" type="CharacterBody2D" groups=["afterimage"]]
 collision_layer = 0
 collision_mask = 0
 
