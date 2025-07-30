@@ -57,7 +57,8 @@ collision_mask = 0
 [node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]
 script = ExtResource("1_4ijtp")
 properties = {
-NodePath(""): ["flip_h", "animation", "frame"]
+NodePath(".."): ["position"],
+NodePath("../AnimatedSprite2D"): ["flip_h", "animation", "frame"]
 }
 make_afterimage = true
 metadata/_custom_type_script = "uid://dxmffxw51dhku"
@@ -71,4 +72,4 @@ position = Vector2(-1, -11)
 sprite_frames = SubResource("SpriteFrames_gll1n")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.90992
+frame_progress = 0.709095

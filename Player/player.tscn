@@ -84,4 +84,4 @@ position = Vector2(-1, -11)
 sprite_frames = SubResource("SpriteFrames_od3ui")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.878412
+frame_progress = 0.407996
