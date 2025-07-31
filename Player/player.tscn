@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf2nbw1l4orcf"]
+[gd_scene load_steps=16 format=3 uid="uid://cf2nbw1l4orcf"]
 
 [ext_resource type="Script" uid="uid://vejok7400jcd" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="2_4ntmi"]
@@ -14,6 +14,10 @@ size = Vector2(7, 21)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
 atlas = ExtResource("3_btcbx")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
+atlas = ExtResource("3_btcbx")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
 atlas = ExtResource("3_btcbx")
@@ -39,6 +43,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_od3ui")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_k53q1")
 }, {
 "duration": 0.5,
@@ -56,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od3ui"]
-size = Vector2(35, 19)
+size = Vector2(58, 19)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -89,16 +101,16 @@ offset_bottom = -53.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -11)
 sprite_frames = SubResource("SpriteFrames_od3ui")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.180631
+frame_progress = 0.855083
 
 [node name="PullRange" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PullRange"]
-position = Vector2(0.5, -9.5)
+position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_od3ui")
 
 [node name="StateMachine" type="Node2D" parent="."]
@@ -117,5 +129,13 @@ target = NodePath("../..")
 script = ExtResource("8_od3ui")
 target = NodePath("../..")
 
+[node name="JumpCutTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]
+[connection signal="timeout" from="JumpCutTimer" to="." method="_on_jump_cut_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
