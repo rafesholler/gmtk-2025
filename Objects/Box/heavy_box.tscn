@@ -9,7 +9,7 @@ size = Vector2(32, 32)
 
 [node name="HeavyBox" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 7
 script = ExtResource("1_lrl7b")
 
 [node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]

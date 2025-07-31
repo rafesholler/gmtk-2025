@@ -6,3 +6,4 @@
 script = ExtResource("1_7jxnr")
 
 [node name="Endpoint" type="Node2D" parent="."]
+top_level = true
