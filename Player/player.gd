@@ -49,9 +49,13 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("pull") and nearby_box and not nearby_box.is_in_loop:
 		is_pulling = not is_pulling
-		box_vector = nearby_box.position - position
-		box_vector.y = -25
-		nearby_box.is_being_pulled = true
+		if is_pulling:
+			box_vector = nearby_box.position - position
+			box_vector.y = -25
+			nearby_box.is_being_pulled = true
+		else:
+			box_vector = null
+			nearby_box.is_being_pulled = false
 	
 	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
 			nearby_box.position = position + box_vector

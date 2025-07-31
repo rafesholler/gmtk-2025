@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od3ui"]
-size = Vector2(35, 19)
+size = Vector2(58, 19)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -111,7 +111,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PullRange"]
-position = Vector2(0.5, -9.5)
+position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_od3ui")
 
 [node name="StateMachine" type="Node2D" parent="."]
