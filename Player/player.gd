@@ -69,8 +69,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("delete_loop"):
 		LoopManager.cancel_loop(LoopManager.index)
 
-	$Label.text = str(LoopManager.index)
-
+	$Label.text = "Loop: " + str(LoopManager.index) + " Recording: " + str(LoopManager.is_recording)
+	
+	print($StateMachine.states[$StateMachine.curr].name)
+	print(velocity)
 	move_and_slide()
 
 

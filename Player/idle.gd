@@ -5,7 +5,7 @@ func on_start(params: Array = []) -> void:
 	target.velocity.x = 0
 	
 func update(delta: float) -> void:
-	pass
+	target.velocity = Vector2.ZERO
 
 func physics_update(delta: float) -> void:
 	target.move_and_slide()
