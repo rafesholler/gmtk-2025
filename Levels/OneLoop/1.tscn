@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="3_fqvvb"]
 [ext_resource type="Texture2D" uid="uid://dmd02shfreiwf" path="res://Objects/Platforms/Platform.png" id="4_ptxne"]
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="5_pcnwc"]
-[ext_resource type="PackedScene" uid="uid://d2u55jh7c6oiu" path="res://UI/UI.tscn" id="7_7n0lh"]
+[ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="8_jmx0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqv0p"]
 size = Vector2(64, 23)
@@ -21,6 +21,9 @@ tile_set = ExtResource("1_7tyjg")
 
 [node name="DudDoor" parent="." instance=ExtResource("3_fqvvb")]
 position = Vector2(70, -64)
+
+[node name="Door" parent="." instance=ExtResource("8_jmx0s")]
+position = Vector2(633, -128)
 
 [node name="SlidePlatform" parent="." instance=ExtResource("2_nqv0p")]
 position = Vector2(409, -48)
@@ -47,10 +50,6 @@ limit_left = 0
 limit_right = 700
 limit_bottom = 0
 position_smoothing_enabled = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="CanvasLayer" instance=ExtResource("7_7n0lh")]
 
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
