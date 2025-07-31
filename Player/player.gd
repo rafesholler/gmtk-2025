@@ -6,7 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var nearby_box
 var box_vector
 
-@export var speed = 100
+@export var speed = 200
 @export var push_force = 200
 
 func _process(delta: float) -> void:
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
-		velocity.y = -100
+		velocity.y = -200
 	
 	if Input.is_action_just_pressed("pull"):
 		if nearby_box and not nearby_box.is_in_loop:
@@ -70,10 +70,6 @@ func _physics_process(delta: float) -> void:
 		LoopManager.cancel_loop(LoopManager.index)
 
 	$Label.text = "Loop: " + str(LoopManager.index) + " Recording: " + str(LoopManager.is_recording)
-	
-	print($StateMachine.states[$StateMachine.curr].name)
-	print(velocity)
-	move_and_slide()
 
 
 func _on_pull_range_body_entered(body: Node2D) -> void:
