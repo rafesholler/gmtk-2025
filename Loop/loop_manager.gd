@@ -45,6 +45,8 @@ func add_loop_object(object: Node) -> void:
 
 
 func start_recording() -> void:
+	if curr_loop_objects.size() == 0:
+		return
 	is_recording = true
 	cancel_loop(index)
 	for obj in curr_loop_objects:
