@@ -1,6 +1,7 @@
 extends Control
 
 var flashing := false
+var active_loops = 0
 
 func _ready() -> void:
 	$Icon.material.set_shader_parameter("alpha_threshold", 1.0)
@@ -14,8 +15,11 @@ func _process(delta: float) -> void:
 		if flashing:
 			flash_stop()
 			flashing = false
-		
-	$Number.text = str(len(LoopManager.loops))
+	active_loops = 0
+	for loop in LoopManager.loops:
+		if loop.is_ready:
+			active_loops += 1
+	$Number.text = str(LoopManager.index+1-active_loops)
 
 func _on_flash_timeout() -> void:
 	if $Icon.material.get_shader_parameter("alpha_threshold") == 1.0:
