@@ -8,7 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var friction = 600
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	if not is_in_loop:
 		if not is_on_floor() and not is_being_pulled:
 			velocity.y += gravity * delta

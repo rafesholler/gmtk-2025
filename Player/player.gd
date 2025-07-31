@@ -59,6 +59,11 @@ func _physics_process(delta: float) -> void:
 	
 	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
 			nearby_box.position = position + box_vector
+			
+	if is_pulling:
+		collision_mask = 17
+	else:
+		collision_mask = 21
 	
 	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
 	
@@ -101,7 +106,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_pull_range_body_entered(body: Node2D) -> void:
-	if body is Box:
+	if body is Box and not is_pulling:
 		nearby_box = body
 
 
