@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc4n2fr13d1eh"]
+
+[ext_resource type="Texture2D" uid="uid://dxtb4ylf3plww" path="res://Objects/Door/leveldoor.png" id="1_t2ado"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ipwy"]
+atlas = ExtResource("1_t2ado")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajn7i"]
+atlas = ExtResource("1_t2ado")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6mwe"]
+atlas = ExtResource("1_t2ado")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t038"]
+atlas = ExtResource("1_t2ado")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lqqbh"]
+animations = [{
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_4ipwy")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ajn7i")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_t6mwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t038")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="DudDoor" type="Node2D"]
+
+[node name="Door" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lqqbh")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0

@@ -107,9 +107,9 @@ func cancel_loop(loop_index: int) -> void:
 func _get_loop_color(loop_index: int) -> Color:
 	match loop_index:
 		0:
-			return Color(1, 0, 0)
+			return Color(0.369, 0.757, 0.78, .75)
 		1:
-			return Color(0, 1, 0)
+			return Color(0.616, 0.694, 0.263, .75)
 		2:
-			return Color(0, 0, 1)
+			return Color(0.659, 0.192, 0.192, .75)
 	return Color(1, 1, 1)
