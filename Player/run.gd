@@ -16,9 +16,6 @@ func physics_update(delta: float) -> void:
 	
 	elif Input.get_axis("move_left", "move_right") == 0:
 		finished.emit(get_neighbor("Idle"))
-	
-	elif Input.is_action_pressed("jump"):
-		finished.emit(get_neighbor("Jump"))
 
 func on_end() -> void:
 	pass
