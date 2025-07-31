@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://cdowou18d5d2u"]
+[gd_scene load_steps=7 format=4 uid="uid://cdowou18d5d2u"]
 
 [ext_resource type="Script" uid="uid://bluypqwsvaj1i" path="res://Levels/OneLoop/ButtonPress1/button_press1.gd" id="1_o2qro"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="2_8jps0"]
 [ext_resource type="PackedScene" uid="uid://dfhxr5g4l6gg" path="res://Objects/Platforms/slide_platform.tscn" id="3_dv7b7"]
-[ext_resource type="Texture2D" uid="uid://dmd02shfreiwf" path="res://Objects/Platforms/Platform.png" id="4_d84pa"]
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="5_2s8pr"]
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="6_2x53m"]
 [ext_resource type="PackedScene" uid="uid://d2u55jh7c6oiu" path="res://UI/UI.tscn" id="7_2giux"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqv0p"]
-size = Vector2(64, 23)
 
 [node name="ButtonPress" type="Node2D"]
 script = ExtResource("1_o2qro")
@@ -23,13 +19,6 @@ position = Vector2(409, -48)
 
 [node name="Endpoint" parent="SlidePlatform" index="0"]
 position = Vector2(556, -48)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidePlatform"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_nqv0p")
-
-[node name="Sprite2D" type="Sprite2D" parent="SlidePlatform"]
-texture = ExtResource("4_d84pa")
 
 [node name="Button" parent="." instance=ExtResource("5_2s8pr")]
 position = Vector2(236, -32)
