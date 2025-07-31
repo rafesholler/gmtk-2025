@@ -178,4 +178,3 @@ texture = ExtResource("6_xpxos")
 [node name="Overlay" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="Overlay" instance=ExtResource("2_qf6be")]
-visible = false
