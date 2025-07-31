@@ -9,6 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if LoopManager.is_recording == true:
 		if !flashing:
+			$Icon.material.set_shader_parameter("alpha_threshold", 0.0)
 			flash_start()
 			flashing = true
 	else:
