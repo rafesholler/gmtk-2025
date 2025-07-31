@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dfyylweqwg4ad"]
+[gd_scene load_steps=9 format=4 uid="uid://dfyylweqwg4ad"]
 
 [ext_resource type="Script" uid="uid://b4rsnen1yp0op" path="res://test_scene.gd" id="1_8pr8v"]
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="1_uhqqe"]
@@ -8,9 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="4_2nij2"]
 [ext_resource type="PackedScene" uid="uid://ce0fyafaupkhg" path="res://Objects/Box/heavy_box.tscn" id="5_2nij2"]
 [ext_resource type="PackedScene" uid="uid://dfhxr5g4l6gg" path="res://Objects/Platforms/slide_platform.tscn" id="6_7cbxl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_buypi"]
-size = Vector2(81, 12)
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_8pr8v")
@@ -36,21 +33,13 @@ position = Vector2(413, 284)
 position = Vector2(496, 352)
 
 [node name="Lever" parent="." instance=ExtResource("2_buypi")]
-position = Vector2(552, 330)
+position = Vector2(552, 352)
 
 [node name="SlidePlatform" parent="." instance=ExtResource("6_7cbxl")]
 position = Vector2(710, 335)
 
 [node name="Endpoint" parent="SlidePlatform" index="0"]
 position = Vector2(624, 258)
-
-[node name="ColorRect" type="ColorRect" parent="SlidePlatform"]
-offset_right = 81.0
-offset_bottom = 12.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidePlatform"]
-position = Vector2(40.5, 7)
-shape = SubResource("RectangleShape2D_buypi")
 
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]

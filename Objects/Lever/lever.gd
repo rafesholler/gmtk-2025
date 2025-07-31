@@ -6,6 +6,12 @@ signal switched(is_active: bool)
 
 var is_active = false
 
+func _process(delta: float) -> void:
+	if is_active and $AnimatedSprite2D.animation != "switch_on":
+		$AnimatedSprite2D.play("switch_on")
+	elif not is_active and $AnimatedSprite2D.animation == "switch_on":
+		$AnimatedSprite2D.play("switch_off")
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:

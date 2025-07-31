@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfhxr5g4l6gg"]
+[gd_scene load_steps=4 format=3 uid="uid://dfhxr5g4l6gg"]
 
 [ext_resource type="Script" uid="uid://wf0m18psy3ny" path="res://Objects/Platforms/slide_platform.gd" id="1_7jxnr"]
+[ext_resource type="Texture2D" uid="uid://dmd02shfreiwf" path="res://Objects/Platforms/Platform.png" id="2_rchqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohvgd"]
+size = Vector2(64, 24)
 
 [node name="SlidePlatform" type="CharacterBody2D"]
 script = ExtResource("1_7jxnr")
 
 [node name="Endpoint" type="Node2D" parent="."]
 top_level = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rchqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ohvgd")
