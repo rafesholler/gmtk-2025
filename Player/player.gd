@@ -11,7 +11,7 @@ var jumped = false
 var coyote_window = false
 
 @export var speed = 200
-@export var push_force = 200
+@export var push_force = 100
 
 func _process(delta: float) -> void:
 	var dir = Input.get_axis("move_left", "move_right")
@@ -50,20 +50,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pull") and nearby_box and not nearby_box.is_in_loop:
 		is_pulling = not is_pulling
 		if is_pulling:
+			nearby_box.collision_layer = 32
+			nearby_box.collision_mask = 3
 			box_vector = nearby_box.position - position
 			box_vector.y = -25
 			nearby_box.is_being_pulled = true
 		else:
 			box_vector = null
 			nearby_box.is_being_pulled = false
+			nearby_box.collision_layer = 4
+			nearby_box.collision_mask = 7
 	
 	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
 			nearby_box.position = position + box_vector
-			
-	if is_pulling:
-		collision_mask = 17
-	else:
-		collision_mask = 21
+		
 	
 	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
 	
@@ -113,6 +113,8 @@ func _on_pull_range_body_entered(body: Node2D) -> void:
 func _on_pull_range_body_exited(body: Node2D) -> void:
 	if body == nearby_box:
 		nearby_box.is_being_pulled = false
+		nearby_box.collision_layer = 4
+		nearby_box.collision_mask = 7
 		nearby_box = null
 		box_vector = null
 		is_pulling = false
