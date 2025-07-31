@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Box
 
 var is_in_loop = false
+var is_being_pulled = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -9,7 +10,7 @@ var friction = 600
 
 func _physics_process(delta: float) -> void:
 	if not is_in_loop:
-		if not is_on_floor():
+		if not is_on_floor() and not is_being_pulled:
 			velocity.y += gravity * delta
 		
 		for i in get_slide_collision_count():

@@ -3,7 +3,8 @@ class_name Player
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var nearby_box
+var is_pulling = false
+var nearby_box: Box
 var box_vector
 
 var jumped = false
@@ -46,11 +47,17 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -200
 			jumped = true
 	
-	if Input.is_action_just_pressed("pull"):
-		if nearby_box and not nearby_box.is_in_loop:
+	if Input.is_action_just_pressed("pull") and nearby_box and not nearby_box.is_in_loop:
+		is_pulling = not is_pulling
+		if is_pulling:
 			box_vector = nearby_box.position - position
-	if Input.is_action_pressed("pull"):
-		if nearby_box and not nearby_box.is_in_loop:
+			box_vector.y = -25
+			nearby_box.is_being_pulled = true
+		else:
+			box_vector = null
+			nearby_box.is_being_pulled = false
+	
+	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
 			nearby_box.position = position + box_vector
 	
 	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
@@ -76,6 +83,7 @@ func _physics_process(delta: float) -> void:
 		var c = get_slide_collision(i)
 		if c.get_collider() is Box and not c.get_collider().is_in_loop:
 			c.get_collider().velocity = -c.get_normal() * push_force
+			#print(c.get_collider().velocity)
 		if c.get_collider() is HeavyBox and not c.get_collider().is_in_loop:
 			c.get_collider().velocity = -c.get_normal() * push_force
 
@@ -99,7 +107,10 @@ func _on_pull_range_body_entered(body: Node2D) -> void:
 
 func _on_pull_range_body_exited(body: Node2D) -> void:
 	if body == nearby_box:
+		nearby_box.is_being_pulled = false
 		nearby_box = null
+		box_vector = null
+		is_pulling = false
 
 
 func _on_coyote_timer_timeout() -> void:

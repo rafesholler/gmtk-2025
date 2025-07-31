@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwcsraftlejsn"]
+[gd_scene load_steps=10 format=3 uid="uid://cwcsraftlejsn"]
 
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="1_4ijtp"]
 [ext_resource type="Texture2D" uid="uid://cr6g0wnchyed0" path="res://Player/player.png" id="2_3504a"]
@@ -9,6 +9,10 @@ size = Vector2(7, 21)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
 atlas = ExtResource("2_3504a")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3504a"]
+atlas = ExtResource("2_3504a")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
 atlas = ExtResource("2_3504a")
@@ -30,6 +34,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3504a")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -70,6 +82,5 @@ shape = SubResource("RectangleShape2D_wtvt7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -11)
 sprite_frames = SubResource("SpriteFrames_gll1n")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.751593
