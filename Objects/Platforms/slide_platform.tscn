@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfhxr5g4l6gg"]
+
+[ext_resource type="Script" uid="uid://wf0m18psy3ny" path="res://Objects/Platforms/slide_platform.gd" id="1_7jxnr"]
+
+[node name="SlidePlatform" type="CharacterBody2D"]
+script = ExtResource("1_7jxnr")
+
+[node name="Endpoint" type="Node2D" parent="."]
