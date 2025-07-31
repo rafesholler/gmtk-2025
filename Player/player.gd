@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		jumped = true
 	
 	if not is_on_floor() and not jumped and $CoyoteTimer.is_stopped() and coyote_window:
-		$CoyoteTimer.start(.2)
+		$CoyoteTimer.start(.1)
 		coyote_window = true
 	
 	if not is_on_floor() and coyote_window and not $CoyoteTimer.is_stopped():
