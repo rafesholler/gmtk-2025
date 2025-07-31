@@ -32,10 +32,14 @@ position = Vector2(73, 288)
 position = Vector2(526, 224)
 
 [node name="Player" parent="." instance=ExtResource("2_mew3w")]
-position = Vector2(75, 320)
+position = Vector2(78, 301)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 595
+limit_bottom = 335
 
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
