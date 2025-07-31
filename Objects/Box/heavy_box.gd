@@ -8,10 +8,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var friction = 600
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
-	velocity.x = move_toward(velocity.x, 0, friction * delta)
+	if not is_in_loop:
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	
 	move_and_slide()
 

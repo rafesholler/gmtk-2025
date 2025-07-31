@@ -26,3 +26,6 @@ shape = SubResource("RectangleShape2D_rrdgm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.259294, 0.259294, 0.259294, 1)
 texture = ExtResource("2_lrl7b")
+
+[connection signal="playback_ended" from="Loopable" to="." method="_on_loopable_playback_ended"]
+[connection signal="playback_started" from="Loopable" to="." method="_on_loopable_playback_started"]

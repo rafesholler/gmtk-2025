@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pull"):
-		if nearby_box:
+		if nearby_box and not nearby_box.is_in_loop:
 			box_vector = nearby_box.position - position
 	if Input.is_action_pressed("pull"):
-		if nearby_box:
+		if nearby_box and not nearby_box.is_in_loop:
 			nearby_box.position = position + box_vector
 	
 	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
