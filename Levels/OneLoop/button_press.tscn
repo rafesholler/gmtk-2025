@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cdowou18d5d2u"]
+[gd_scene load_steps=9 format=4 uid="uid://cdowou18d5d2u"]
 
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="1_7tyjg"]
 [ext_resource type="Script" uid="uid://bluypqwsvaj1i" path="res://Levels/OneLoop/button_press.gd" id="1_ldhr1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="3_7a1in"]
 [ext_resource type="Texture2D" uid="uid://dmd02shfreiwf" path="res://Objects/Platforms/Platform.png" id="4_ptxne"]
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="5_pcnwc"]
+[ext_resource type="PackedScene" uid="uid://d2u55jh7c6oiu" path="res://UI/UI.tscn" id="7_7n0lh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqv0p"]
 size = Vector2(64, 23)
@@ -42,6 +43,10 @@ limit_left = 0
 limit_right = 700
 limit_bottom = 0
 position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_7n0lh")]
 
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
