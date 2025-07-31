@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cf2nbw1l4orcf"]
+[gd_scene load_steps=15 format=3 uid="uid://cf2nbw1l4orcf"]
 
 [ext_resource type="Script" uid="uid://vejok7400jcd" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="2_4ntmi"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dk2o0ibvh8kp4" path="res://Player/StateMachine/state_machine.gd" id="4_k53q1"]
 [ext_resource type="Script" uid="uid://dbgf047ynunmq" path="res://Player/idle.gd" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://c3foq0y4ylluv" path="res://Player/run.gd" id="6_fhl08"]
-[ext_resource type="Script" uid="uid://ddy35x03yiq00" path="res://Player/jump.gd" id="7_vtle1"]
 [ext_resource type="Script" uid="uid://cr7hm48hjbb3f" path="res://Player/fall.gd" id="8_od3ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
@@ -114,16 +113,9 @@ target = NodePath("../..")
 script = ExtResource("6_fhl08")
 target = NodePath("../..")
 
-[node name="Jump" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("target")]
-script = ExtResource("7_vtle1")
-target = NodePath("../..")
-
-[node name="JumpHoldTimer" type="Timer" parent="StateMachine/Jump"]
-
 [node name="Fall" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("target")]
 script = ExtResource("8_od3ui")
 target = NodePath("../..")
 
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]
-[connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_jump_hold_timer_timeout"]

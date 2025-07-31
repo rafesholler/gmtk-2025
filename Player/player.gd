@@ -23,6 +23,9 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("jump"):
+		velocity.y = -100
+	
 	if Input.is_action_just_pressed("pull"):
 		if nearby_box and not nearby_box.is_in_loop:
 			box_vector = nearby_box.position - position

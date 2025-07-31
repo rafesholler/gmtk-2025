@@ -12,6 +12,8 @@ func update(delta: float) -> void:
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_pressed("jump") and not $JumpHoldTimer.is_stopped():
+		if target.velocity.y == 0:
+			finished.emit(get_neighbor("Fall"))
 		target.velocity.y = -100
 	
 	if not Input.is_action_pressed("jump"):
