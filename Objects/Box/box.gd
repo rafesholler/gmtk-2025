@@ -9,6 +9,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var friction = 600
 
 func _physics_process(delta: float) -> void:
+	if is_being_pulled:
+		collision_layer = 32
+		collision_mask = 3
+	else:
+		collision_layer = 4
+		collision_mask = 7
+	
 	if not is_in_loop:
 		if not is_on_floor() and not is_being_pulled:
 			velocity.y += gravity * delta
