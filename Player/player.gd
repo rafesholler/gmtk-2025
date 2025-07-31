@@ -6,6 +6,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var nearby_box
 var box_vector
 
+var jumped = false
+var coyote_window = false
+
 @export var speed = 200
 @export var push_force = 200
 
@@ -19,8 +22,29 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if is_on_floor():
+		jumped = false
+		coyote_window = true
+	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = -200
+		jumped = true
+	
+	elif Input.is_action_just_pressed("jump"):
+		$JumpCutTimer.start(.2)
+	
+	if is_on_floor() and not $JumpCutTimer.is_stopped():
+		velocity.y = -200
+		jumped = true
+	
+	if not is_on_floor() and not jumped and $CoyoteTimer.is_stopped() and coyote_window:
+		$CoyoteTimer.start(.2)
+		coyote_window = true
+	
+	if not is_on_floor() and coyote_window and not $CoyoteTimer.is_stopped():
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = -200
+			jumped = true
 	
 	if Input.is_action_just_pressed("pull"):
 		if nearby_box and not nearby_box.is_in_loop:
@@ -76,3 +100,7 @@ func _on_pull_range_body_entered(body: Node2D) -> void:
 func _on_pull_range_body_exited(body: Node2D) -> void:
 	if body == nearby_box:
 		nearby_box = null
+
+
+func _on_coyote_timer_timeout() -> void:
+	coyote_window = false
