@@ -1,3 +1,234 @@
-[gd_scene format=3 uid="uid://cblv6pffh5511"]
+[gd_scene load_steps=20 format=3 uid="uid://cblv6pffh5511"]
+
+[ext_resource type="Texture2D" uid="uid://cmugwnc147oa5" path="res://Environment/Background/BGBox1.png" id="1_7f3b6"]
+[ext_resource type="Script" uid="uid://cl1t0jiwjfxdj" path="res://Menu/title.gd" id="1_ru50h"]
+[ext_resource type="Texture2D" uid="uid://5l6iaeqm571l" path="res://Environment/Background/BGBox2.png" id="2_kpvrt"]
+[ext_resource type="Texture2D" uid="uid://tgvrkpnl5783" path="res://Environment/Background/BGBox3.png" id="3_dgtrm"]
+[ext_resource type="Texture2D" uid="uid://c0qersfmy43ks" path="res://Environment/Background/Rail.png" id="4_1t681"]
+[ext_resource type="Shader" uid="uid://cxb1kau61vgim" path="res://Shaders/ripple.gdshader" id="4_n6378"]
+[ext_resource type="Texture2D" uid="uid://cwd182jfyvnue" path="res://UI/Loops/logo.png" id="4_xw4ej"]
+[ext_resource type="Texture2D" uid="uid://dmwl06vnjgxbp" path="res://Environment/Background/Wrench.png" id="5_1t681"]
+[ext_resource type="Script" uid="uid://m3bcgaw5cbyd" path="res://Menu/menu.gd" id="7_p45sp"]
+[ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="8_nh256"]
+[ext_resource type="Texture2D" uid="uid://b2dvwd8gcgl05" path="res://UI/Loops/dot3.png" id="9_hgbcw"]
+[ext_resource type="Script" uid="uid://crrjsoxckpjl" path="res://Menu/transition.gd" id="11_p45sp"]
+[ext_resource type="PackedScene" uid="uid://s45b0f4rj7pq" path="res://UI/screen.tscn" id="11_u7ajr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgtrm"]
+shader = ExtResource("4_n6378")
+shader_parameter/maxLineWidth = 1.0
+shader_parameter/minLineWidth = 0.0
+shader_parameter/speed = 6.0
+shader_parameter/blockSize = 1.0
+shader_parameter/color = Color(0.0705882, 0.121569, 0.215686, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_hgbcw"]
+font = ExtResource("8_nh256")
+font_size = 80
+font_color = Color(0.945098, 0.964706, 0.945098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ru50h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgbcw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20uwn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh256"]
 
 [node name="Title" type="Node2D"]
+script = ExtResource("1_ru50h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Parallax" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="ColorRect" parent="CanvasLayer/Parallax"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.262745, 0.580392, 0.690196, 1)
+
+[node name="1" type="Parallax2D" parent="CanvasLayer/Parallax"]
+modulate = Color(0.219608, 0.427451, 0.607843, 1)
+scroll_scale = Vector2(0.3, 0)
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Box1" type="TextureRect" parent="CanvasLayer/Parallax/1"]
+offset_left = -87.0
+offset_top = 128.0
+offset_right = 329.0
+offset_bottom = 648.0
+texture = ExtResource("1_7f3b6")
+
+[node name="Box2" type="TextureRect" parent="CanvasLayer/Parallax/1"]
+offset_left = 761.0
+offset_top = 150.0
+offset_right = 1266.0
+offset_bottom = 649.0
+texture = ExtResource("2_kpvrt")
+
+[node name="Box3" type="TextureRect" parent="CanvasLayer/Parallax/1"]
+offset_left = 438.0
+offset_top = 259.0
+offset_right = 791.0
+offset_bottom = 657.0
+texture = ExtResource("3_dgtrm")
+
+[node name="Rail" type="TextureRect" parent="CanvasLayer/Parallax/1"]
+offset_left = -8.0
+offset_right = 186.0
+offset_bottom = 40.0
+scale = Vector2(6, 6)
+texture = ExtResource("4_1t681")
+stretch_mode = 1
+
+[node name="2" type="Parallax2D" parent="CanvasLayer/Parallax"]
+modulate = Color(0.2, 0.309804, 0.533333, 1)
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-20, 0)
+
+[node name="Box1" type="TextureRect" parent="CanvasLayer/Parallax/2"]
+offset_left = 71.0
+offset_top = 281.0
+offset_right = 410.0
+offset_bottom = 648.0
+texture = ExtResource("3_dgtrm")
+
+[node name="Box2" type="TextureRect" parent="CanvasLayer/Parallax/2"]
+offset_left = 695.0
+offset_top = 326.0
+offset_right = 1119.0
+offset_bottom = 649.0
+texture = ExtResource("1_7f3b6")
+flip_h = true
+
+[node name="Wrench" type="TextureRect" parent="CanvasLayer/Parallax/2"]
+offset_left = 67.0
+offset_top = -7.0
+offset_right = 279.0
+offset_bottom = 315.0
+texture = ExtResource("5_1t681")
+
+[node name="3" type="Parallax2D" parent="CanvasLayer/Parallax"]
+modulate = Color(0.192157, 0.223529, 0.466667, 1)
+scroll_scale = Vector2(0.7, 0)
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-30, 0)
+
+[node name="Box1" type="TextureRect" parent="CanvasLayer/Parallax/3"]
+offset_left = 616.0
+offset_top = 410.0
+offset_right = 824.0
+offset_bottom = 672.0
+texture = ExtResource("1_7f3b6")
+
+[node name="Box2" type="TextureRect" parent="CanvasLayer/Parallax/3"]
+offset_left = 155.0
+offset_top = 263.0
+offset_right = 582.0
+offset_bottom = 656.0
+texture = ExtResource("2_kpvrt")
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_p45sp")
+
+[node name="Loop" type="TextureRect" parent="CanvasLayer/Menu"]
+material = SubResource("ShaderMaterial_dgtrm")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 336.0
+offset_right = 776.0
+offset_bottom = 445.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_xw4ej")
+
+[node name="Title" type="Label" parent="CanvasLayer/Menu"]
+offset_left = 296.0
+offset_top = 164.0
+offset_right = 566.0
+offset_bottom = 410.0
+text = "LITTLE
+GUY
+LABS"
+label_settings = SubResource("LabelSettings_hgbcw")
+
+[node name="NewGame" type="Button" parent="CanvasLayer/Menu"]
+offset_left = 623.0
+offset_top = 311.0
+offset_right = 917.0
+offset_bottom = 362.0
+theme_override_colors/font_hover_pressed_color = Color(0.470076, 0.470076, 0.470076, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_nh256")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ru50h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hgbcw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20uwn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nh256")
+text = "New Game"
+icon = ExtResource("9_hgbcw")
+expand_icon = true
+
+[node name="LevelSelect" type="Button" parent="CanvasLayer/Menu"]
+offset_left = 623.0
+offset_top = 370.0
+offset_right = 947.0
+offset_bottom = 421.0
+theme_override_colors/font_hover_pressed_color = Color(0.470076, 0.470076, 0.470076, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_nh256")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ru50h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hgbcw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20uwn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nh256")
+text = "Level Select"
+icon = ExtResource("9_hgbcw")
+expand_icon = true
+
+[node name="Settings" type="Button" parent="CanvasLayer/Menu"]
+offset_left = 622.0
+offset_top = 430.0
+offset_right = 856.0
+offset_bottom = 481.0
+theme_override_colors/font_hover_pressed_color = Color(0.470076, 0.470076, 0.470076, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_nh256")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ru50h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hgbcw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20uwn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nh256")
+text = "Settings"
+icon = ExtResource("9_hgbcw")
+expand_icon = true
+
+[node name="Transition" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_p45sp")
+
+[node name="Screen" parent="CanvasLayer/Transition" instance=ExtResource("11_u7ajr")]
+layout_mode = 1
