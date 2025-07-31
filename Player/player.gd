@@ -11,10 +11,6 @@ var box_vector
 
 func _process(delta: float) -> void:
 	var dir = Input.get_axis("move_left", "move_right")
-	if dir != 0 and $AnimatedSprite2D.animation != "run":
-		$AnimatedSprite2D.play("run")
-	elif dir == 0 and $AnimatedSprite2D.animation != "idle":
-		$AnimatedSprite2D.play("idle")
 	
 	if dir < 0 and not $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = true

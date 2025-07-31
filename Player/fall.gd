@@ -1,14 +1,10 @@
 extends State
 
 func on_start(params: Array = []) -> void:
-	pass
+	target.get_node("AnimatedSprite2D").play("jump")
 	
 func update(delta: float) -> void:
-	var dir = Input.get_axis("move_left", "move_right")
-	if dir == 0:
-		target.get_node("AnimatedSprite2D").play("idle")
-	else:
-		target.get_node("AnimatedSprite2D").play("run")
+	pass
 
 func physics_update(delta: float) -> void:
 	target.velocity.y += target.gravity * delta
