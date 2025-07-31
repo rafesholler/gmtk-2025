@@ -33,7 +33,7 @@ position = Vector2(413, 284)
 position = Vector2(496, 352)
 
 [node name="Lever" parent="." instance=ExtResource("2_buypi")]
-position = Vector2(552, 330)
+position = Vector2(552, 352)
 
 [node name="SlidePlatform" parent="." instance=ExtResource("6_7cbxl")]
 position = Vector2(710, 335)
