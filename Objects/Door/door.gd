@@ -1,13 +1,15 @@
 extends Node2D
 
-var inside
+var inside = false
+var opened = false
 
 func _ready() -> void:
 	WorldManager.connect("load_next_room", Callable(self,"_on_next_room"));
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("pull") and inside:
+	if Input.is_action_just_pressed("pull") and inside and not opened:
 		$Sprite.play("open")
+		opened = true
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	inside = true
