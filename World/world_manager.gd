@@ -5,8 +5,8 @@ signal loaded_room #emits upon loading the next room, used for transitions
 signal load_next_room #emits upon transition end to load in next room
 
 var rooms := {
-	0: "start_room",
-	1: "test_room"
+	0: "res://Levels/OneLoop/ButtonPress1/button_press1.tscn",
+	1: "res://Levels/OneLoop/BoxPush1/box_push1.tscn"
 }
 
 var room_index: int = 0 :

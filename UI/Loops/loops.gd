@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	for loop in LoopManager.loops:
 		if loop.is_ready:
 			active_loops += 1
-	$Number.text = str(LoopManager.index+1-active_loops)
+	$Number.text = str(3 - active_loops)
 
 func _on_flash_timeout() -> void:
 	if $Icon.material.get_shader_parameter("alpha_threshold") == 1.0:
