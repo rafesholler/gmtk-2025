@@ -13,5 +13,3 @@ func enter_screen():
 	var end = get_tree().create_tween()
 	end.set_trans(Tween.TRANS_SINE)
 	end.tween_property($Screen, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT)
-	await end.finished
-	WorldManager.load_next_room.emit()

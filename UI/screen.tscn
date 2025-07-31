@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://s45b0f4rj7pq"]
+
+[ext_resource type="Texture2D" uid="uid://crt4nc4hcy4jd" path="res://UI/Transition/TransitionOut.png" id="1_c0cg1"]
+[ext_resource type="Texture2D" uid="uid://dys6jwtosiuhg" path="res://UI/Transition/TransitionIn.png" id="2_skoef"]
+
+[node name="Screen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.113725, 0.156863, 1)
+
+[node name="TransitionOut" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1151.0
+offset_top = -21.0
+offset_right = 1843.0
+offset_bottom = 648.0
+texture = ExtResource("1_c0cg1")
+
+[node name="TransitionIn" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1151.0
+offset_top = -21.0
+offset_right = 1843.0
+offset_bottom = 648.0
+texture = ExtResource("2_skoef")

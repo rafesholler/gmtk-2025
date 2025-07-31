@@ -9,3 +9,7 @@ func _ready() -> void:
 func _load_next_room():
 	current_room = load(WorldManager.current_room)
 	add_child(current_room.instantiate())
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		WorldManager.next_room.emit()
