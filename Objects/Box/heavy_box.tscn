@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cff02ul8i74cw" path="res://Objects/Box/heavy_box.gd" id="1_lrl7b"]
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="1_sn3pl"]
-[ext_resource type="Texture2D" uid="uid://cnkkqber3c0l7" path="res://Objects/Box/box.png" id="2_lrl7b"]
+[ext_resource type="Texture2D" uid="uid://dxeeysjtyvdsq" path="res://Objects/Box/steelbox.png" id="3_lrl7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrdgm"]
 size = Vector2(32, 32)
@@ -24,8 +24,7 @@ metadata/_custom_type_script = "uid://dxmffxw51dhku"
 shape = SubResource("RectangleShape2D_rrdgm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.259294, 0.259294, 0.259294, 1)
-texture = ExtResource("2_lrl7b")
+texture = ExtResource("3_lrl7b")
 
 [connection signal="playback_ended" from="Loopable" to="." method="_on_loopable_playback_ended"]
 [connection signal="playback_started" from="Loopable" to="." method="_on_loopable_playback_started"]
