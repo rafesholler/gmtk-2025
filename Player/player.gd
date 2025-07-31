@@ -47,21 +47,14 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -200
 			jumped = true
 	
-	if Input.is_action_just_pressed("pull"):
+	if Input.is_action_just_pressed("pull") and nearby_box and not nearby_box.is_in_loop:
 		is_pulling = not is_pulling
+		box_vector = nearby_box.position - position
+		box_vector.y = -25
+		nearby_box.is_being_pulled = true
 	
-	if is_pulling:
-		if nearby_box and not nearby_box.is_in_loop:
-			if not box_vector:
-				box_vector = nearby_box.position - position
-				box_vector.y = -25
-				nearby_box.is_being_pulled = true
+	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
 			nearby_box.position = position + box_vector
-	
-	if Input.is_action_just_released("pull"):
-		if nearby_box:
-			nearby_box.is_being_pulled = false
-			box_vector = null
 	
 	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
 	
@@ -113,6 +106,7 @@ func _on_pull_range_body_exited(body: Node2D) -> void:
 		nearby_box.is_being_pulled = false
 		nearby_box = null
 		box_vector = null
+		is_pulling = false
 
 
 func _on_coyote_timer_timeout() -> void:
