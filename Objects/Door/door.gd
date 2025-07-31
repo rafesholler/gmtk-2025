@@ -16,7 +16,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	inside = false
 
 func _on_sprite_animation_finished() -> void:
-	WorldManager.current_room += 1
+	WorldManager.room_index += 1
 	WorldManager.next_room.emit()
 
 func _on_next_room():
