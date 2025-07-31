@@ -33,7 +33,7 @@ zoom = Vector2(2, 2)
 position = Vector2(413, 319)
 
 [node name="HeavyBox" parent="." instance=ExtResource("5_2nij2")]
-position = Vector2(318, 285)
+position = Vector2(413, 284)
 
 [node name="Button" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(496, 352)
