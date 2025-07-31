@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2u55jh7c6oiu"]
+
+[ext_resource type="Script" uid="uid://dgld827l0pqco" path="res://UI/loops.gd" id="1_q0uhn"]
+[ext_resource type="Shader" uid="uid://fveajx42nmkb" path="res://Shaders/outline.gdshader" id="2_e707p"]
+[ext_resource type="Texture2D" uid="uid://cwd182jfyvnue" path="res://UI/Loops/logo.png" id="3_f1fl4"]
+[ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="4_e707p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jqf55"]
+shader = ExtResource("2_e707p")
+shader_parameter/outline_color = Color(0.658824, 0.192157, 0.192157, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/outline_samples = 4
+shader_parameter/shade_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1fl4"]
+font = ExtResource("4_e707p")
+font_size = 80
+font_color = Color(0.0705882, 0.121569, 0.215686, 1)
+outline_size = 13
+outline_color = Color(0.945098, 0.964706, 0.945098, 1)
+shadow_size = 0
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Loops" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_q0uhn")
+
+[node name="Icon" type="TextureRect" parent="Loops"]
+material = SubResource("ShaderMaterial_jqf55")
+layout_mode = 0
+offset_left = -9.0
+offset_top = -21.0
+offset_right = 141.0
+offset_bottom = 129.0
+texture = ExtResource("3_f1fl4")
+
+[node name="Flash" type="Timer" parent="Loops"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Number" type="Label" parent="Loops"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 57.0
+offset_right = 266.0
+offset_bottom = 257.0
+text = "1"
+label_settings = SubResource("LabelSettings_f1fl4")
+
+[connection signal="timeout" from="Loops/Flash" to="Loops" method="_on_flash_timeout"]

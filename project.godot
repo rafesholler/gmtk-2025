@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 LoopManager="*res://Loop/loop_manager.gd"
+Global="*res://global.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
