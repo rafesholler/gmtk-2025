@@ -23,10 +23,9 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player or body is Box or body is HeavyBox:
-		if not just_teleported:
-			pair.just_teleported = true
-			body.position = pair.position
+	if not just_teleported:
+		pair.just_teleported = true
+		body.position = pair.position
 
 
 func _on_body_exited(body: Node2D) -> void:
