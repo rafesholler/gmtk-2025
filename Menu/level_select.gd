@@ -14,23 +14,7 @@ func _on_next_room():
 
 
 func _on_level_mouse_entered(level_num: int) -> void:
-	var name = ""
-	match level_num:
-		0:
-			name = "Boxes"
-		1:
-			name = "Button Press"
-		2:
-			name = "Big Heavy Box"
-		3:
-			name = "Sliding Platforms"
-		4:
-			name = "Blocked Exit"
-		5:
-			name = "Two Doors"
-		6:
-			name = "Two Boxes"
-	
+	var name = WorldManager.get_level_name(level_num)
 	$CanvasLayer/LevelName.text = name
 
 
