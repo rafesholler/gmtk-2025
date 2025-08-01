@@ -63,16 +63,6 @@ func _physics_process(delta: float) -> void:
 	
 	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
 			nearby_box.position = position + box_vector
-		
-	
-	$RayCast2D.target_position = get_global_mouse_position() - position - $RayCast2D.position
-	
-	if Input.is_action_just_pressed("fire"):
-		if $RayCast2D.is_colliding():
-			for child in $RayCast2D.get_collider().get_children():
-				if child is Loopable:
-					LoopManager.add_loop_object($RayCast2D.get_collider())
-					break
 	
 	if Input.is_action_just_pressed("toggle_record") or Input.is_action_just_pressed("record_with_player"):
 		if Input.is_action_just_pressed("record_with_player"):

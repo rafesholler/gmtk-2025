@@ -47,6 +47,13 @@ func add_loop_object(object: Node) -> void:
 			object.mark()
 
 
+func remove_loop_object(object: Node) -> void:
+	if not is_recording:
+		curr_loop_objects.erase(object)
+		if object is Box or object is HeavyBox:
+			object.unmark()
+
+
 func start_recording() -> void:
 	if curr_loop_objects.size() == 0:
 		return
