@@ -9,7 +9,7 @@ uniform float speed: hint_range(0.0, 10.0) = 1.0;
 // How big the outline blotches are.
 uniform float blockSize: hint_range(0.001, 100.0) = 20.0;
 // The outline color.
-uniform vec4 color: source_color;
+instance uniform vec4 color: source_color;
 // Used to compensate for alpha values.
 uniform float tolerance: hint_range(0.0, 0.999) = 0.0;
 
@@ -59,7 +59,7 @@ float get_line_width(vec2 p, float s) {
 		p /= 2.0;
 		intensity /= 2.0;
 	}
-	
+
 	return mix(maxLineWidth, minLineWidth, w);
 }
 
@@ -99,7 +99,7 @@ void fragment() {
 		vec2 edge = TEXTURE_PIXEL_SIZE * max(maxLineWidth, minLineWidth) * 2.0;
 		uv = uv + uv * edge;
 		uv += vec2(0.5);
-		
+
 		// Apply outline.
 		vec4 newColor = texture(TEXTURE, uv);
 		if (newColor.a <= tolerance || border(uv)) {
