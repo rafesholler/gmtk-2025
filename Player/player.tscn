@@ -132,6 +132,12 @@ one_shot = true
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="BoxPosRight" type="Marker2D" parent="."]
+position = Vector2(28, -20)
+
+[node name="BoxPosLeft" type="Marker2D" parent="."]
+position = Vector2(-28, -20)
+
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]
 [connection signal="timeout" from="JumpCutTimer" to="." method="_on_jump_cut_timer_timeout"]

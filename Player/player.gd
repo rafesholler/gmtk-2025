@@ -5,7 +5,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_pulling = false
 var nearby_box: Box
-var box_vector
 
 var jumped = false
 var coyote_window = false
@@ -47,22 +46,22 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -200
 			jumped = true
 	
+	if is_pulling and nearby_box and not nearby_box.is_in_loop:
+		if $AnimatedSprite2D.flip_h:
+			nearby_box.global_position = $BoxPosLeft.global_position
+		else:
+			nearby_box.global_position = $BoxPosRight.global_position
+	
 	if Input.is_action_just_pressed("interact") and nearby_box and not nearby_box.is_in_loop:
 		is_pulling = not is_pulling
 		if is_pulling:
 			nearby_box.collision_layer = 32
 			nearby_box.collision_mask = 3
-			box_vector = nearby_box.position - position
-			box_vector.y = -25
 			nearby_box.is_being_pulled = true
 		else:
-			box_vector = null
 			nearby_box.is_being_pulled = false
 			nearby_box.collision_layer = 4
 			nearby_box.collision_mask = 7
-	
-	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
-			nearby_box.position = position + box_vector
 	
 	if Input.is_action_just_pressed("toggle_record"):
 		LoopManager.add_loop_object(self)
@@ -105,7 +104,6 @@ func _on_pull_range_body_exited(body: Node2D) -> void:
 		nearby_box.collision_layer = 4
 		nearby_box.collision_mask = 7
 		nearby_box = null
-		box_vector = null
 		is_pulling = false
 
 

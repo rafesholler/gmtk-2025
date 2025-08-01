@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://cmjn7myt53ais"]
 
 [ext_resource type="Script" uid="uid://b00ejhufx6ybb" path="res://Menu/level_select.gd" id="1_3p8ty"]
-[ext_resource type="PackedScene" uid="uid://fxis6i33wlx3" path="res://UI/top_claw.tscn" id="2_61bti"]
+[ext_resource type="PackedScene" path="res://UI/top_claw.tscn" id="2_61bti"]
 [ext_resource type="Texture2D" uid="uid://f8qqpsajiyp1" path="res://UI/LevelTex/Level.png" id="5_lkv0u"]
-[ext_resource type="Script" uid="uid://sdq55gajxy4p" path="res://Menu/grid.gd" id="5_r61nh"]
+[ext_resource type="Script" path="res://Menu/grid.gd" id="5_r61nh"]
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="6_1tiiv"]
 [ext_resource type="Texture2D" uid="uid://d3ih8v4xl5rny" path="res://UI/LevelTex/LevelPress.png" id="6_fwg7u"]
 [ext_resource type="Texture2D" uid="uid://diwsjy6nyeryt" path="res://UI/LevelTex/LevelHover.png" id="7_61bti"]
-[ext_resource type="Script" uid="uid://dbd16iue3umje" path="res://Menu/levelSelector.gd" id="9_3p8ty"]
-[ext_resource type="Script" uid="uid://cp51vq4n3ye1j" path="res://Menu/back.gd" id="12_ngshm"]
+[ext_resource type="Script" path="res://Menu/levelSelector.gd" id="9_3p8ty"]
+[ext_resource type="Script" path="res://Menu/back.gd" id="12_ngshm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fwg7u"]
 font = ExtResource("6_1tiiv")
@@ -32,6 +32,20 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.262745, 0.580392, 0.690196, 1)
+
+[node name="LevelName" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_right = 254.0
+offset_bottom = 104.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("6_1tiiv")
+theme_override_font_sizes/normal_font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Claw" type="Control" parent="CanvasLayer"]
 layout_mode = 3

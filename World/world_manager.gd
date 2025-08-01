@@ -42,3 +42,24 @@ var sound_volume: float = 0.0 :
 		AudioServer.set_bus_volume_db(2, value)
 		sound_volume = value
 		
+
+
+func get_level_name(number: int) -> String:
+	match number:
+		0:
+			return "Boxes"
+		1:
+			return "Button Press"
+		2:
+			return "Big Heavy Box"
+		3:
+			return "Sliding Platforms"
+		4:
+			return "Blocked Exit"
+		5:
+			return "Two Doors"
+		6:
+			return "Two Boxes"
+		_:
+			printerr("Cannot find name of level " + str(number))
+			return "MISSING STRING"
