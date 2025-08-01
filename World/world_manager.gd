@@ -20,3 +20,25 @@ var room_index: int = 0 :
 		current_room = rooms[value]
 
 var current_room = "res://Menu/Title.tscn"
+
+var master_volume: float = 0.0 : 
+	set(value):
+		if value == -50:
+			value = -70
+		AudioServer.set_bus_volume_db(0, value)
+		master_volume = value
+		
+var music_volume: float = 0.0 : 
+	set(value):
+		if value == -50:
+			value = -70
+		AudioServer.set_bus_volume_db(1, value)
+		music_volume = value
+		
+var sound_volume: float = 0.0 : 
+	set(value):
+		if value == -50:
+			value = -70
+		AudioServer.set_bus_volume_db(2, value)
+		sound_volume = value
+		

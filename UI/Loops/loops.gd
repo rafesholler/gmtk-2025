@@ -48,6 +48,8 @@ func flash_start():
 func _on_next_room():
 	if WorldManager.current_room == "res://Menu/Title.tscn":
 		visible=false
+	elif WorldManager.current_room == "res://Menu/LevelSelect.tscn":
+		visible=false
 	else:
 		visible=true
 	
