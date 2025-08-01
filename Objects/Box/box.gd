@@ -35,6 +35,14 @@ func toggle_destroy() -> void:
 	$CollisionShape2D.disabled = not $CollisionShape2D.disabled
 
 
+func mark() -> void:
+	$Outline.visible = true
+
+
+func unmark() -> void:
+	$Outline.visible = false
+
+
 func _on_loopable_playback_started() -> void:
 	is_in_loop = true
 

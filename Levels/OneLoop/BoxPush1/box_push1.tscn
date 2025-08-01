@@ -37,3 +37,11 @@ zoom = Vector2(2, 2)
 limit_left = 0
 limit_right = 580
 limit_bottom = 355
+
+[node name="Label" type="Label" parent="."]
+offset_left = 70.0
+offset_top = 193.0
+offset_right = 398.0
+offset_bottom = 242.0
+text = "Push boxes by running into them.
+Pick up and put down a nearby box with E."

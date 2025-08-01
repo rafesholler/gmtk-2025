@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 		if LoopManager.is_recording:
 			return
 		LoopManager.index += 1
-		if LoopManager.index >= 3:
+		if LoopManager.index >= LoopManager.max_loops:
 			LoopManager.index = 0
 	
 	if Input.is_action_just_pressed("delete_loop"):

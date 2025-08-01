@@ -1,12 +1,19 @@
 extends Control
 
 var flashing := false
-var active_loops = 0
 
 func _ready() -> void:
 	$Icon.material.set_shader_parameter("alpha_threshold", 1.0)
 
 func _process(delta: float) -> void:
+	match LoopManager.index:
+		0:
+			$Icon.texture = load("res://UI/Loops/logo-pink.png")
+		1:
+			$Icon.texture = load("res://UI/Loops/logo-yellow.png")
+		2:
+			$Icon.texture = load("res://UI/Loops/logo-red.png")
+	
 	if LoopManager.is_recording == true:
 		if !flashing:
 			$Icon.material.set_shader_parameter("alpha_threshold", 0.0)
@@ -16,11 +23,7 @@ func _process(delta: float) -> void:
 		if flashing:
 			flash_stop()
 			flashing = false
-	active_loops = 0
-	for loop in LoopManager.loops:
-		if loop.is_ready:
-			active_loops += 1
-	$Number.text = str(3 - active_loops)
+	$Number.text = str(LoopManager.max_loops)
 
 func _on_flash_timeout() -> void:
 	if $Icon.material.get_shader_parameter("alpha_threshold") == 1.0:

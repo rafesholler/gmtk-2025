@@ -33,3 +33,11 @@ limit_bottom = 353
 [node name="HeavyBox" parent="." instance=ExtResource("4_as0xc")]
 position = Vector2(193, 300)
 scale = Vector2(2.25, 2.25)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 183.0
+offset_right = 368.0
+offset_bottom = 232.0
+text = "Left click objects to mark them for looping.
+Press R to record a loop without the player."
