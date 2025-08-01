@@ -50,6 +50,8 @@ func _on_next_room():
 		visible=false
 	elif WorldManager.current_room == "res://Menu/LevelSelect.tscn":
 		visible=false
+	elif WorldManager.current_room == "res://Menu/Settings/settings.tscn":
+		visible=false
 	else:
 		visible=true
 	
