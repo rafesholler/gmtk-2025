@@ -269,6 +269,7 @@ vertical_alignment = 1
 [node name="SelectSF" type="AudioStreamPlayer2D" parent="CanvasLayer/Grid"]
 stream = ExtResource("9_r61nh")
 volume_db = -5.0
+bus = &"Sounds"
 
 [node name="Back" type="TextureButton" parent="CanvasLayer"]
 offset_left = 38.0
@@ -303,6 +304,7 @@ vertical_alignment = 1
 [node name="SelectSF" type="AudioStreamPlayer2D" parent="CanvasLayer/Back"]
 stream = ExtResource("9_r61nh")
 volume_db = -5.0
+bus = &"Sounds"
 
 [connection signal="pressed" from="CanvasLayer/Grid/1" to="CanvasLayer/Grid/1" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Grid/2" to="CanvasLayer/Grid/2" method="_on_pressed"]

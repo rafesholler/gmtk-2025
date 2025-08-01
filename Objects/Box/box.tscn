@@ -44,6 +44,7 @@ texture = ExtResource("4_f8prb")
 [node name="SelectSF" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gq1dk")
 volume_db = -20.0
+bus = &"Sounds"
 
 [connection signal="playback_ended" from="Loopable" to="." method="_on_loopable_playback_ended"]
 [connection signal="playback_started" from="Loopable" to="." method="_on_loopable_playback_started"]

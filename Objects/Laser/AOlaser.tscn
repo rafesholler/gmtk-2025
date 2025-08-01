@@ -56,6 +56,6 @@ stream = ExtResource("3_q55v6")
 volume_db = -35.0
 pitch_scale = 1.2
 autoplay = true
-stream_paused = true
+bus = &"Sounds"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

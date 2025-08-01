@@ -86,16 +86,14 @@ func _physics_process(delta: float) -> void:
 	if not LoopManager.is_recording:
 		if Input.is_action_just_pressed("select_loop_1"):
 			LoopManager.index = 0
-		if Input.is_action_just_pressed("select_loop_2"):
+		if Input.is_action_just_pressed("select_loop_2") and LoopManager.max_loops > 1:
 			LoopManager.index = 1
-		if Input.is_action_just_pressed("select_loop_3"):
+		if Input.is_action_just_pressed("select_loop_3") and LoopManager.max_loops > 2:
 			LoopManager.index = 2
 	
 	if Input.is_action_just_pressed("delete_loop"):
 		LoopManager.cancel_loop(LoopManager.index)
-
-	$Label.text = "Loop: " + str(LoopManager.index) + " Recording: " + str(LoopManager.is_recording)
-
+	print(LoopManager.max_loops)
 
 func _on_pull_range_body_entered(body: Node2D) -> void:
 	if body is Box and not is_pulling:
