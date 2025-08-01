@@ -4,6 +4,7 @@ func _ready() -> void:
 	WorldManager.loaded_room.emit()
 	WorldManager.connect("load_next_room", Callable(self,"_on_next_room"));
 
+
 func _on_back_button_pressed() -> void:
 	WorldManager.current_room = "res://Menu/Title.tscn"
 	WorldManager.next_room.emit()
