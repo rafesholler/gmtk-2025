@@ -171,6 +171,7 @@ icon = ExtResource("1_tatxo")
 flat = true
 
 [node name="Settings" type="Panel" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -19,7 +19,6 @@ shader_parameter/maxLineWidth = 1.0
 shader_parameter/minLineWidth = 0.0
 shader_parameter/speed = 6.0
 shader_parameter/blockSize = 1.0
-shader_parameter/color = Color(0.0705882, 0.121569, 0.215686, 1)
 shader_parameter/tolerance = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_hgbcw"]

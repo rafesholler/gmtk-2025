@@ -17,7 +17,8 @@ var can_pause = false
 
 
 func _ready() -> void:
-	get_node("/root/Main/Overlay/UI/Transition").finished.connect(_on_transition_finished)
+	if get_node_or_null("/root/Main/Overlay/UI/Transition"):
+		get_node("/root/Main/Overlay/UI/Transition").finished.connect(_on_transition_finished)
 	WorldManager.next_room.connect(_on_transition_started)
 
 
