@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc4mudwsgjt1o"]
+
+[ext_resource type="Script" uid="uid://bluhbndewlro2" path="res://Objects/Portal/portal.gd" id="1_xf6k1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7ebd"]
+radius = 6.0
+height = 20.0
+
+[node name="Portal" type="Area2D"]
+collision_mask = 6
+script = ExtResource("1_xf6k1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 6.0
+offset_bottom = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_u7ebd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

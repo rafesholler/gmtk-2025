@@ -120,6 +120,12 @@ func cancel_loop(loop_index: int) -> void:
 	loops[loop_index].parts = []
 
 
+func cancel_all_loops() -> void:
+	cancel_loop(0)
+	cancel_loop(1)
+	cancel_loop(2)
+
+
 func clear_marked_objects() -> void:
 	curr_loop_objects = []
 

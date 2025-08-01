@@ -25,7 +25,5 @@ func _on_sprite_animation_finished() -> void:
 func _on_next_room():
 	LoopManager.stop_recording()
 	LoopManager.clear_marked_objects()
-	LoopManager.cancel_loop(0)
-	LoopManager.cancel_loop(1)
-	LoopManager.cancel_loop(2)
+	LoopManager.cancel_all_loops()
 	get_parent().queue_free()
