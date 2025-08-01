@@ -26,4 +26,5 @@ func _on_next_room():
 	LoopManager.stop_recording()
 	LoopManager.clear_marked_objects()
 	LoopManager.cancel_all_loops()
+	LoopManager.index = 0
 	get_parent().queue_free()

@@ -74,6 +74,16 @@ rotation = 1.5708
 
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
+[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533402" to="Hazards/@Area2D@533402" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533403" to="Hazards/@Area2D@533403" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533404" to="Hazards/@Area2D@533404" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533405" to="Hazards/@Area2D@533405" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533406" to="Hazards/@Area2D@533406" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533407" to="Hazards/@Area2D@533407" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533408" to="Hazards/@Area2D@533408" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533409" to="Hazards/@Area2D@533409" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@533410" to="Hazards/@Area2D@533410" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]

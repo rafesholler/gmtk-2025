@@ -54,6 +54,7 @@ func reset_level() -> void:
 	next_room.emit()
 	LoopManager.clear_marked_objects()
 	LoopManager.cancel_all_loops()
+	LoopManager.index = 0
 
 
 func get_level_name(number: int) -> String:
