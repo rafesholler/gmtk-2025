@@ -46,6 +46,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 635
 limit_bottom = 335
+position_smoothing_enabled = true
 
 [node name="Button1" parent="." instance=ExtResource("4_a5ecv")]
 position = Vector2(169, 320)

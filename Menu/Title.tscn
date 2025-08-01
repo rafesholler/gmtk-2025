@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cblv6pffh5511"]
+[gd_scene load_steps=19 format=3 uid="uid://cblv6pffh5511"]
 
 [ext_resource type="Texture2D" uid="uid://cmugwnc147oa5" path="res://Environment/Background/BGBox1.png" id="1_7f3b6"]
 [ext_resource type="Script" uid="uid://cl1t0jiwjfxdj" path="res://Menu/title.gd" id="1_ru50h"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://m3bcgaw5cbyd" path="res://Menu/menu.gd" id="7_p45sp"]
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="8_nh256"]
 [ext_resource type="Texture2D" uid="uid://b2dvwd8gcgl05" path="res://UI/Loops/dot3.png" id="9_hgbcw"]
+[ext_resource type="AudioStream" uid="uid://bitfve8bifwgg" path="res://Audio/Sounds/SelectSF.wav" id="12_u7ajr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgtrm"]
 shader = ExtResource("4_n6378")
@@ -140,6 +141,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_p45sp")
+
+[node name="SelectSF" type="AudioStreamPlayer2D" parent="CanvasLayer/Menu"]
+stream = ExtResource("12_u7ajr")
+volume_db = -5.0
 
 [node name="Loop" type="TextureRect" parent="CanvasLayer/Menu"]
 material = SubResource("ShaderMaterial_dgtrm")

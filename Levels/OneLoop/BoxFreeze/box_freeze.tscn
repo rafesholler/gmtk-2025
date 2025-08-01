@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://drwngxufwj0lj"]
 
-[ext_resource type="Script" uid="uid://cyr4i6xau0ii8" path="res://Levels/OneLoop/BoxFreeze/box_freeze.gd" id="1_n2elc"]
+[ext_resource type="Script" path="res://Levels/OneLoop/BoxFreeze/box_freeze.gd" id="1_n2elc"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="1_s2xw7"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="2_odpxa"]
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="2_uckap"]
@@ -30,9 +30,12 @@ limit_left = 0
 limit_top = 0
 limit_right = 575
 limit_bottom = 325
+position_smoothing_enabled = true
 
 [node name="Box" parent="." instance=ExtResource("3_odpxa")]
-position = Vector2(287, 163)
+position = Vector2(286, 163)
+scale = Vector2(1.1, 1.1)
 
 [node name="HeavyBox" parent="." instance=ExtResource("4_n2elc")]
-position = Vector2(287, 130)
+position = Vector2(286, 127)
+scale = Vector2(1.1, 1.1)

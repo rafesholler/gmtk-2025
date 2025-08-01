@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://djwxv3jreyu0w"]
+[gd_scene load_steps=10 format=4 uid="uid://x5cby8ynidjr"]
 
 [ext_resource type="Script" uid="uid://bluypqwsvaj1i" path="res://Levels/OneLoop/ButtonPress1/button_press1.gd" id="1_qj3qc"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="1_rvpnm"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dfhxr5g4l6gg" path="res://Objects/Platforms/slide_platform.tscn" id="4_mew3w"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="6_11oe6"]
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="7_kutsd"]
+[ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="8_rmpdo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c2r3j"]
+font = ExtResource("8_rmpdo")
 
 [node name="ButtonPress" type="Node2D"]
 script = ExtResource("1_qj3qc")
@@ -40,16 +44,36 @@ limit_left = 0
 limit_top = 0
 limit_right = 595
 limit_bottom = 335
+position_smoothing_enabled = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 13.0
-offset_top = 134.0
-offset_right = 356.0
-offset_bottom = 209.0
+offset_left = -42.0
+offset_top = 212.0
+offset_right = 301.0
+offset_bottom = 323.0
 rotation = -0.00105435
-text = "Press T to begin recording a loop of yourself.
-Press it again to replay the loop.
-Press C to cancel the current loop."
+text = "To start a time loop press 'E'
+To end the loop press 'E' again
+To clear loops press 'Q'
+
+
+"
+label_settings = SubResource("LabelSettings_c2r3j")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 299.0
+offset_top = 156.0
+offset_right = 642.0
+offset_bottom = 267.0
+rotation = -0.00105435
+text = "If you get stuck -
+Press 'R' to reset
+
+
+"
+label_settings = SubResource("LabelSettings_c2r3j")
+horizontal_alignment = 1
 
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]

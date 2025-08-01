@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2ed68h0eog6"]
+[gd_scene load_steps=17 format=3 uid="uid://d2ed68h0eog6"]
 
 [ext_resource type="Script" uid="uid://dmq267768x3ln" path="res://Objects/Lever/lever.gd" id="1_j38ox"]
 [ext_resource type="Texture2D" uid="uid://caujdq44r0yek" path="res://Objects/Lever/switch.png" id="2_pdlgt"]
+[ext_resource type="AudioStream" uid="uid://d28n3a6n0psxt" path="res://Audio/Sounds/LeverSF.wav" id="3_88c2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j38ox"]
 size = Vector2(26, 15)
@@ -116,5 +117,9 @@ sprite_frames = SubResource("SpriteFrames_x3p16")
 animation = &"off"
 autoplay = "off"
 frame_progress = 1.0
+
+[node name="LeverSF" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_88c2d")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

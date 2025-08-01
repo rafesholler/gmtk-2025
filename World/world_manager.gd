@@ -12,6 +12,7 @@ var rooms := {
 	4: "res://Levels/OneLoop/BoxFreeze/box_freeze.tscn",
 	5: "res://Levels/OneLoop/TwoDoors/two_doors.tscn",
 	6: "res://Levels/TwoLoop/TwoBoxes/two_boxes.tscn",
+	7: "res://Menu/Title.tscn",
 }
 
 var room_index: int = 0 :

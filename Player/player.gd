@@ -55,10 +55,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and nearby_box and not nearby_box.is_in_loop:
 		is_pulling = not is_pulling
 		if is_pulling:
+			$Audio/Pickup.pitch_scale = randf_range(0.8, 1.2)
+			$Audio/Pickup.play()
 			nearby_box.collision_layer = 32
 			nearby_box.collision_mask = 3
 			nearby_box.is_being_pulled = true
 		else:
+			$Audio/Pickup.pitch_scale = randf_range(0.4, .8)
+			$Audio/Pickup.play()
 			nearby_box.is_being_pulled = false
 			nearby_box.collision_layer = 4
 			nearby_box.collision_mask = 7
