@@ -68,6 +68,7 @@ label_settings = SubResource("LabelSettings_f1fl4")
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 script = ExtResource("5_f1fl4")
 
 [node name="Screen" parent="Transition" instance=ExtResource("7_byuxr")]
