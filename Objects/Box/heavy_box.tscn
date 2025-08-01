@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce0fyafaupkhg"]
+[gd_scene load_steps=6 format=3 uid="uid://ce0fyafaupkhg"]
 
 [ext_resource type="Script" uid="uid://cff02ul8i74cw" path="res://Objects/Box/heavy_box.gd" id="1_lrl7b"]
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="1_sn3pl"]
 [ext_resource type="Texture2D" uid="uid://dxeeysjtyvdsq" path="res://Objects/Box/steelbox.png" id="3_lrl7b"]
+[ext_resource type="Texture2D" uid="uid://byfgjd8fnkjxd" path="res://Objects/Box/boxoutline.png" id="4_rrdgm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrdgm"]
 size = Vector2(32, 32)
@@ -25,6 +26,10 @@ shape = SubResource("RectangleShape2D_rrdgm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_lrl7b")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_rrdgm")
 
 [connection signal="playback_ended" from="Loopable" to="." method="_on_loopable_playback_ended"]
 [connection signal="playback_started" from="Loopable" to="." method="_on_loopable_playback_started"]

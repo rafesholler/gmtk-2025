@@ -2,6 +2,7 @@ extends Node
 
 var loops: Array[Loop] = []
 var index = 0
+var max_loops = 1
 
 var curr_loop_objects: Array[Node] = []
 
@@ -42,6 +43,8 @@ func _physics_process(delta: float) -> void:
 func add_loop_object(object: Node) -> void:
 	if not is_recording:
 		curr_loop_objects.append(object)
+		if object is Box or object is HeavyBox:
+			object.mark()
 
 
 func start_recording() -> void:
@@ -89,6 +92,8 @@ func stop_recording() -> void:
 			for object in part.loopable.properties:
 				if object is not Player:
 					object.modulate = _get_loop_color(index)
+					if object is Box or object is HeavyBox:
+						object.unmark()
 		part.loopable.begin_playback()
 
 
@@ -109,7 +114,7 @@ func cancel_loop(loop_index: int) -> void:
 func _get_loop_color(loop_index: int) -> Color:
 	match loop_index:
 		0:
-			return Color(0.369, 0.757, 0.78, .75)
+			return Color(0.675, 0.286, 0.596)
 		1:
 			return Color(0.616, 0.694, 0.263, .75)
 		2:

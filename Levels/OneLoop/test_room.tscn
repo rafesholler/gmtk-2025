@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://d0s3p3xnc8ppx"]
+[gd_scene load_steps=6 format=4 uid="uid://b0oykrxuacusc"]
 
 [ext_resource type="Script" uid="uid://okhvrpk76cs2" path="res://Levels/OneLoop/test_room.gd" id="1_rob6x"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="2_o62mg"]
