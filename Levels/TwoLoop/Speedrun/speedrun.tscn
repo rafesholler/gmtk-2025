@@ -68,7 +68,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(382, 176)
 
 [node name="AutoPlatform" parent="." instance=ExtResource("7_5do1j")]
-position = Vector2(199, 148)
+position = Vector2(199, 174)
 rotation = 1.5708
 scale = Vector2(0.75, 0.75)
 speed = 0.001
