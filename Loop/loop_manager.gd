@@ -78,7 +78,7 @@ func start_recording() -> void:
 				for property in part.loopable.properties[object]:
 					part.recorded_values[property] = []
 	
-	curr_loop_objects = []
+	clear_marked_objects()
 	loops[index].max_index = 0
 
 
@@ -107,7 +107,6 @@ func stop_recording() -> void:
 
 
 func cancel_loop(loop_index: int) -> void:
-	curr_loop_objects = []
 	loops[loop_index].is_ready = false
 	loops[loop_index].max_index = 0
 	loops[loop_index].index = 0
@@ -119,6 +118,10 @@ func cancel_loop(loop_index: int) -> void:
 				object.call_deferred("queue_free")
 		part.recorded_values.clear()
 	loops[loop_index].parts = []
+
+
+func clear_marked_objects() -> void:
+	curr_loop_objects = []
 
 
 func _get_loop_color(loop_index: int) -> Color:
