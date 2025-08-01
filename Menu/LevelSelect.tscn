@@ -1,10 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmjn7myt53ais"]
+[gd_scene load_steps=11 format=3 uid="uid://cmjn7myt53ais"]
 
 [ext_resource type="Script" uid="uid://b00ejhufx6ybb" path="res://Menu/level_select.gd" id="1_3p8ty"]
-[ext_resource type="Script" uid="uid://b6y16fqrxn3rh" path="res://Menu/top_claw.gd" id="1_by5ib"]
-[ext_resource type="Texture2D" uid="uid://dmwl06vnjgxbp" path="res://Environment/Background/Wrench.png" id="2_2x7mo"]
-[ext_resource type="Texture2D" uid="uid://qg8k4k8ay7rt" path="res://Environment/Background/WrenchRope.png" id="3_2x7mo"]
-[ext_resource type="Texture2D" uid="uid://pdbh8v2kwj5" path="res://Environment/Background/WrenchClose.png" id="3_t45wp"]
+[ext_resource type="PackedScene" uid="uid://fxis6i33wlx3" path="res://UI/top_claw.tscn" id="2_61bti"]
 [ext_resource type="Texture2D" uid="uid://f8qqpsajiyp1" path="res://UI/LevelTex/Level.png" id="5_lkv0u"]
 [ext_resource type="Script" uid="uid://sdq55gajxy4p" path="res://Menu/grid.gd" id="5_r61nh"]
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="6_1tiiv"]
@@ -12,28 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://diwsjy6nyeryt" path="res://UI/LevelTex/LevelHover.png" id="7_61bti"]
 [ext_resource type="Script" uid="uid://dbd16iue3umje" path="res://Menu/levelSelector.gd" id="9_3p8ty"]
 [ext_resource type="Script" uid="uid://cp51vq4n3ye1j" path="res://Menu/back.gd" id="12_ngshm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t45wp"]
-size = Vector2(108, 142)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mn322"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_t45wp")
-}],
-"loop": true,
-"name": &"close",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2x7mo")
-}],
-"loop": true,
-"name": &"open",
-"speed": 5.0
-}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fwg7u"]
 font = ExtResource("6_1tiiv")
@@ -53,6 +28,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/BG"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.262745, 0.580392, 0.690196, 1)
@@ -63,30 +39,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TopClaw" type="CharacterBody2D" parent="CanvasLayer/Claw"]
+[node name="TopClaw" parent="CanvasLayer/Claw" instance=ExtResource("2_61bti")]
 position = Vector2(41, 80)
-script = ExtResource("1_by5ib")
-
-[node name="Shape" type="CollisionShape2D" parent="CanvasLayer/Claw/TopClaw"]
-position = Vector2(-1, -67)
-shape = SubResource("RectangleShape2D_t45wp")
-
-[node name="Rope" type="TextureRect" parent="CanvasLayer/Claw/TopClaw"]
-modulate = Color(0.2, 0.309804, 0.533333, 1)
-offset_left = -48.0
-offset_top = -919.0
-offset_right = -16.0
-offset_bottom = -663.0
-scale = Vector2(3, 3)
-texture = ExtResource("3_2x7mo")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="CanvasLayer/Claw/TopClaw"]
-modulate = Color(0.2, 0.309804, 0.533333, 1)
-position = Vector2(0, -58)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_mn322")
-animation = &"open"
-autoplay = "open"
 
 [node name="Grid" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 5

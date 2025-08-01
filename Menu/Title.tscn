@@ -231,3 +231,4 @@ expand_icon = true
 
 [connection signal="pressed" from="CanvasLayer/Menu/NewGame" to="CanvasLayer/Menu" method="_on_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/LevelSelect" to="CanvasLayer/Menu" method="_on_level_select_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Settings" to="CanvasLayer/Menu" method="_on_settings_pressed"]
