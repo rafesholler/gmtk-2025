@@ -94,13 +94,6 @@ metadata/_custom_type_script = "uid://dxmffxw51dhku"
 position = Vector2(0.5, -10.5)
 shape = SubResource("RectangleShape2D_4ntmi")
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -24.0
-offset_top = -76.0
-offset_right = 16.0
-offset_bottom = -53.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -11)
 sprite_frames = SubResource("SpriteFrames_od3ui")
@@ -149,6 +142,7 @@ position = Vector2(-28, -20)
 [node name="Pickup" type="AudioStreamPlayer2D" parent="Audio"]
 stream = SubResource("AudioStreamWAV_vtle1")
 volume_db = -5.0
+bus = &"Sounds"
 
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]

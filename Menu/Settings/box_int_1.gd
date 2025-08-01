@@ -12,8 +12,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	inside = true
+	if body.name == "TopClaw":
+		inside = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	inside = false
+	if body.name == "TopClaw":
+		inside = false

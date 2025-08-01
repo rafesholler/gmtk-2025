@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var friction = 600
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("fire") and mouse_in_area:
+	if Input.is_action_just_pressed("fire") and mouse_in_area and not is_in_loop:
 		$SelectSF.pitch_scale = randf_range(0.8, 1.2)
 		$SelectSF.play()
 		if $Outline.visible:
@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_being_pulled:
 		collision_layer = 32
-		collision_mask = 3
+		collision_mask = 0
 	else:
 		collision_layer = 4
 		collision_mask = 7

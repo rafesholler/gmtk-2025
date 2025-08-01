@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export_custom(PROPERTY_HINT_RANGE, "0,500,or_greater") var speed: float = 150
+@export_custom(PROPERTY_HINT_RANGE, "0,.1,or_greater") var speed: float = .04
 
 var startpoint: Vector2
 var move_toward_end = false
@@ -11,9 +11,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if move_toward_end:
-		global_position = lerp(global_position, $Endpoint.global_position, .04)
+		global_position = lerp(global_position, $Endpoint.global_position, speed)
 	else:
-		global_position = lerp(global_position, startpoint, .05)
+		global_position = lerp(global_position, startpoint, speed)
 
 func activate() -> void:
 	move_toward_end = true
