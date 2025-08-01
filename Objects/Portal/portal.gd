@@ -46,7 +46,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if not just_teleported:
 		pair.just_teleported = true
 		body.position = pair.position
-		body.velocity.y *= -1
+		if rotation_degrees > 45 and rotation_degrees < 135:
+			body.velocity.y *= -1
 		$Sound.pitch_scale = randf_range(1, 1.3)
 		$Sound.play()
 

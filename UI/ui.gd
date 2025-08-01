@@ -7,6 +7,7 @@ func _ready() -> void:
 func _on_next_room():
 	$Transition.enter_screen()
 	LoopManager.cancel_all_loops()
+	LoopManager.index = 0
 
 func _on_room_load():
 	$Transition.exit_screen()
