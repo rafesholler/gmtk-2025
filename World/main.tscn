@@ -131,7 +131,7 @@ texture = ExtResource("5_8pwpp")
 stretch_mode = 1
 
 [node name="Wrench" type="TextureRect" parent="BG/Background/2"]
-offset_left = 117.0
+offset_left = 150.0
 offset_top = 273.0
 offset_right = 259.0
 offset_bottom = 481.0
@@ -173,7 +173,7 @@ offset_bottom = 686.0
 texture = ExtResource("2_cwkwy")
 
 [node name="Wrench" type="TextureRect" parent="BG/Background/1"]
-offset_left = 272.0
+offset_left = 301.0
 offset_top = 41.0
 offset_right = 507.0
 offset_bottom = 423.0
