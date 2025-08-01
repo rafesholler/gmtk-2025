@@ -7,7 +7,7 @@ func _ready() -> void:
 	WorldManager.connect("load_next_room", Callable(self,"_on_next_room"));
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("pull") and inside and not opened:
+	if Input.is_action_just_pressed("interact") and inside and not opened:
 		$Sprite.play("open")
 		opened = true
 
@@ -22,6 +22,7 @@ func _on_sprite_animation_finished() -> void:
 	WorldManager.next_room.emit()
 
 func _on_next_room():
+	LoopManager.stop_recording()
 	LoopManager.cancel_loop(0)
 	LoopManager.cancel_loop(1)
 	LoopManager.cancel_loop(2)
