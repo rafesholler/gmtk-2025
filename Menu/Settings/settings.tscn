@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cejte58omgssg" path="res://UI/Loops/dot.png" id="1_6kdxl"]
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="1_r402l"]
 [ext_resource type="Script" uid="uid://j5qabp8fw156" path="res://Menu/Settings/settings.gd" id="1_ycrrg"]
-[ext_resource type="PackedScene" uid="uid://fxis6i33wlx3" path="res://UI/top_claw.tscn" id="2_oeae7"]
+[ext_resource type="PackedScene" path="res://UI/top_claw.tscn" id="2_oeae7"]
 [ext_resource type="Texture2D" uid="uid://cnkkqber3c0l7" path="res://Objects/Box/box.png" id="4_k17fj"]
 [ext_resource type="Texture2D" uid="uid://dxeeysjtyvdsq" path="res://Objects/Box/steelbox.png" id="6_nb4uy"]
 [ext_resource type="Texture2D" uid="uid://bvnfsr06vuqhx" path="res://Objects/Box/sliderCrate.png" id="7_oeae7"]
@@ -113,11 +113,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 split_offset = 410
+dragging_enabled = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Panel/Audio/MasterVolume"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 theme_override_fonts/normal_font = ExtResource("1_r402l")
 theme_override_font_sizes/normal_font_size = 30
 text = "Master Volume"
@@ -131,7 +132,7 @@ theme_override_icons/grabber = ExtResource("4_k17fj")
 theme_override_icons/grabber_highlight = ExtResource("4_k17fj")
 theme_override_icons/grabber_disabled = ExtResource("4_k17fj")
 theme_override_styles/slider = SubResource("StyleBoxFlat_nb4uy")
-min_value = -50.0
+min_value = -35.0
 max_value = 0.0
 step = -1.0
 value = -10.0
@@ -143,11 +144,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 split_offset = 410
+dragging_enabled = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Panel/Audio/MusicVolume"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 theme_override_fonts/normal_font = ExtResource("1_r402l")
 theme_override_font_sizes/normal_font_size = 30
 text = "Music Volume"
@@ -161,7 +163,7 @@ theme_override_icons/grabber = ExtResource("6_nb4uy")
 theme_override_icons/grabber_highlight = ExtResource("6_nb4uy")
 theme_override_icons/grabber_disabled = ExtResource("6_nb4uy")
 theme_override_styles/slider = SubResource("StyleBoxFlat_oeae7")
-min_value = -50.0
+min_value = -35.0
 max_value = 0.0
 step = -1.0
 value = -10.0
@@ -173,11 +175,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 split_offset = 410
+dragging_enabled = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Panel/Audio/SoundVolume"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 theme_override_fonts/normal_font = ExtResource("1_r402l")
 theme_override_font_sizes/normal_font_size = 30
 text = "Sound Volume"
@@ -191,7 +194,7 @@ theme_override_icons/grabber = ExtResource("7_oeae7")
 theme_override_icons/grabber_highlight = ExtResource("7_oeae7")
 theme_override_icons/grabber_disabled = ExtResource("7_oeae7")
 theme_override_styles/slider = SubResource("StyleBoxFlat_kfkkl")
-min_value = -50.0
+min_value = -35.0
 max_value = 0.0
 step = -1.0
 value = -10.0

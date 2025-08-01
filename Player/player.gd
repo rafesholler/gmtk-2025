@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -200
 			jumped = true
 	
-	if Input.is_action_just_pressed("pull") and nearby_box and not nearby_box.is_in_loop:
+	if Input.is_action_just_pressed("interact") and nearby_box and not nearby_box.is_in_loop:
 		is_pulling = not is_pulling
 		if is_pulling:
 			nearby_box.collision_layer = 32
@@ -64,15 +64,13 @@ func _physics_process(delta: float) -> void:
 	if is_pulling and nearby_box and not nearby_box.is_in_loop and box_vector:
 			nearby_box.position = position + box_vector
 	
-	if Input.is_action_just_pressed("toggle_record") or Input.is_action_just_pressed("record_with_player"):
-		if Input.is_action_just_pressed("record_with_player"):
-			LoopManager.add_loop_object(self)
-		LoopManager.is_recording = not LoopManager.is_recording
+	if Input.is_action_just_pressed("toggle_record"):
+		LoopManager.add_loop_object(self)
 		
 		if LoopManager.is_recording:
-			LoopManager.start_recording()
-		else:
 			LoopManager.stop_recording()
+		else:
+			LoopManager.start_recording()
 	
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
@@ -81,13 +79,14 @@ func _physics_process(delta: float) -> void:
 			#print(c.get_collider().velocity)
 		if c.get_collider() is HeavyBox and not c.get_collider().is_in_loop:
 			c.get_collider().velocity = -c.get_normal() * push_force
-
-	if Input.is_action_just_pressed("change_loop"):
-		if LoopManager.is_recording:
-			return
-		LoopManager.index += 1
-		if LoopManager.index >= LoopManager.max_loops:
+	
+	if not LoopManager.is_recording:
+		if Input.is_action_just_pressed("select_loop_1"):
 			LoopManager.index = 0
+		if Input.is_action_just_pressed("select_loop_2"):
+			LoopManager.index = 1
+		if Input.is_action_just_pressed("select_loop_3"):
+			LoopManager.index = 2
 	
 	if Input.is_action_just_pressed("delete_loop"):
 		LoopManager.cancel_loop(LoopManager.index)
