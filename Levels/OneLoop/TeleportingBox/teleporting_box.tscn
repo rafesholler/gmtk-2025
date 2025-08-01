@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://1fauhvjnri7w"]
+[gd_scene load_steps=9 format=4 uid="uid://1fauhvjnri7w"]
 
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="1_fg7gb"]
 [ext_resource type="Script" uid="uid://c1vkltenroo8s" path="res://Levels/OneLoop/TeleportingBox/teleporting_box.gd" id="1_gsoqe"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="3_4ugco"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="4_713of"]
 [ext_resource type="PackedScene" uid="uid://ce0fyafaupkhg" path="res://Objects/Box/heavy_box.tscn" id="4_as0xc"]
+[ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="7_3q7fa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvpbp"]
+font = ExtResource("7_3q7fa")
 
 [node name="TeleportingBox" type="Node2D"]
 script = ExtResource("1_gsoqe")
@@ -29,15 +33,27 @@ limit_left = 8
 limit_top = 0
 limit_right = 584
 limit_bottom = 353
+position_smoothing_enabled = true
 
 [node name="HeavyBox" parent="." instance=ExtResource("4_as0xc")]
 position = Vector2(193, 300)
 scale = Vector2(2.25, 2.25)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 34.0
-offset_top = 183.0
-offset_right = 368.0
-offset_bottom = 232.0
-text = "Left click objects to mark them for looping.
-Press R to record a loop without the player."
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 218.0
+offset_right = 500.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Clicking on an object will enter it into the time loop.
+
+"
+label_settings = SubResource("LabelSettings_pvpbp")
+horizontal_alignment = 1

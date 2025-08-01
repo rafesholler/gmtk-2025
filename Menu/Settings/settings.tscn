@@ -1,47 +1,83 @@
-[gd_scene load_steps=16 format=3 uid="uid://t3m6i6hf57du"]
+[gd_scene load_steps=25 format=3 uid="uid://t3m6i6hf57du"]
 
-[ext_resource type="Texture2D" uid="uid://cejte58omgssg" path="res://UI/Loops/dot.png" id="1_6kdxl"]
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="1_r402l"]
 [ext_resource type="Script" uid="uid://j5qabp8fw156" path="res://Menu/Settings/settings.gd" id="1_ycrrg"]
-[ext_resource type="PackedScene" path="res://UI/top_claw.tscn" id="2_oeae7"]
+[ext_resource type="Texture2D" uid="uid://cmugwnc147oa5" path="res://Environment/Background/BGBox1.png" id="2_385hw"]
+[ext_resource type="Texture2D" uid="uid://f8qqpsajiyp1" path="res://UI/LevelTex/Level.png" id="2_kfkkl"]
+[ext_resource type="PackedScene" uid="uid://fxis6i33wlx3" path="res://UI/top_claw.tscn" id="2_oeae7"]
+[ext_resource type="Texture2D" uid="uid://d3ih8v4xl5rny" path="res://UI/LevelTex/LevelPress.png" id="3_apbe1"]
+[ext_resource type="Texture2D" uid="uid://5l6iaeqm571l" path="res://Environment/Background/BGBox2.png" id="3_f5s3g"]
+[ext_resource type="Texture2D" uid="uid://diwsjy6nyeryt" path="res://UI/LevelTex/LevelHover.png" id="4_385hw"]
 [ext_resource type="Texture2D" uid="uid://cnkkqber3c0l7" path="res://Objects/Box/box.png" id="4_k17fj"]
+[ext_resource type="Texture2D" uid="uid://c0qersfmy43ks" path="res://Environment/Background/Rail.png" id="5_fd4a2"]
+[ext_resource type="Script" uid="uid://dioab87d1xner" path="res://Menu/Settings/box_int_1.gd" id="5_qvr8m"]
 [ext_resource type="Texture2D" uid="uid://dxeeysjtyvdsq" path="res://Objects/Box/steelbox.png" id="6_nb4uy"]
 [ext_resource type="Texture2D" uid="uid://bvnfsr06vuqhx" path="res://Objects/Box/sliderCrate.png" id="7_oeae7"]
+[ext_resource type="AudioStream" uid="uid://bitfve8bifwgg" path="res://Audio/Sounds/SelectSF.wav" id="14_ogp3j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r402l"]
 bg_color = Color(0.177782, 0.486903, 0.682989, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6kdxl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvr8m"]
+size = Vector2(273, 179)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycrrg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5s3g"]
+size = Vector2(266, 52.5)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k17fj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd4a2"]
+[sub_resource type="LabelSettings" id="LabelSettings_f5s3g"]
+font = ExtResource("1_r402l")
+font_size = 50
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb4uy"]
 bg_color = Color(0.196078, 0.223529, 0.466667, 1)
-border_width_left = 16
-border_width_top = 16
-border_width_right = 16
-border_width_bottom = 16
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.192157, 0.223529, 0.466667, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oeae7"]
 bg_color = Color(0.196078, 0.223529, 0.466667, 1)
-border_width_left = 16
-border_width_top = 16
-border_width_right = 16
-border_width_bottom = 16
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.196078, 0.223529, 0.466667, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfkkl"]
 bg_color = Color(0.196078, 0.223529, 0.466667, 1)
-border_width_left = 16
-border_width_top = 16
-border_width_right = 16
-border_width_bottom = 16
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.196078, 0.223529, 0.466667, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 2
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogp3j"]
+size = Vector2(1169, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5t24"]
+size = Vector2(35, 671)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4ecj"]
+size = Vector2(36, 673)
 
 [node name="Settings" type="Node2D"]
 script = ExtResource("1_ycrrg")
@@ -65,47 +101,144 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r402l")
 
+[node name="BG" type="Control" parent="CanvasLayer/Control/Panel"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Rail" type="TextureRect" parent="CanvasLayer/Control/Panel/BG"]
+modulate = Color(0.219608, 0.427451, 0.607843, 1)
+layout_mode = 0
+offset_left = -3.0
+offset_top = 61.0
+offset_right = 230.0
+offset_bottom = 101.0
+scale = Vector2(5, 5)
+texture = ExtResource("5_fd4a2")
+stretch_mode = 1
+
+[node name="Box1" type="TextureRect" parent="CanvasLayer/Control/Panel/BG"]
+modulate = Color(0.219608, 0.427451, 0.607843, 1)
+layout_mode = 0
+offset_left = -43.0
+offset_top = 259.0
+offset_right = 254.0
+offset_bottom = 653.0
+texture = ExtResource("2_385hw")
+
+[node name="Box2" type="TextureRect" parent="CanvasLayer/Control/Panel/BG"]
+modulate = Color(0.219608, 0.427451, 0.607843, 1)
+layout_mode = 0
+offset_left = 950.0
+offset_top = 267.0
+offset_right = 1247.0
+offset_bottom = 661.0
+texture = ExtResource("3_f5s3g")
+
+[node name="BoxInt1" type="CharacterBody2D" parent="CanvasLayer/Control/Panel/BG"]
+position = Vector2(237, 485)
+input_pickable = true
+script = ExtResource("5_qvr8m")
+
+[node name="Box3" type="TextureRect" parent="CanvasLayer/Control/Panel/BG/BoxInt1"]
+modulate = Color(0.2, 0.309804, 0.533333, 1)
+offset_left = -182.0
+offset_top = -34.0
+offset_right = 178.0
+offset_bottom = 162.0
+mouse_filter = 2
+texture = ExtResource("3_f5s3g")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Control/Panel/BG/BoxInt1"]
+position = Vector2(-5, 69)
+
+[node name="Box" type="CollisionShape2D" parent="CanvasLayer/Control/Panel/BG/BoxInt1/Area2D"]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_qvr8m")
+
+[node name="Collider" type="CollisionShape2D" parent="CanvasLayer/Control/Panel/BG/BoxInt1"]
+position = Vector2(-2, 135.25)
+shape = SubResource("RectangleShape2D_f5s3g")
+
 [node name="TopClaw" parent="CanvasLayer/Control/Panel" instance=ExtResource("2_oeae7")]
 position = Vector2(72, 91)
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Control/Panel"]
+[node name="BackButton" type="TextureButton" parent="CanvasLayer/Control/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -29.0
-offset_top = -183.0
-offset_right = 29.0
-offset_bottom = -152.0
+offset_left = -47.0
+offset_top = -185.0
+offset_right = 49.0
+offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_fonts/font = ExtResource("1_r402l")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_6kdxl")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ycrrg")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_k17fj")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fd4a2")
-text = "Save and Return"
-icon = ExtResource("1_6kdxl")
-flat = true
+mouse_filter = 1
+texture_normal = ExtResource("2_kfkkl")
+texture_pressed = ExtResource("3_apbe1")
+texture_hover = ExtResource("4_385hw")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -25.5
+offset_right = 53.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SAVE"
+label_settings = SubResource("LabelSettings_f5s3g")
+horizontal_alignment = 1
+
+[node name="FG" type="Control" parent="CanvasLayer/Control/Panel"]
+modulate = Color(0.192157, 0.223529, 0.466667, 1)
+anchors_preset = 0
+offset_left = 857.0
+offset_top = 420.0
+offset_right = 897.0
+offset_bottom = 460.0
+mouse_filter = 1
+
+[node name="Box1" type="TextureRect" parent="CanvasLayer/Control/Panel/FG"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 56.0
+offset_right = 255.0
+offset_bottom = 237.0
+texture = ExtResource("3_f5s3g")
+
+[node name="Box2" type="TextureRect" parent="CanvasLayer/Control/Panel/FG"]
+layout_mode = 0
+offset_left = -784.0
+offset_top = 118.0
+offset_right = -633.0
+offset_bottom = 236.0
+texture = ExtResource("2_385hw")
 
 [node name="Audio" type="VBoxContainer" parent="CanvasLayer/Control/Panel"]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -483.0
 offset_top = -79.0
+offset_right = 317.0
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="MasterVolume" type="HSplitContainer" parent="CanvasLayer/Control/Panel/Audio"]
 custom_minimum_size = Vector2(800, 50)
@@ -200,7 +333,31 @@ step = -1.0
 value = -10.0
 scrollable = false
 
+[node name="Floor" type="StaticBody2D" parent="CanvasLayer"]
+position = Vector2(6, 659)
+
+[node name="Collider" type="CollisionShape2D" parent="CanvasLayer/Floor"]
+position = Vector2(574.5, 10.5)
+shape = SubResource("RectangleShape2D_ogp3j")
+
+[node name="Collider2" type="CollisionShape2D" parent="CanvasLayer/Floor"]
+position = Vector2(-23.5, -326)
+shape = SubResource("RectangleShape2D_p5t24")
+
+[node name="Collider3" type="CollisionShape2D" parent="CanvasLayer/Floor"]
+position = Vector2(1165, -326)
+shape = SubResource("RectangleShape2D_c4ecj")
+
+[node name="SelectSF" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_ogp3j")
+volume_db = -5.0
+
+[connection signal="body_entered" from="CanvasLayer/Control/Panel/BG/BoxInt1/Area2D" to="CanvasLayer/Control/Panel/BG/BoxInt1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CanvasLayer/Control/Panel/BG/BoxInt1/Area2D" to="CanvasLayer/Control/Panel/BG/BoxInt1" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="drag_started" from="CanvasLayer/Control/Panel/Audio/MasterVolume/MasterSlider" to="." method="_on_master_slider_drag_started"]
 [connection signal="value_changed" from="CanvasLayer/Control/Panel/Audio/MasterVolume/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="drag_started" from="CanvasLayer/Control/Panel/Audio/MusicVolume/MusicSlider" to="." method="_on_music_slider_drag_started"]
 [connection signal="value_changed" from="CanvasLayer/Control/Panel/Audio/MusicVolume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_started" from="CanvasLayer/Control/Panel/Audio/SoundVolume/SoundSlider" to="." method="_on_sound_slider_drag_started"]
 [connection signal="value_changed" from="CanvasLayer/Control/Panel/Audio/SoundVolume/SoundSlider" to="." method="_on_sound_slider_value_changed"]

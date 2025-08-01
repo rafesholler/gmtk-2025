@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bkovd1wpcmrke"]
+[gd_scene load_steps=9 format=4 uid="uid://bkovd1wpcmrke"]
 
 [ext_resource type="Script" uid="uid://uvf7klxiq2ei" path="res://Levels/TwoLoop/TwoBoxes/two_boxes.gd" id="1_2ydoe"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="1_iudde"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="3_lxtgo"]
 [ext_resource type="PackedScene" uid="uid://d0y011d078tou" path="res://Objects/Box/box.tscn" id="4_41neg"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="4_nwpfr"]
+[ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="7_ul6nm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tqsr"]
+font = ExtResource("7_ul6nm")
 
 [node name="TwoBoxes" type="Node2D"]
 script = ExtResource("1_2ydoe")
@@ -21,7 +25,7 @@ position = Vector2(536, 64)
 position = Vector2(58, 160)
 
 [node name="Player" parent="." instance=ExtResource("3_lxtgo")]
-position = Vector2(60, 192)
+position = Vector2(60, 190)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -29,9 +33,21 @@ limit_left = 10
 limit_top = 13
 limit_right = 586
 limit_bottom = 337
+position_smoothing_enabled = true
 
 [node name="Box" parent="." instance=ExtResource("4_41neg")]
 position = Vector2(304, 301)
 
 [node name="Box2" parent="." instance=ExtResource("4_41neg")]
 position = Vector2(376, 298)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 249.0
+offset_top = 215.0
+offset_right = 429.0
+offset_bottom = 288.0
+text = "You have two loops now
+To swap between loops-
+press '1','2', or '3'"
+label_settings = SubResource("LabelSettings_7tqsr")
+horizontal_alignment = 1

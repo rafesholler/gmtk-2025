@@ -8,8 +8,12 @@ var is_active = false
 
 func _process(delta: float) -> void:
 	if is_active and $AnimatedSprite2D.animation != "switch_on":
+		$LeverSF.pitch_scale = randf_range(.8, 1.2)
+		$LeverSF.play()
 		$AnimatedSprite2D.play("switch_on")
 	elif not is_active and $AnimatedSprite2D.animation == "switch_on":
+		$LeverSF.pitch_scale = randf_range(.8, 1.2)
+		$LeverSF.play()
 		$AnimatedSprite2D.play("switch_off")
 
 
