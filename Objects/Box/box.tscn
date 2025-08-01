@@ -20,7 +20,8 @@ script = ExtResource("1_ite0f")
 script = ExtResource("2_lde1j")
 properties = {
 NodePath(".."): ["position", "rotation", "visible", "velocity"],
-NodePath("../CollisionShape2D"): ["disabled"]
+NodePath("../CollisionShape2D"): ["disabled"],
+NodePath("../ClickArea/CollisionShape2D"): ["disabled"]
 }
 metadata/_custom_type_script = "uid://dxmffxw51dhku"
 
