@@ -51,6 +51,12 @@ func unmark() -> void:
 	$Outline.visible = false
 
 
+func kill() -> void:
+	visible = false
+	$CollisionShape2D.disabled = true
+	$ClickArea/CollisionShape2D.disabled = true
+	
+
 func _on_loopable_playback_started() -> void:
 	is_in_loop = true
 
