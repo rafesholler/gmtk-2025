@@ -11,9 +11,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if move_toward_end:
-		global_position = global_position.move_toward($Endpoint.global_position, speed * delta)
+		global_position = lerp(global_position, $Endpoint.global_position, .04)
 	else:
-		global_position = global_position.move_toward(startpoint, speed * delta)
+		global_position = lerp(global_position, startpoint, .05)
 
 func activate() -> void:
 	move_toward_end = true

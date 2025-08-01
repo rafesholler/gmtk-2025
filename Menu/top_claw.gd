@@ -7,10 +7,10 @@ var dropping = false
 func _physics_process(delta: float) -> void:
 	target_position = get_global_mouse_position()
 	if !dropping:
-		position.x = lerp(position.x, target_position.x, .1)
+		position.x = lerp(position.x, target_position.x, .2)
 	if Input.is_action_pressed("fire"):
 		dropping = true
-		position.y = lerp(position.y, target_position.y, .1)
+		position.y = lerp(position.y, target_position.y, .2)
 		$Sprite.play("close")
 	else:
 		position.y = lerp(position.y, start, .3)

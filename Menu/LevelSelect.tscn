@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmjn7myt53ais"]
+[gd_scene load_steps=16 format=3 uid="uid://cmjn7myt53ais"]
 
+[ext_resource type="Script" uid="uid://b00ejhufx6ybb" path="res://Menu/level_select.gd" id="1_3p8ty"]
 [ext_resource type="Script" uid="uid://b6y16fqrxn3rh" path="res://Menu/top_claw.gd" id="1_by5ib"]
 [ext_resource type="Texture2D" uid="uid://dmwl06vnjgxbp" path="res://Environment/Background/Wrench.png" id="2_2x7mo"]
 [ext_resource type="Texture2D" uid="uid://qg8k4k8ay7rt" path="res://Environment/Background/WrenchRope.png" id="3_2x7mo"]
 [ext_resource type="Texture2D" uid="uid://pdbh8v2kwj5" path="res://Environment/Background/WrenchClose.png" id="3_t45wp"]
+[ext_resource type="Texture2D" uid="uid://f8qqpsajiyp1" path="res://UI/LevelTex/Level.png" id="5_lkv0u"]
+[ext_resource type="Script" uid="uid://sdq55gajxy4p" path="res://Menu/grid.gd" id="5_r61nh"]
+[ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="6_1tiiv"]
+[ext_resource type="Texture2D" uid="uid://d3ih8v4xl5rny" path="res://UI/LevelTex/LevelPress.png" id="6_fwg7u"]
+[ext_resource type="Texture2D" uid="uid://diwsjy6nyeryt" path="res://UI/LevelTex/LevelHover.png" id="7_61bti"]
+[ext_resource type="Script" uid="uid://dbd16iue3umje" path="res://Menu/levelSelector.gd" id="9_3p8ty"]
+[ext_resource type="Script" uid="uid://cp51vq4n3ye1j" path="res://Menu/back.gd" id="12_ngshm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t45wp"]
 size = Vector2(108, 142)
@@ -27,24 +35,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fwg7u"]
+font = ExtResource("6_1tiiv")
+font_size = 50
+outline_size = 15
+outline_color = Color(0.0823529, 0.113725, 0.156863, 1)
+
 [node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_3p8ty")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="BG" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/BG"]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.262745, 0.580392, 0.690196, 1)
 
-[node name="TopClaw" type="CharacterBody2D" parent="CanvasLayer"]
+[node name="Claw" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopClaw" type="CharacterBody2D" parent="CanvasLayer/Claw"]
 position = Vector2(41, 80)
 script = ExtResource("1_by5ib")
 
-[node name="Shape" type="CollisionShape2D" parent="CanvasLayer/TopClaw"]
+[node name="Shape" type="CollisionShape2D" parent="CanvasLayer/Claw/TopClaw"]
 position = Vector2(-1, -67)
 shape = SubResource("RectangleShape2D_t45wp")
 
-[node name="Rope" type="TextureRect" parent="CanvasLayer/TopClaw"]
+[node name="Rope" type="TextureRect" parent="CanvasLayer/Claw/TopClaw"]
 modulate = Color(0.2, 0.309804, 0.533333, 1)
 offset_left = -48.0
 offset_top = -919.0
@@ -53,10 +80,403 @@ offset_bottom = -663.0
 scale = Vector2(3, 3)
 texture = ExtResource("3_2x7mo")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="CanvasLayer/TopClaw"]
+[node name="Sprite" type="AnimatedSprite2D" parent="CanvasLayer/Claw/TopClaw"]
 modulate = Color(0.2, 0.309804, 0.533333, 1)
 position = Vector2(0, -58)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mn322")
 animation = &"open"
 autoplay = "open"
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 135.0
+offset_right = 351.0
+offset_bottom = 352.0
+grow_horizontal = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 6
+script = ExtResource("5_r61nh")
+
+[node name="1" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "1"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "2"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "3"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="4" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "4"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="5" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "5"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="6" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "6"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="7" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 6
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "7"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="8" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 7
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "8"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="9" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 8
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "9"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 9
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "10"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="11" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "11"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="12" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 11
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "12"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="TextureButton" parent="CanvasLayer"]
+offset_left = 38.0
+offset_top = 534.0
+offset_right = 134.0
+offset_bottom = 630.0
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("12_ngshm")
+
+[node name="Label" type="Label" parent="CanvasLayer/Back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "BACK"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Grid/1" to="CanvasLayer/Grid/1" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/2" to="CanvasLayer/Grid/2" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/3" to="CanvasLayer/Grid/3" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/4" to="CanvasLayer/Grid/4" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/5" to="CanvasLayer/Grid/5" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/6" to="CanvasLayer/Grid/6" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/7" to="CanvasLayer/Grid/7" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/8" to="CanvasLayer/Grid/8" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/9" to="CanvasLayer/Grid/9" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/10" to="CanvasLayer/Grid/10" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/11" to="CanvasLayer/Grid/11" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/12" to="CanvasLayer/Grid/12" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Back" to="CanvasLayer/Back" method="_on_pressed"]
