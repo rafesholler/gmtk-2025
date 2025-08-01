@@ -19,11 +19,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Back" type="ColorRect" parent="BG/Background"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(0.262745, 0.580392, 0.690196, 1)
 
 [node name="3" type="Parallax2D" parent="BG/Background"]
