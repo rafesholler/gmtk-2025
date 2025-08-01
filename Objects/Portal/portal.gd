@@ -46,6 +46,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if not just_teleported:
 		pair.just_teleported = true
 		body.position = pair.position
+		$Sound.pitch_scale = randf_range(1, 1.3)
+		$Sound.play()
 
 
 func _on_body_exited(body: Node2D) -> void:
