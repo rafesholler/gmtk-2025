@@ -4,6 +4,11 @@ var flashing := false
 var active_loops = 0
 
 func _ready() -> void:
+	if WorldManager.current_room == "res://Menu/Title.tscn":
+		visible=false
+	else:
+		visible=true
+	WorldManager.connect("load_next_room", Callable(self,"_on_next_room"));
 	$Icon.material.set_shader_parameter("alpha_threshold", 1.0)
 
 func _process(delta: float) -> void:
@@ -36,4 +41,10 @@ func flash_stop():
 
 func flash_start():
 	$Flash.start()
+
+func _on_next_room():
+	if WorldManager.current_room == "res://Menu/Title.tscn":
+		visible=false
+	else:
+		visible=true
 	

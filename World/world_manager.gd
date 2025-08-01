@@ -17,4 +17,4 @@ var room_index: int = 0 :
 		room_index = value
 		current_room = rooms[value]
 
-var current_room = rooms[0]
+var current_room = "res://Menu/Title.tscn"

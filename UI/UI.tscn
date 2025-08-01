@@ -65,12 +65,18 @@ label_settings = SubResource("LabelSettings_f1fl4")
 
 [node name="Transition" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 script = ExtResource("5_f1fl4")
 
 [node name="Screen" parent="Transition" instance=ExtResource("7_byuxr")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="timeout" from="Loops/Flash" to="Loops" method="_on_flash_timeout"]
