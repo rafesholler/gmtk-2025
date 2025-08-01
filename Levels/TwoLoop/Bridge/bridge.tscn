@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dhtil1wvyb17n"]
+[gd_scene load_steps=10 format=4 uid="uid://dhtil1wvyb17n"]
 
 [ext_resource type="Script" uid="uid://dbifrksi6vn5u" path="res://Levels/TwoLoop/Bridge/bridge.gd" id="1_c18es"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="2_ahuxv"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="3_lcn3d"]
 [ext_resource type="TileSet" uid="uid://c3bbynk3ek2sb" path="res://Environment/hazards.tres" id="4_cypjs"]
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="4_hjaju"]
-[ext_resource type="PackedScene" uid="uid://bc4mudwsgjt1o" path="res://Objects/Portal/portal.tscn" id="4_lcn3d"]
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="5_64csn"]
 [ext_resource type="PackedScene" uid="uid://dfhxr5g4l6gg" path="res://Objects/Platforms/slide_platform.tscn" id="6_802fj"]
 [ext_resource type="PackedScene" uid="uid://d0y011d078tou" path="res://Objects/Box/box.tscn" id="7_802fj"]
@@ -54,12 +53,6 @@ position = Vector2(51, 256)
 [node name="Door" parent="." instance=ExtResource("4_hjaju")]
 position = Vector2(521, 48)
 
-[node name="Portal" parent="." instance=ExtResource("4_lcn3d")]
-position = Vector2(16, 278)
-
-[node name="Portal2" parent="." instance=ExtResource("4_lcn3d")]
-position = Vector2(560, 278)
-
 [node name="Button1" parent="." instance=ExtResource("5_64csn")]
 position = Vector2(160, 160)
 
@@ -82,6 +75,20 @@ limit_bottom = 370
 [node name="Box" parent="." instance=ExtResource("7_802fj")]
 position = Vector2(101, 272)
 
+[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172297" to="Hazards/@Area2D@172297" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172298" to="Hazards/@Area2D@172298" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172299" to="Hazards/@Area2D@172299" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172300" to="Hazards/@Area2D@172300" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172301" to="Hazards/@Area2D@172301" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172302" to="Hazards/@Area2D@172302" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172303" to="Hazards/@Area2D@172303" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172304" to="Hazards/@Area2D@172304" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172305" to="Hazards/@Area2D@172305" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172306" to="Hazards/@Area2D@172306" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172307" to="Hazards/@Area2D@172307" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172308" to="Hazards/@Area2D@172308" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@172309" to="Hazards/@Area2D@172309" method="_on_body_entered"]
 [connection signal="just_pressed" from="Button1" to="." method="_on_button_1_just_pressed"]
 [connection signal="just_unpressed" from="Button1" to="." method="_on_button_1_just_unpressed"]
 [connection signal="just_pressed" from="Button2" to="." method="_on_button_2_just_pressed"]
