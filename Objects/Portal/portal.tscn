@@ -10,10 +10,10 @@ radius = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsip6"]
 shader = ExtResource("2_bk0i4")
-shader_parameter/maxLineWidth = 3.258
-shader_parameter/minLineWidth = 2.247
-shader_parameter/speed = 5.831
-shader_parameter/blockSize = 6.517
+shader_parameter/maxLineWidth = 1.5
+shader_parameter/minLineWidth = 4.494
+shader_parameter/speed = 10.0
+shader_parameter/blockSize = 2.0
 shader_parameter/tolerance = 0.0
 
 [node name="Portal" type="Area2D"]
