@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_being_pulled:
 		collision_layer = 32
-		collision_mask = 3
+		collision_mask = 0
 	else:
 		collision_layer = 4
 		collision_mask = 7
