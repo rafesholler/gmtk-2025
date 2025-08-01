@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bp0lkfaiynmsa"]
+[gd_scene load_steps=14 format=4 uid="uid://bp0lkfaiynmsa"]
 
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="1_gfo8i"]
 [ext_resource type="Script" uid="uid://3qkr3idcj832" path="res://Levels/ThreeLoop/SliderCity/slider_city.gd" id="1_t8e8l"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dfhxr5g4l6gg" path="res://Objects/Platforms/slide_platform.tscn" id="5_k0530"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="6_40ajj"]
 [ext_resource type="PackedScene" uid="uid://bc4mudwsgjt1o" path="res://Objects/Portal/portal.tscn" id="8_4vst8"]
+[ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="12_adhkw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qlq3w"]
+font = ExtResource("12_adhkw")
 
 [node name="SliderCity" type="Node2D"]
 script = ExtResource("1_t8e8l")
@@ -116,6 +120,18 @@ color = 1
 [node name="Portal4" parent="." instance=ExtResource("8_4vst8")]
 position = Vector2(240, 76)
 color = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 203.0
+offset_right = 178.0
+offset_bottom = 276.0
+text = "You now have access
+to 3 loops. Cycle
+between them with
+'1' '2' and '3'."
+label_settings = SubResource("LabelSettings_qlq3w")
+horizontal_alignment = 1
 
 [connection signal="just_pressed" from="Button1" to="." method="_on_button_1_just_pressed"]
 [connection signal="just_unpressed" from="Button1" to="." method="_on_button_1_just_unpressed"]
