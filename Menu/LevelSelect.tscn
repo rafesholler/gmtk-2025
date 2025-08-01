@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmjn7myt53ais"]
+
+[ext_resource type="Script" uid="uid://b6y16fqrxn3rh" path="res://Menu/top_claw.gd" id="1_by5ib"]
+[ext_resource type="Texture2D" uid="uid://dmwl06vnjgxbp" path="res://Environment/Background/Wrench.png" id="2_2x7mo"]
+[ext_resource type="Texture2D" uid="uid://qg8k4k8ay7rt" path="res://Environment/Background/WrenchRope.png" id="3_2x7mo"]
+[ext_resource type="Texture2D" uid="uid://pdbh8v2kwj5" path="res://Environment/Background/WrenchClose.png" id="3_t45wp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t45wp"]
+size = Vector2(108, 142)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mn322"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t45wp")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2x7mo")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.262745, 0.580392, 0.690196, 1)
+
+[node name="TopClaw" type="CharacterBody2D" parent="CanvasLayer"]
+position = Vector2(41, 80)
+script = ExtResource("1_by5ib")
+
+[node name="Shape" type="CollisionShape2D" parent="CanvasLayer/TopClaw"]
+position = Vector2(-1, -67)
+shape = SubResource("RectangleShape2D_t45wp")
+
+[node name="Rope" type="TextureRect" parent="CanvasLayer/TopClaw"]
+modulate = Color(0.2, 0.309804, 0.533333, 1)
+offset_left = -48.0
+offset_top = -919.0
+offset_right = -16.0
+offset_bottom = -663.0
+scale = Vector2(3, 3)
+texture = ExtResource("3_2x7mo")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="CanvasLayer/TopClaw"]
+modulate = Color(0.2, 0.309804, 0.533333, 1)
+position = Vector2(0, -58)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mn322")
+animation = &"open"
+autoplay = "open"
