@@ -17,7 +17,9 @@ var rooms := {
 	8: "res://Levels/TwoLoop/Speedrun/speedrun.tscn",
 	9: "res://Levels/TwoLoop/Tower/tower.tscn",
 	10: "res://Levels/TwoLoop/PortalPlatform/portal_platform.tscn",
-	11: "res://Menu/Title.tscn",
+	11: "res://Menu/Title.tscn", #PLACEHOLDER
+	12: "res://Levels/ThreeLoop/SliderCity/slider_city.tscn",
+	13: "res://Menu/Title.tscn",
 }
 
 var room_index: int = 0 :
@@ -54,6 +56,7 @@ func reset_level() -> void:
 	next_room.emit()
 	LoopManager.clear_marked_objects()
 	LoopManager.cancel_all_loops()
+	LoopManager.index = 0
 
 
 func get_level_name(number: int) -> String:
@@ -80,6 +83,8 @@ func get_level_name(number: int) -> String:
 			return "Tower"
 		10:
 			return "Portal Platform"
+		12:
+			return "Slider City"
 		_:
 			printerr("Cannot find name of level " + str(number))
 			return "MISSING STRING"
