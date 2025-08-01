@@ -15,3 +15,8 @@ func _on_level_select_pressed() -> void:
 func _on_settings_pressed() -> void:
 	$SelectSF.play()
 	settings.emit()
+
+
+func _on_quit_pressed() -> void:
+	$SelectSF.play()
+	get_tree().quit()

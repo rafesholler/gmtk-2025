@@ -93,7 +93,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("delete_loop"):
 		LoopManager.cancel_loop(LoopManager.index)
-	print(LoopManager.max_loops)
+
 
 func _on_pull_range_body_entered(body: Node2D) -> void:
 	if body is Box and not is_pulling:
