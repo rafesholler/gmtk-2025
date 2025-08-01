@@ -1,5 +1,7 @@
 extends Control
 
+signal scene_change
+
 func exit_screen():
 	$Screen/TransitionIn.visible = false
 	$Screen/TransitionOut.visible = true
@@ -13,3 +15,5 @@ func enter_screen():
 	var end = get_tree().create_tween()
 	end.set_trans(Tween.TRANS_SINE)
 	end.tween_property($Screen, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT)
+	await end.finished
+	scene_change.emit()
