@@ -41,6 +41,16 @@ limit_top = 0
 limit_right = 595
 limit_bottom = 335
 
+[node name="Label" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 134.0
+offset_right = 356.0
+offset_bottom = 209.0
+rotation = -0.00105435
+text = "Press T to begin recording a loop of yourself.
+Press it again to replay the loop.
+Press C to cancel the current loop."
+
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
 
