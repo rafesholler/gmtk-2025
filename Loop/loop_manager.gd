@@ -107,6 +107,7 @@ func stop_recording() -> void:
 
 
 func cancel_loop(loop_index: int) -> void:
+	curr_loop_objects = []
 	loops[loop_index].is_ready = false
 	loops[loop_index].max_index = 0
 	loops[loop_index].index = 0
