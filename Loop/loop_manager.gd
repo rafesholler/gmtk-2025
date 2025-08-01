@@ -83,6 +83,8 @@ func start_recording() -> void:
 
 
 func stop_recording() -> void:
+	if not is_recording:
+		return
 	is_recording = false
 	loops[index].is_ready = true
 	
