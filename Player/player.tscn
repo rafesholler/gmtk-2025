@@ -142,7 +142,6 @@ position = Vector2(-28, -20)
 [node name="Pickup" type="AudioStreamPlayer2D" parent="Audio"]
 stream = SubResource("AudioStreamWAV_vtle1")
 volume_db = -5.0
-bus = &"Sounds"
 
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]

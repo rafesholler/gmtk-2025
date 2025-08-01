@@ -119,6 +119,7 @@ pause={
 
 [physics]
 
+common/physics_ticks_per_second=120
 2d/default_gravity=400.0
 
 [rendering]
