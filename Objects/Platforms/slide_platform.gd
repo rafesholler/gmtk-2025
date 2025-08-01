@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export_custom(PROPERTY_HINT_RANGE, "0,.1,or_greater") var speed: float = .04
+@export_custom(PROPERTY_HINT_RANGE, "0,.1,or_greater") var speed: float = .06
 
 var startpoint: Vector2
 var move_toward_end = false
