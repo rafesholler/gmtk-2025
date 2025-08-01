@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cejte58omgssg" path="res://UI/Loops/dot.png" id="1_6kdxl"]
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="1_r402l"]
 [ext_resource type="Script" uid="uid://j5qabp8fw156" path="res://Menu/Settings/settings.gd" id="1_ycrrg"]
-[ext_resource type="PackedScene" path="res://UI/top_claw.tscn" id="2_oeae7"]
+[ext_resource type="PackedScene" uid="uid://fxis6i33wlx3" path="res://UI/top_claw.tscn" id="2_oeae7"]
 [ext_resource type="Texture2D" uid="uid://cnkkqber3c0l7" path="res://Objects/Box/box.png" id="4_k17fj"]
 [ext_resource type="Texture2D" uid="uid://dxeeysjtyvdsq" path="res://Objects/Box/steelbox.png" id="6_nb4uy"]
 [ext_resource type="Texture2D" uid="uid://bvnfsr06vuqhx" path="res://Objects/Box/sliderCrate.png" id="7_oeae7"]
@@ -21,10 +21,10 @@ bg_color = Color(0.177782, 0.486903, 0.682989, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb4uy"]
 bg_color = Color(0.196078, 0.223529, 0.466667, 1)
-border_width_left = 16
-border_width_top = 16
-border_width_right = 16
-border_width_bottom = 16
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.192157, 0.223529, 0.466667, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oeae7"]
