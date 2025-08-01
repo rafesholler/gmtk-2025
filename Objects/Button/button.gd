@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 		
 
 func _on_body_entered(body: Node2D) -> void:
+	$ButtonPress.pitch_scale = randf_range(0.8, 1.0)
+	$ButtonPress.play()
 	if body is Player or Box or HeavyBox:
 		bodies_in_area.append(body)
 		if bodies_in_area.size() == 1:

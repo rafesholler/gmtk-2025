@@ -33,6 +33,7 @@ limit_left = 8
 limit_top = 0
 limit_right = 584
 limit_bottom = 353
+position_smoothing_enabled = true
 
 [node name="HeavyBox" parent="." instance=ExtResource("4_as0xc")]
 position = Vector2(193, 300)
@@ -44,9 +45,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 106.0
+offset_left = 100.0
 offset_top = 218.0
-offset_right = 506.0
+offset_right = 500.0
 offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2

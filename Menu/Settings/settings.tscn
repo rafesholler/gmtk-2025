@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://t3m6i6hf57du"]
+[gd_scene load_steps=25 format=3 uid="uid://t3m6i6hf57du"]
 
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="1_r402l"]
 [ext_resource type="Script" uid="uid://j5qabp8fw156" path="res://Menu/Settings/settings.gd" id="1_ycrrg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dioab87d1xner" path="res://Menu/Settings/box_int_1.gd" id="5_qvr8m"]
 [ext_resource type="Texture2D" uid="uid://dxeeysjtyvdsq" path="res://Objects/Box/steelbox.png" id="6_nb4uy"]
 [ext_resource type="Texture2D" uid="uid://bvnfsr06vuqhx" path="res://Objects/Box/sliderCrate.png" id="7_oeae7"]
+[ext_resource type="AudioStream" uid="uid://bitfve8bifwgg" path="res://Audio/Sounds/SelectSF.wav" id="14_ogp3j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r402l"]
 bg_color = Color(0.177782, 0.486903, 0.682989, 1)
@@ -347,9 +348,16 @@ shape = SubResource("RectangleShape2D_p5t24")
 position = Vector2(1165, -326)
 shape = SubResource("RectangleShape2D_c4ecj")
 
+[node name="SelectSF" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_ogp3j")
+volume_db = -5.0
+
 [connection signal="body_entered" from="CanvasLayer/Control/Panel/BG/BoxInt1/Area2D" to="CanvasLayer/Control/Panel/BG/BoxInt1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CanvasLayer/Control/Panel/BG/BoxInt1/Area2D" to="CanvasLayer/Control/Panel/BG/BoxInt1" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="drag_started" from="CanvasLayer/Control/Panel/Audio/MasterVolume/MasterSlider" to="." method="_on_master_slider_drag_started"]
 [connection signal="value_changed" from="CanvasLayer/Control/Panel/Audio/MasterVolume/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="drag_started" from="CanvasLayer/Control/Panel/Audio/MusicVolume/MusicSlider" to="." method="_on_music_slider_drag_started"]
 [connection signal="value_changed" from="CanvasLayer/Control/Panel/Audio/MusicVolume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_started" from="CanvasLayer/Control/Panel/Audio/SoundVolume/SoundSlider" to="." method="_on_sound_slider_drag_started"]
 [connection signal="value_changed" from="CanvasLayer/Control/Panel/Audio/SoundVolume/SoundSlider" to="." method="_on_sound_slider_value_changed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjhkesuabemhh"]
+[gd_scene load_steps=9 format=3 uid="uid://bjhkesuabemhh"]
 
 [ext_resource type="Texture2D" uid="uid://dqr0ju1supuxn" path="res://Objects/Button/button.png" id="1_7ytxn"]
 [ext_resource type="Script" uid="uid://dcia7yps7gna0" path="res://Objects/Button/button.gd" id="1_vukfi"]
+[ext_resource type="AudioStream" uid="uid://yx304xwmn0m7" path="res://Audio/Sounds/ButtonPressSF.wav" id="3_wqap6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vukfi"]
 atlas = ExtResource("1_7ytxn")
@@ -57,6 +58,11 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_vukfi")
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wqap6")
+volume_db = -5.0
+pitch_scale = 0.8
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

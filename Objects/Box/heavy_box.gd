@@ -11,6 +11,8 @@ var friction = 600
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire") and mouse_in_area:
+		$SelectSF.pitch_scale = randf_range(0.8, 1.2)
+		$SelectSF.play()
 		if $Outline.visible:
 			LoopManager.remove_loop_object(self)
 		else:
