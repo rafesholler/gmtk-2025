@@ -12,6 +12,15 @@ var coyote_window = false
 @export var speed = 200
 @export var push_force = 100
 
+var pause_menu = preload("res://Menu/PauseMenu/pause_menu.tscn")
+var can_pause = false
+
+
+func _ready() -> void:
+	get_node("/root/Main/Overlay/UI/Transition").finished.connect(_on_transition_finished)
+	WorldManager.next_room.connect(_on_transition_started)
+
+
 func _process(delta: float) -> void:
 	var dir = Input.get_axis("move_left", "move_right")
 	
@@ -93,6 +102,18 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("delete_loop"):
 		LoopManager.cancel_loop(LoopManager.index)
+	
+	if Input.is_action_just_pressed("pause") and can_pause:
+		var menu = pause_menu.instantiate()
+		add_child(menu)
+
+
+func _on_transition_started() -> void:
+	can_pause = false
+
+
+func _on_transition_finished() -> void:
+	can_pause = true
 
 
 func _on_pull_range_body_entered(body: Node2D) -> void:

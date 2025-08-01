@@ -3,6 +3,9 @@ extends Node2D
 func _ready() -> void:
 	WorldManager.loaded_room.emit()
 	WorldManager.connect("load_next_room", Callable(self,"_on_next_room"));
+	$CanvasLayer/Control/Panel/Audio/MasterVolume/MasterSlider.value = WorldManager.master_volume
+	$CanvasLayer/Control/Panel/Audio/MusicVolume/MusicSlider.value = WorldManager.music_volume
+	$CanvasLayer/Control/Panel/Audio/SoundVolume/SoundSlider.value = WorldManager.sound_volume
 
 
 func _on_back_button_pressed() -> void:

@@ -5,6 +5,7 @@ signal loaded_room #emits upon loading the next room, used for transitions
 signal load_next_room #emits upon transition end to load in next room
 
 var rooms := {
+	-1: "res://Menu/Title.tscn",
 	0: "res://Levels/OneLoop/BoxPush1/box_push1.tscn",
 	1: "res://Levels/OneLoop/ButtonPress1/button_press1.tscn",
 	2: "res://Levels/OneLoop/TeleportingBox/teleporting_box.tscn",
@@ -23,21 +24,21 @@ var room_index: int = 0 :
 
 var current_room = "res://Menu/Title.tscn"
 
-var master_volume: float = 0.0 : 
+var master_volume: float = -10 : 
 	set(value):
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(0, value)
 		master_volume = value
 		
-var music_volume: float = 0.0 : 
+var music_volume: float = -10 : 
 	set(value):
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(1, value)
 		music_volume = value
 		
-var sound_volume: float = 0.0 : 
+var sound_volume: float = -10 : 
 	set(value):
 		if value == -35:
 			value = -70
