@@ -88,10 +88,6 @@ metadata/_custom_type_script = "uid://dxmffxw51dhku"
 position = Vector2(0.5, -10.5)
 shape = SubResource("RectangleShape2D_4ntmi")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -11)
-collision_mask = 4
-
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = -24.0

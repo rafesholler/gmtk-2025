@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0y011d078tou"]
+[gd_scene load_steps=7 format=3 uid="uid://d0y011d078tou"]
 
 [ext_resource type="Script" uid="uid://bx78xj6fdhvxk" path="res://Objects/Box/box.gd" id="1_ite0f"]
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="2_lde1j"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://byfgjd8fnkjxd" path="res://Objects/Box/boxoutline.png" id="4_f8prb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lde1j"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8prb"]
 size = Vector2(32, 32)
 
 [node name="Box" type="CharacterBody2D"]
@@ -24,6 +27,11 @@ metadata/_custom_type_script = "uid://dxmffxw51dhku"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lde1j")
 
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+shape = SubResource("RectangleShape2D_f8prb")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_glifb")
 
@@ -33,3 +41,5 @@ texture = ExtResource("4_f8prb")
 
 [connection signal="playback_ended" from="Loopable" to="." method="_on_loopable_playback_ended"]
 [connection signal="playback_started" from="Loopable" to="." method="_on_loopable_playback_started"]
+[connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
+[connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]

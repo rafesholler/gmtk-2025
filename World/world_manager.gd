@@ -8,9 +8,9 @@ var rooms := {
 	0: "res://Levels/OneLoop/BoxPush1/box_push1.tscn",
 	1: "res://Levels/OneLoop/ButtonPress1/button_press1.tscn",
 	2: "res://Levels/OneLoop/TeleportingBox/teleporting_box.tscn",
-	3: "res://Levels/OneLoop/BoxFreeze/box_freeze.tscn",
-	4: "res://Levels/OneLoop/TwoDoors/two_doors.tscn",
-	5: "res://Levels/OneLoop/MovingBox/moving_box.tscn",
+	3: "res://Levels/OneLoop/MovingBox/moving_box.tscn",
+	4: "res://Levels/OneLoop/BoxFreeze/box_freeze.tscn",
+	5: "res://Levels/OneLoop/TwoDoors/two_doors.tscn",
 	6: "res://Levels/TwoLoop/TwoBoxes/two_boxes.tscn",
 }
 
@@ -19,4 +19,4 @@ var room_index: int = 0 :
 		room_index = value
 		current_room = rooms[value]
 
-var current_room = rooms[0]
+var current_room = "res://Menu/Title.tscn"
