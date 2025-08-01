@@ -1,0 +1,11 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c3bbynk3ek2sb"]
+
+[ext_resource type="PackedScene" uid="uid://b2qefs2tmc7sr" path="res://Objects/Laser/AOlaser.tscn" id="1_ejge1"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j8voa"]
+resource_name = "Laser"
+scenes/1/scene = ExtResource("1_ejge1")
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_j8voa")

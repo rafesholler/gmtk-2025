@@ -186,10 +186,14 @@ texture = ExtResource("6_xpxos")
 [node name="BGM" type="Node2D" parent="."]
 
 [node name="Ambient" type="AudioStreamPlayer2D" parent="BGM"]
+process_mode = 3
 stream = ExtResource("8_1hcjw")
 volume_db = -20.0
 autoplay = true
+bus = &"Music"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BGM"]
+process_mode = 3
 stream = ExtResource("9_pyyff")
 autoplay = true
+bus = &"Music"

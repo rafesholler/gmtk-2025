@@ -266,7 +266,7 @@ theme_override_icons/grabber_highlight = ExtResource("4_k17fj")
 theme_override_icons/grabber_disabled = ExtResource("4_k17fj")
 theme_override_styles/slider = SubResource("StyleBoxFlat_nb4uy")
 min_value = -35.0
-max_value = 0.0
+max_value = 6.0
 step = -1.0
 value = -10.0
 scrollable = false
@@ -297,7 +297,7 @@ theme_override_icons/grabber_highlight = ExtResource("6_nb4uy")
 theme_override_icons/grabber_disabled = ExtResource("6_nb4uy")
 theme_override_styles/slider = SubResource("StyleBoxFlat_oeae7")
 min_value = -35.0
-max_value = 0.0
+max_value = 6.0
 step = -1.0
 value = -10.0
 scrollable = false
@@ -328,7 +328,7 @@ theme_override_icons/grabber_highlight = ExtResource("7_oeae7")
 theme_override_icons/grabber_disabled = ExtResource("7_oeae7")
 theme_override_styles/slider = SubResource("StyleBoxFlat_kfkkl")
 min_value = -35.0
-max_value = 0.0
+max_value = 6.0
 step = -1.0
 value = -10.0
 scrollable = false
@@ -351,6 +351,7 @@ shape = SubResource("RectangleShape2D_c4ecj")
 [node name="SelectSF" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_ogp3j")
 volume_db = -5.0
+bus = &"Sounds"
 
 [connection signal="body_entered" from="CanvasLayer/Control/Panel/BG/BoxInt1/Area2D" to="CanvasLayer/Control/Panel/BG/BoxInt1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CanvasLayer/Control/Panel/BG/BoxInt1/Area2D" to="CanvasLayer/Control/Panel/BG/BoxInt1" method="_on_area_2d_body_exited"]

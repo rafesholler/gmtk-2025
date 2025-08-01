@@ -31,6 +31,9 @@ func _physics_process(delta: float) -> void:
 		if loop.is_ready:
 			for part in loop.parts:
 				for object in part.loopable.properties:
+					if object is Box or object is HeavyBox:
+						if loop.index == 5 or loop.index == loop.max_index - 1:
+							object.toggle_collisions()
 					for property in part.loopable.properties[object]:
 						object.set(property, part.recorded_values[property][loop.index])
 						#print("Played property " + property + " of object " + object.name + " with value " + str(part.recorded_values[property][loop.index]))
@@ -103,6 +106,7 @@ func stop_recording() -> void:
 					object.modulate = _get_loop_color(index)
 					if object is Box or object is HeavyBox:
 						object.unmark()
+						object.toggle_collisions()
 		part.loopable.begin_playback()
 
 
@@ -118,6 +122,12 @@ func cancel_loop(loop_index: int) -> void:
 				object.call_deferred("queue_free")
 		part.recorded_values.clear()
 	loops[loop_index].parts = []
+
+
+func cancel_all_loops() -> void:
+	cancel_loop(0)
+	cancel_loop(1)
+	cancel_loop(2)
 
 
 func clear_marked_objects() -> void:

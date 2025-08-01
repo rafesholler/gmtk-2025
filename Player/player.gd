@@ -12,6 +12,16 @@ var coyote_window = false
 @export var speed = 200
 @export var push_force = 100
 
+var pause_menu = preload("res://Menu/PauseMenu/pause_menu.tscn")
+var can_pause = false
+
+
+func _ready() -> void:
+	if get_node_or_null("/root/Main/Overlay/UI/Transition"):
+		get_node("/root/Main/Overlay/UI/Transition").finished.connect(_on_transition_finished)
+	WorldManager.next_room.connect(_on_transition_started)
+
+
 func _process(delta: float) -> void:
 	var dir = Input.get_axis("move_left", "move_right")
 	
@@ -86,15 +96,25 @@ func _physics_process(delta: float) -> void:
 	if not LoopManager.is_recording:
 		if Input.is_action_just_pressed("select_loop_1"):
 			LoopManager.index = 0
-		if Input.is_action_just_pressed("select_loop_2"):
+		if Input.is_action_just_pressed("select_loop_2") and LoopManager.max_loops > 1:
 			LoopManager.index = 1
-		if Input.is_action_just_pressed("select_loop_3"):
+		if Input.is_action_just_pressed("select_loop_3") and LoopManager.max_loops > 2:
 			LoopManager.index = 2
 	
 	if Input.is_action_just_pressed("delete_loop"):
 		LoopManager.cancel_loop(LoopManager.index)
+	
+	if Input.is_action_just_pressed("pause") and can_pause:
+		var menu = pause_menu.instantiate()
+		add_child(menu)
 
-	$Label.text = "Loop: " + str(LoopManager.index) + " Recording: " + str(LoopManager.is_recording)
+
+func _on_transition_started() -> void:
+	can_pause = false
+
+
+func _on_transition_finished() -> void:
+	can_pause = true
 
 
 func _on_pull_range_body_entered(body: Node2D) -> void:

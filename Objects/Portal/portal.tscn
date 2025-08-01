@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc4mudwsgjt1o"]
+
+[ext_resource type="Script" uid="uid://bluhbndewlro2" path="res://Objects/Portal/portal.gd" id="1_xf6k1"]
+[ext_resource type="Shader" uid="uid://cxb1kau61vgim" path="res://Shaders/ripple.gdshader" id="2_bk0i4"]
+[ext_resource type="Texture2D" uid="uid://dbeeass7livfm" path="res://Objects/Portal/portal_purple.png" id="3_gsip6"]
+[ext_resource type="AudioStream" uid="uid://b1fbkg0d6fmbm" path="res://Audio/Sounds/PortalTransportSF.wav" id="4_clske"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7ebd"]
+radius = 9.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsip6"]
+shader = ExtResource("2_bk0i4")
+shader_parameter/maxLineWidth = 1.5
+shader_parameter/minLineWidth = 4.494
+shader_parameter/speed = 10.0
+shader_parameter/blockSize = 2.0
+shader_parameter/tolerance = 0.0
+
+[node name="Portal" type="Area2D"]
+collision_mask = 6
+script = ExtResource("1_xf6k1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_u7ebd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_gsip6")
+texture = ExtResource("3_gsip6")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_clske")
+volume_db = -5.0
+bus = &"Sounds"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
