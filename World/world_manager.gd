@@ -14,11 +14,11 @@ var rooms := {
 	4: "res://Levels/OneLoop/BoxFreeze/box_freeze.tscn",
 	5: "res://Levels/OneLoop/TwoDoors/two_doors.tscn",
 	6: "res://Levels/TwoLoop/TwoBoxes/two_boxes.tscn",
-	7: "res://Levels/TwoLoop/Bridge/bridge.tscn",
-	8: "res://Levels/TwoLoop/Speedrun/speedrun.tscn",
+	7: "res://Levels/TwoLoop/FlipSwitch/flip_switch.tscn",
+	8: "res://Levels/TwoLoop/Bridge/bridge.tscn",
 	9: "res://Levels/TwoLoop/Tower/tower.tscn",
-	10: "res://Levels/TwoLoop/PortalPlatform/portal_platform.tscn",
-	11: "res://Menu/Title.tscn", #PLACEHOLDER
+	10: "res://Levels/TwoLoop/Speedrun/speedrun.tscn",
+	11: "res://Levels/TwoLoop/PortalPlatform/portal_platform.tscn",
 	12: "res://Levels/ThreeLoop/SliderCity/slider_city.tscn",
 	13: "res://Menu/Title.tscn",
 }
@@ -35,6 +35,7 @@ var master_volume: float = -10 :
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(0, value)
+		print(AudioServer.get_bus_name(0) + ": " + str(AudioServer.get_bus_volume_db(0)))
 		master_volume = value
 		
 var music_volume: float = -10 : 
@@ -42,6 +43,7 @@ var music_volume: float = -10 :
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(1, value)
+		print(AudioServer.get_bus_name(1) + ": " + str(AudioServer.get_bus_volume_db(1)))
 		music_volume = value
 		
 var sound_volume: float = -10 : 
@@ -49,6 +51,7 @@ var sound_volume: float = -10 :
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(2, value)
+		print(AudioServer.get_bus_name(2) + ": " + str(AudioServer.get_bus_volume_db(2)))
 		sound_volume = value
 		
 
@@ -77,12 +80,14 @@ func get_level_name(number: int) -> String:
 		6:
 			return "Two Boxes"
 		7:
-			return "Bridge"
+			return "Flip Switch"
 		8:
-			return "Speedrun"
+			return "Bridge"
 		9:
 			return "Tower"
 		10:
+			return "Speedrun"
+		11:
 			return "Portal Platform"
 		12:
 			return "Slider City"
