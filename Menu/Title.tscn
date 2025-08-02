@@ -109,7 +109,7 @@ texture = ExtResource("1_7f3b6")
 flip_h = true
 
 [node name="Wrench" type="TextureRect" parent="CanvasLayer/Parallax/2"]
-offset_left = 67.0
+offset_left = 93.0
 offset_top = -7.0
 offset_right = 279.0
 offset_bottom = 315.0
@@ -145,6 +145,7 @@ script = ExtResource("7_p45sp")
 [node name="SelectSF" type="AudioStreamPlayer2D" parent="CanvasLayer/Menu"]
 stream = ExtResource("12_u7ajr")
 volume_db = -5.0
+bus = &"Sounds"
 
 [node name="Loop" type="TextureRect" parent="CanvasLayer/Menu"]
 material = SubResource("ShaderMaterial_dgtrm")

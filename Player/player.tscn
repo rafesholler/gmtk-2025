@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cf2nbw1l4orcf"]
+[gd_scene load_steps=23 format=4 uid="uid://cf2nbw1l4orcf"]
 
 [ext_resource type="Script" uid="uid://vejok7400jcd" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://dxmffxw51dhku" path="res://Loop/loopable.gd" id="2_4ntmi"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://dk2o0ibvh8kp4" path="res://Player/StateMachine/state_machine.gd" id="4_k53q1"]
 [ext_resource type="Script" uid="uid://dbgf047ynunmq" path="res://Player/idle.gd" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://c3foq0y4ylluv" path="res://Player/run.gd" id="6_fhl08"]
+[ext_resource type="AudioStream" uid="uid://cwvkt7pwxsi8x" path="res://Audio/Sounds/Steps.wav" id="8_00tjw"]
 [ext_resource type="Script" uid="uid://cr7hm48hjbb3f" path="res://Player/fall.gd" id="8_od3ui"]
+[ext_resource type="AudioStream" uid="uid://cb3enoft0hlc5" path="res://Audio/Sounds/Jump.wav" id="9_00tjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(7, 21)
@@ -76,6 +78,22 @@ format = 3
 mix_rate = 96000
 stereo = true
 
+[sub_resource type="Curve" id="Curve_00tjw"]
+_data = [Vector2(0, 0.158971), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.146465), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_x3vf3"]
+offsets = PackedFloat32Array(0.536667, 1)
+colors = PackedColorArray(0.502, 0.488, 0.489, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_x3vf3"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_00tjw"]
+offsets = PackedFloat32Array(0.00666667, 0.71, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -143,6 +161,53 @@ position = Vector2(-28, -20)
 stream = SubResource("AudioStreamWAV_vtle1")
 volume_db = -5.0
 bus = &"Sounds"
+
+[node name="Run" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("8_00tjw")
+volume_db = 5.0
+pitch_scale = 1.5
+bus = &"Sounds"
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("9_00tjw")
+bus = &"Sounds"
+
+[node name="Dust" type="CPUParticles2D" parent="."]
+position = Vector2(0, -2)
+amount = 20
+randomness = 0.2
+direction = Vector2(0, 0)
+spread = 40.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+scale_amount_min = 5.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_00tjw")
+color_ramp = SubResource("Gradient_x3vf3")
+
+[node name="Death" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, -11)
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.75
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_x3vf3")
+color_ramp = SubResource("Gradient_00tjw")
 
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]

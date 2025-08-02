@@ -15,10 +15,6 @@ run/main_scene="uid://csq7ydj2eogyo"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[audio]
-
-buses/default_bus_layout="uid://bfftbi15l5bc0"
-
 [autoload]
 
 LoopManager="*res://Loop/loop_manager.gd"
@@ -119,7 +115,9 @@ pause={
 
 [physics]
 
+common/physics_ticks_per_second=120
 2d/default_gravity=400.0
+common/default_bus_layout="uid://bfftbi15l5bc0"
 
 [rendering]
 
