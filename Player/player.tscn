@@ -96,7 +96,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_l8h54")
 
 [node name="Loopable" type="Node" parent="." node_paths=PackedStringArray("properties")]
