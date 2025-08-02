@@ -17,7 +17,12 @@ func _physics_process(delta: float) -> void:
 
 func activate() -> void:
 	move_toward_end = true
+	#$Slide.pitch_scale = randf_range(1.0,1.5)
+	#$Slide.play()
 
 
 func deactivate() -> void:
+	#$Slide.pitch_scale = randf_range(1.0,1.5)
+	#$Slide.play()
 	move_toward_end = false
+	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2qefs2tmc7sr"]
+[gd_scene load_steps=10 format=3 uid="uid://b2qefs2tmc7sr"]
 
 [ext_resource type="Script" uid="uid://tao70damtl4x" path="res://Objects/Laser/AOlaser.gd" id="1_k6cgc"]
 [ext_resource type="Texture2D" uid="uid://djpxl680wxgvs" path="res://Objects/Laser/laser.png" id="2_q55v6"]
 [ext_resource type="AudioStream" uid="uid://rptx0sp2f4lu" path="res://Audio/Sounds/LaserSF.wav" id="3_q55v6"]
+[ext_resource type="AudioStream" uid="uid://bwfety8ds5vfp" path="res://Audio/Sounds/LaserDeath.wav" id="4_rr41x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yytdp"]
 atlas = ExtResource("2_q55v6")
@@ -56,5 +57,9 @@ stream = ExtResource("3_q55v6")
 volume_db = -35.0
 pitch_scale = 1.2
 autoplay = true
+
+[node name="LaserDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_rr41x")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

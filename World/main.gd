@@ -13,3 +13,4 @@ func _load_next_room():
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		WorldManager.reset_level()
+		$Reset.play()

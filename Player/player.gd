@@ -29,14 +29,20 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = true
 	if dir > 0 and $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = false
-
-
+	
+	if is_on_floor() and velocity != Vector2.ZERO:
+		if not $Audio/Run.playing:
+			$Audio/Run.play()
+	else:
+		$Audio/Run.stop()
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jumped = false
 		coyote_window = true
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		$Audio/Jump.pitch_scale = randf_range(0.8,1.2)
+		$Audio/Jump.play()
 		velocity.y = -200
 		jumped = true
 	
