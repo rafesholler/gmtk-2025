@@ -34,6 +34,7 @@ var master_volume: float = -10 :
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(0, value)
+		print(AudioServer.get_bus_name(0) + ": " + str(AudioServer.get_bus_volume_db(0)))
 		master_volume = value
 		
 var music_volume: float = -10 : 
@@ -41,6 +42,7 @@ var music_volume: float = -10 :
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(1, value)
+		print(AudioServer.get_bus_name(1) + ": " + str(AudioServer.get_bus_volume_db(1)))
 		music_volume = value
 		
 var sound_volume: float = -10 : 
@@ -48,6 +50,7 @@ var sound_volume: float = -10 :
 		if value == -35:
 			value = -70
 		AudioServer.set_bus_volume_db(2, value)
+		print(AudioServer.get_bus_name(2) + ": " + str(AudioServer.get_bus_volume_db(2)))
 		sound_volume = value
 		
 
