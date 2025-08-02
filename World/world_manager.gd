@@ -13,11 +13,11 @@ var rooms := {
 	4: "res://Levels/OneLoop/BoxFreeze/box_freeze.tscn",
 	5: "res://Levels/OneLoop/TwoDoors/two_doors.tscn",
 	6: "res://Levels/TwoLoop/TwoBoxes/two_boxes.tscn",
-	7: "res://Levels/TwoLoop/Bridge/bridge.tscn",
-	8: "res://Levels/TwoLoop/Speedrun/speedrun.tscn",
+	7: "res://Levels/TwoLoop/FlipSwitch/flip_switch.tscn",
+	8: "res://Levels/TwoLoop/Bridge/bridge.tscn",
 	9: "res://Levels/TwoLoop/Tower/tower.tscn",
-	10: "res://Levels/TwoLoop/PortalPlatform/portal_platform.tscn",
-	11: "res://Menu/Title.tscn", #PLACEHOLDER
+	10: "res://Levels/TwoLoop/Speedrun/speedrun.tscn",
+	11: "res://Levels/TwoLoop/PortalPlatform/portal_platform.tscn",
 	12: "res://Levels/ThreeLoop/SliderCity/slider_city.tscn",
 	13: "res://Menu/Title.tscn",
 }
@@ -76,12 +76,14 @@ func get_level_name(number: int) -> String:
 		6:
 			return "Two Boxes"
 		7:
-			return "Bridge"
+			return "Flip Switch"
 		8:
-			return "Speedrun"
+			return "Bridge"
 		9:
 			return "Tower"
 		10:
+			return "Speedrun"
+		11:
 			return "Portal Platform"
 		12:
 			return "Slider City"
