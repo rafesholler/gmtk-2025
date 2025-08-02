@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csq7ydj2eogyo"]
+[gd_scene load_steps=11 format=3 uid="uid://csq7ydj2eogyo"]
 
 [ext_resource type="Script" uid="uid://br61rentytpv" path="res://World/main.gd" id="1_njf5y"]
 [ext_resource type="Texture2D" uid="uid://cmugwnc147oa5" path="res://Environment/Background/BGBox1.png" id="2_cwkwy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmwl06vnjgxbp" path="res://Environment/Background/Wrench.png" id="6_xpxos"]
 [ext_resource type="AudioStream" uid="uid://wspp4akle7am" path="res://Audio/Sounds/AmbientBGSF.wav" id="8_1hcjw"]
 [ext_resource type="AudioStream" uid="uid://cnfqbtjj4hkbi" path="res://Audio/Sounds/BGM.mp3" id="9_pyyff"]
+[ext_resource type="AudioStream" uid="uid://bw6rd5qdb7ru3" path="res://Audio/Sounds/Reset.mp3" id="10_td74h"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_njf5y")
@@ -131,7 +132,7 @@ texture = ExtResource("5_8pwpp")
 stretch_mode = 1
 
 [node name="Wrench" type="TextureRect" parent="BG/Background/2"]
-offset_left = 117.0
+offset_left = 150.0
 offset_top = 273.0
 offset_right = 259.0
 offset_bottom = 481.0
@@ -173,7 +174,7 @@ offset_bottom = 686.0
 texture = ExtResource("2_cwkwy")
 
 [node name="Wrench" type="TextureRect" parent="BG/Background/1"]
-offset_left = 272.0
+offset_left = 301.0
 offset_top = 41.0
 offset_right = 507.0
 offset_bottom = 423.0
@@ -190,10 +191,11 @@ process_mode = 3
 stream = ExtResource("8_1hcjw")
 volume_db = -20.0
 autoplay = true
-bus = &"Music"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BGM"]
+[node name="BGM" type="AudioStreamPlayer2D" parent="BGM"]
 process_mode = 3
 stream = ExtResource("9_pyyff")
-autoplay = true
-bus = &"Music"
+
+[node name="Reset" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_td74h")
+pitch_scale = 2.0
