@@ -13,7 +13,7 @@ config_version=5
 config/name="GMTK 2025"
 run/main_scene="uid://csq7ydj2eogyo"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cwd182jfyvnue"
 
 [autoload]
 

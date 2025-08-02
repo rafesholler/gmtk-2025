@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		$Audio/Jump.pitch_scale = randf_range(0.8,1.2)
-		$Audio/Jump.play()
+		$Audio/Jump.play(.11)
 		velocity.y = -200
 		jumped = true
 	
@@ -57,6 +57,8 @@ func _physics_process(delta: float) -> void:
 		$JumpCutTimer.start(.2)
 	
 	if is_on_floor() and not $JumpCutTimer.is_stopped():
+		$Audio/Jump.pitch_scale = randf_range(0.8,1.2)
+		$Audio/Jump.play(.11)
 		velocity.y = -200
 		jumped = true
 	
@@ -66,6 +68,8 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor() and coyote_window and not $CoyoteTimer.is_stopped():
 		if Input.is_action_just_pressed("jump"):
+			$Audio/Jump.pitch_scale = randf_range(0.8,1.2)
+			$Audio/Jump.play(.11)
 			velocity.y = -200
 			jumped = true
 	
