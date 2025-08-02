@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="1_s2xw7"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="2_odpxa"]
 [ext_resource type="PackedScene" uid="uid://cf2nbw1l4orcf" path="res://Player/player.tscn" id="2_uckap"]
-[ext_resource type="PackedScene" path="res://Environment/foreground.tscn" id="2_xuju6"]
+[ext_resource type="PackedScene" uid="uid://v1pm5jgg4fl3" path="res://Environment/foreground.tscn" id="2_xuju6"]
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="3_n2elc"]
 [ext_resource type="PackedScene" uid="uid://d0y011d078tou" path="res://Objects/Box/box.tscn" id="3_odpxa"]
 [ext_resource type="PackedScene" uid="uid://ce0fyafaupkhg" path="res://Objects/Box/heavy_box.tscn" id="4_n2elc"]

@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://tgvrkpnl5783" path="res://Environment/Background/BGBox3.png" id="4_8pwpp"]
 [ext_resource type="Texture2D" uid="uid://c0qersfmy43ks" path="res://Environment/Background/Rail.png" id="5_8pwpp"]
 [ext_resource type="Texture2D" uid="uid://dmwl06vnjgxbp" path="res://Environment/Background/Wrench.png" id="6_xpxos"]
-[ext_resource type="AudioStream" uid="uid://wspp4akle7am" path="res://Audio/Sounds/AmbientBGSF.wav" id="8_1hcjw"]
-[ext_resource type="AudioStream" uid="uid://cnfqbtjj4hkbi" path="res://Audio/Sounds/BGM.mp3" id="9_pyyff"]
+[ext_resource type="AudioStream" uid="uid://wspp4akle7am" path="res://Audio/Music/AmbientBGSF.wav" id="8_1hcjw"]
+[ext_resource type="AudioStream" uid="uid://cnfqbtjj4hkbi" path="res://Audio/Music/BGM.mp3" id="9_pyyff"]
 [ext_resource type="AudioStream" uid="uid://bw6rd5qdb7ru3" path="res://Audio/Sounds/Reset.mp3" id="10_td74h"]
 
 [node name="Main" type="Node2D"]
