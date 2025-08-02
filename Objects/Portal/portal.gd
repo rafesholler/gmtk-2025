@@ -51,7 +51,8 @@ func _on_body_entered(body: Node2D) -> void:
 		if abs(int(rotation_degrees) % 360) > 45 and abs(int(rotation_degrees) % 360) < 135 and !disable_inverse:
 			body.velocity.y *= -1
 		if disable_inverse: #So that I can make levels with falling blocks
-			body.velocity = Vector2.ZERO
+			body.velocity.x = 0
+			body.velocity.y = -50
 		$Sound.pitch_scale = randf_range(1, 1.3)
 		$Sound.play()
 
