@@ -21,7 +21,7 @@ position = Vector2(155, 160)
 position = Vector2(794, 160)
 
 [node name="Button" parent="." instance=ExtResource("4_ofxam")]
-position = Vector2(426, 62)
+position = Vector2(426, 64)
 
 [node name="Button2" parent="." instance=ExtResource("4_ofxam")]
 position = Vector2(576, 191)
@@ -40,10 +40,13 @@ position = Vector2(588, -43)
 position = Vector2(672, -43)
 
 [node name="SlidePlatform4" parent="." instance=ExtResource("6_d3dmy")]
-position = Vector2(767, 283)
+position = Vector2(743, 283)
 
 [node name="Endpoint" parent="SlidePlatform4" index="0"]
-position = Vector2(725, 284)
+position = Vector2(696, 284)
+
+[node name="CollisionShape2D" parent="SlidePlatform4" index="2"]
+position = Vector2(5.5, 0)
 
 [node name="SlidePlatform" parent="." instance=ExtResource("6_d3dmy")]
 position = Vector2(437, 144)
@@ -79,7 +82,7 @@ position = Vector2(-10.9999, 3.99986)
 position = Vector2(157, 186)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = -240
 limit_right = 913
