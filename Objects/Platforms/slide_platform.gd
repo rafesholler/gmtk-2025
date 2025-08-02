@@ -27,13 +27,15 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(Vector2.ZERO)
 
 func activate() -> void:
-	move_toward_end = true
-	$Slide.pitch_scale = randf_range(1.0,1.5)
-	$Slide.play()
+	if not move_toward_end:
+		move_toward_end = true
+		$Slide.pitch_scale = randf_range(1.0,1.5)
+		$Slide.play()
 
 
 func deactivate() -> void:
-	$Slide.pitch_scale = randf_range(1.0,1.5)
-	$Slide.play()
-	move_toward_end = false
+	if move_toward_end:
+		$Slide.pitch_scale = randf_range(1.0,1.5)
+		$Slide.play()
+		move_toward_end = false
 	
