@@ -8,6 +8,10 @@
 size = Vector2(64, 24)
 
 [node name="SlidePlatform" type="CharacterBody2D"]
+collision_layer = 17
+collision_mask = 16
+platform_on_leave = 2
+platform_floor_layers = 4294967040
 script = ExtResource("1_7jxnr")
 
 [node name="Endpoint" type="Node2D" parent="."]
@@ -24,3 +28,11 @@ stream = ExtResource("3_ohvgd")
 volume_db = 5.0
 pitch_scale = 1.5
 bus = &"Sounds"
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_ohvgd")
