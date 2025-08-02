@@ -117,6 +117,7 @@ pause={
 
 common/physics_ticks_per_second=120
 2d/default_gravity=400.0
+common/default_bus_layout="uid://bfftbi15l5bc0"
 
 [rendering]
 

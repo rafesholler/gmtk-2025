@@ -23,3 +23,4 @@ shape = SubResource("RectangleShape2D_ohvgd")
 stream = ExtResource("3_ohvgd")
 volume_db = 5.0
 pitch_scale = 1.5
+bus = &"Sounds"
