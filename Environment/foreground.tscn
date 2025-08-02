@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://v1pm5jgg4fl3"]
+
+[ext_resource type="Texture2D" uid="uid://dg4m3lkhxr11s" path="res://Environment/Foreground/ForegroundTiles.png" id="1_ur1y7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydbrt"]
+texture = ExtResource("1_ur1y7")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7oc7o"]
+sources/0 = SubResource("TileSetAtlasSource_ydbrt")
+
+[node name="Foreground" type="TileMapLayer"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+tile_set = SubResource("TileSet_7oc7o")
