@@ -20,15 +20,22 @@ func _ready() -> void:
 	if get_node_or_null("/root/Main/Overlay/UI/Transition"):
 		get_node("/root/Main/Overlay/UI/Transition").finished.connect(_on_transition_finished)
 	WorldManager.next_room.connect(_on_transition_started)
-
+	WorldManager.connect("kill_player", Callable(self,"_on_death"));
 
 func _process(delta: float) -> void:
 	var dir = Input.get_axis("move_left", "move_right")
 	
 	if dir < 0 and not $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = true
+		$Dust.direction.x = -1
 	if dir > 0 and $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = false
+		$Dust.direction.x = 1
+	
+	if velocity == Vector2.ZERO or not is_on_floor():
+		$Dust.emitting = false
+	else:
+		$Dust.emitting = true
 	
 	if is_on_floor() and velocity != Vector2.ZERO:
 		if not $Audio/Run.playing:
@@ -139,3 +146,9 @@ func _on_pull_range_body_exited(body: Node2D) -> void:
 
 func _on_coyote_timer_timeout() -> void:
 	coyote_window = false
+
+func _on_death():
+	$AnimatedSprite2D.visible = false
+	$Dust.visible = false
+	$Death.visible = true
+	$Death.emitting = true

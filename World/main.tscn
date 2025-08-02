@@ -191,11 +191,15 @@ process_mode = 3
 stream = ExtResource("8_1hcjw")
 volume_db = -20.0
 autoplay = true
+bus = &"Sounds"
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="BGM"]
 process_mode = 3
 stream = ExtResource("9_pyyff")
+autoplay = true
+bus = &"Music"
 
 [node name="Reset" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_td74h")
 pitch_scale = 2.0
+bus = &"Sounds"

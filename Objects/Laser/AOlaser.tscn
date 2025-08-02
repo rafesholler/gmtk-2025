@@ -57,6 +57,7 @@ stream = ExtResource("3_q55v6")
 volume_db = -35.0
 pitch_scale = 1.2
 autoplay = true
+bus = &"Sounds"
 
 [node name="LaserDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_rr41x")
