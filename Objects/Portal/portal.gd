@@ -1,6 +1,8 @@
 extends Area2D
 class_name Portal
 
+@export var disable_inverse = false
+
 enum Colors {
 	PURPLE,
 	YELLOW,
@@ -46,8 +48,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if not just_teleported:
 		pair.just_teleported = true
 		body.position = pair.position
-		if abs(int(rotation_degrees) % 360) > 45 and abs(int(rotation_degrees) % 360) < 135:
+		if abs(int(rotation_degrees) % 360) > 45 and abs(int(rotation_degrees) % 360) < 135 and !disable_inverse:
 			body.velocity.y *= -1
+		if disable_inverse: #So that I can make levels with falling blocks
+			body.velocity = Vector2.ZERO
 		$Sound.pitch_scale = randf_range(1, 1.3)
 		$Sound.play()
 
