@@ -72,7 +72,7 @@ position = Vector2(199, 149)
 rotation = 1.5708
 scale = Vector2(0.75, 0.75)
 speed = 0.001
-frame_delay = 2
+frame_delay = 3
 
 [node name="Endpoint" parent="AutoPlatform" index="0"]
 position = Vector2(199, 41)

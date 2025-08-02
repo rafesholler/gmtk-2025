@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="2_3ax58"]
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="3_327uo"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="3_nh0yo"]
-[ext_resource type="TileSet" uid="uid://c3bbynk3ek2sb" path="res://Environment/hazards.tres" id="4_j3adp"]
+[ext_resource type="TileSet" uid="uid://b2bi7bmwgp3qc" path="res://Environment/hazards.tres" id="4_j3adp"]
 [ext_resource type="PackedScene" uid="uid://d0y011d078tou" path="res://Objects/Box/box.tscn" id="4_rayfy"]
 [ext_resource type="PackedScene" uid="uid://ce0fyafaupkhg" path="res://Objects/Box/heavy_box.tscn" id="5_3ax58"]
 [ext_resource type="PackedScene" uid="uid://bc4mudwsgjt1o" path="res://Objects/Portal/portal.tscn" id="7_e5nx2"]
