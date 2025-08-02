@@ -20,7 +20,8 @@ var rooms := {
 	10: "res://Levels/TwoLoop/Speedrun/speedrun.tscn",
 	11: "res://Levels/TwoLoop/PortalPlatform/portal_platform.tscn",
 	12: "res://Levels/ThreeLoop/SliderCity/slider_city.tscn",
-	13: "res://Menu/Title.tscn",
+	13: "res://Levels/ThreeLoop/SimpleMachine/simple_machine.tscn",
+	14: "res://Menu/title.tscn"
 }
 
 var room_index: int = 0 :
