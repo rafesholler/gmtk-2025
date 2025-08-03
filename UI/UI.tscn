@@ -69,7 +69,6 @@ text = "1"
 label_settings = SubResource("LabelSettings_f1fl4")
 
 [node name="Transition" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
