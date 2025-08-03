@@ -137,7 +137,7 @@ func clear_marked_objects() -> void:
 func _get_loop_color(loop_index: int) -> Color:
 	match loop_index:
 		0:
-			return Color(0.675, 0.286, 0.596)
+			return Color(0.675, 0.286, 0.596, .75)
 		1:
 			return Color(0.616, 0.694, 0.263, .75)
 		2:

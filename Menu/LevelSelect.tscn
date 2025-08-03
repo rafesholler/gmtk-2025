@@ -467,6 +467,90 @@ label_settings = SubResource("LabelSettings_fwg7u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="15" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 14
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "15"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="16" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/16"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "16"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="17" type="TextureButton" parent="CanvasLayer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_lkv0u")
+texture_pressed = ExtResource("6_fwg7u")
+texture_hover = ExtResource("7_61bti")
+script = ExtResource("9_3p8ty")
+number = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/Grid/17"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -25.5
+offset_right = 6.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "17"
+label_settings = SubResource("LabelSettings_fwg7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Back" type="TextureButton" parent="CanvasLayer"]
 offset_left = 38.0
 offset_top = 534.0
@@ -515,4 +599,7 @@ volume_db = -5.0
 [connection signal="pressed" from="CanvasLayer/Grid/12" to="CanvasLayer/Grid/12" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Grid/13" to="CanvasLayer/Grid/13" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Grid/14" to="CanvasLayer/Grid/14" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/15" to="CanvasLayer/Grid/15" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/16" to="CanvasLayer/Grid/16" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Grid/17" to="CanvasLayer/Grid/17" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Back" to="CanvasLayer/Back" method="_on_pressed"]

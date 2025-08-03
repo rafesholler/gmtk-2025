@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c3bbynk3ek2sb"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b2bi7bmwgp3qc"]
 
 [ext_resource type="PackedScene" uid="uid://b2qefs2tmc7sr" path="res://Objects/Laser/AOlaser.tscn" id="1_ejge1"]
 

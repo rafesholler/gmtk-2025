@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0y011d078tou" path="res://Objects/Box/box.tscn" id="3_8uuos"]
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="3_h43n3"]
 [ext_resource type="PackedScene" uid="uid://d2ed68h0eog6" path="res://Objects/Lever/lever.tscn" id="4_peo21"]
-[ext_resource type="TileSet" uid="uid://c3bbynk3ek2sb" path="res://Environment/hazards.tres" id="5_h43n3"]
+[ext_resource type="TileSet" uid="uid://b2bi7bmwgp3qc" path="res://Environment/hazards.tres" id="5_h43n3"]
 
 [node name="MovingBox" type="Node2D"]
 script = ExtResource("1_8uuos")
@@ -61,6 +61,14 @@ tile_map_data = PackedByteArray("AAAAAP//AgABAAEAAAAAAAAAAgABAAEAAAAAAAEAAgABAAE
 tile_set = ExtResource("1_i16y0")
 
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
+[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@33974" to="Hazards/@Area2D@33974" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@33975" to="Hazards/@Area2D@33975" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@33976" to="Hazards/@Area2D@33976" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@33977" to="Hazards/@Area2D@33977" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@33978" to="Hazards/@Area2D@33978" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@33979" to="Hazards/@Area2D@33979" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@33980" to="Hazards/@Area2D@33980" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]

@@ -4,6 +4,7 @@ signal just_pressed
 signal just_unpressed
 
 @export var afterimage_interactable := true
+@export var box_interactable := true
 
 var bodies_in_area = []
 var pressed = false
@@ -20,10 +21,16 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	$ButtonPress.pitch_scale = randf_range(0.8, 1.0)
 	$ButtonPress.play()
-	if body is Player or Box or HeavyBox:
+	if body is Player:
 		bodies_in_area.append(body)
 		if bodies_in_area.size() == 1:
 			just_pressed.emit()
+			
+	if box_interactable and (body is Box or body is HeavyBox):
+		bodies_in_area.append(body)
+		if bodies_in_area.size() == 1:
+			just_pressed.emit()
+			
 	if body.is_in_group("afterimage") and afterimage_interactable:
 		bodies_in_area.append(body)
 		if bodies_in_area.size() == 1:
