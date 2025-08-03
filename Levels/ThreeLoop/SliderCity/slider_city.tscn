@@ -88,12 +88,6 @@ scale = Vector2(1.25, 1)
 [node name="Endpoint" parent="SlidePlatform6" index="0"]
 position = Vector2(477, -24)
 
-[node name="Box" parent="." instance=ExtResource("3_4vst8")]
-position = Vector2(159, 176)
-
-[node name="HeavyBox" parent="." instance=ExtResource("4_a6eit")]
-position = Vector2(613, 288)
-
 [node name="Hazards" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAGAAgAAAAAAAAAAQAHAAgAAAAAAAAAAQAIAAgAAAAAAAAAAQAJAAgAAAAAAAAAAQAKAAgAAAAAAAAAAQALAAgAAAAAAAAAAQAMAAgAAAAAAAAAAQANAAgAAAAAAAAAAQAOAAgAAAAAAAAAAQA=")
 tile_set = ExtResource("11_qlq3w")
@@ -126,6 +120,12 @@ limit_top = 0
 limit_right = 755
 limit_bottom = 324
 
+[node name="Box" parent="." instance=ExtResource("3_4vst8")]
+position = Vector2(159, 176)
+
+[node name="HeavyBox" parent="." instance=ExtResource("4_a6eit")]
+position = Vector2(613, 288)
+
 [node name="Label" type="Label" parent="."]
 offset_left = 19.0
 offset_top = 203.0
@@ -145,15 +145,18 @@ horizontal_alignment = 1
 [connection signal="just_pressed" from="Button3" to="." method="_on_button_3_just_pressed"]
 [connection signal="just_unpressed" from="Button3" to="." method="_on_button_3_just_unpressed"]
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
+<<<<<<< HEAD
 [connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262348" to="Hazards/@Area2D@262348" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262349" to="Hazards/@Area2D@262349" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262350" to="Hazards/@Area2D@262350" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262351" to="Hazards/@Area2D@262351" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262352" to="Hazards/@Area2D@262352" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262353" to="Hazards/@Area2D@262353" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262354" to="Hazards/@Area2D@262354" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@262355" to="Hazards/@Area2D@262355" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73442" to="Hazards/@Area2D@73442" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73443" to="Hazards/@Area2D@73443" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73444" to="Hazards/@Area2D@73444" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73445" to="Hazards/@Area2D@73445" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73446" to="Hazards/@Area2D@73446" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73447" to="Hazards/@Area2D@73447" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73448" to="Hazards/@Area2D@73448" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@73449" to="Hazards/@Area2D@73449" method="_on_body_entered"]
+=======
+>>>>>>> parent of badb1b9 (End Screen)
 
 [editable path="SlidePlatform1"]
 [editable path="SlidePlatform2"]
