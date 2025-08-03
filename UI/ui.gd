@@ -14,7 +14,8 @@ func _process(delta: float) -> void:
 	else:
 		$Transition/Screen/Title.visible=true
 func _on_next_room():
-	$Transition/Screen/Title.text = WorldManager.get_level_name(WorldManager.room_index)
+	if WorldManager.room_index != -1:
+		$Transition/Screen/Title.text = WorldManager.get_level_name(WorldManager.room_index)
 	$Transition.enter_screen()
 	LoopManager.cancel_all_loops()
 	LoopManager.index = 0
