@@ -23,8 +23,8 @@ var rooms := {
 	13: "res://Levels/ThreeLoop/ControlRoom/control_room.tscn",
 	14: "res://Levels/ThreeLoop/Speedrun2/speedrun2.tscn",
 	15: "res://Levels/ThreeLoop/SimpleMachine/simple_machine.tscn",
-	16: "res://Levels/ThreeLoop/Block Falls/block_falls.tscn",
-	17: "res://Menu/Title.tscn",
+	16: "res://Levels/ThreeLoop/BlockFalls/block_falls.tscn",
+	17: "res://Levels/EndScreen/endScreen.tscn",
 }
 
 var room_index: int = 0 :
@@ -103,6 +103,8 @@ func get_level_name(number: int) -> String:
 			return "Simple Machine"
 		16:
 			return "Alternate"
+		17:
+			return "End"
 		_:
 			printerr("Cannot find name of level " + str(number))
 			return "MISSING STRING"
