@@ -134,16 +134,6 @@ frame_delay = 1
 [node name="Endpoint" parent="EndPlatform3" index="0"]
 position = Vector2(745, 336)
 
-[node name="Player" parent="." instance=ExtResource("1_la4bf")]
-position = Vector2(47, 80)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 800
-limit_bottom = 384
-
 [node name="Box" parent="." instance=ExtResource("8_sgx1w")]
 position = Vector2(176, 256)
 
@@ -186,6 +176,16 @@ color = 2
 position = Vector2(20, 351)
 color = 2
 
+[node name="Player" parent="." instance=ExtResource("1_la4bf")]
+position = Vector2(47, 80)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 800
+limit_bottom = 384
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
@@ -196,6 +196,19 @@ color = 2
 [connection signal="switched" from="Lever1" to="." method="_on_lever_1_switched"]
 [connection signal="switched" from="Lever2" to="." method="_on_lever_2_switched"]
 [connection signal="switched" from="Lever3" to="." method="_on_lever_3_switched"]
+[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239863" to="Hazards/@Area2D@239863" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239864" to="Hazards/@Area2D@239864" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239865" to="Hazards/@Area2D@239865" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239866" to="Hazards/@Area2D@239866" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239867" to="Hazards/@Area2D@239867" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239868" to="Hazards/@Area2D@239868" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239869" to="Hazards/@Area2D@239869" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239870" to="Hazards/@Area2D@239870" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239871" to="Hazards/@Area2D@239871" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239872" to="Hazards/@Area2D@239872" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239873" to="Hazards/@Area2D@239873" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239874" to="Hazards/@Area2D@239874" method="_on_body_entered"]
 
 [editable path="SlidePlatform1"]
 [editable path="SlidePlatform2"]

@@ -40,16 +40,6 @@ speed = 0.07
 [node name="Endpoint" parent="SlidePlatform2" index="0"]
 position = Vector2(420, 160)
 
-[node name="Player" parent="." instance=ExtResource("1_k4sjg")]
-position = Vector2(128, 80)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 592
-limit_bottom = 336
-
 [node name="Box" parent="." instance=ExtResource("4_rayfy")]
 position = Vector2(246, 64)
 
@@ -72,8 +62,28 @@ rotation = -1.5708
 position = Vector2(207, 257)
 rotation = 1.5708
 
+[node name="Player" parent="." instance=ExtResource("1_k4sjg")]
+position = Vector2(128, 80)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 592
+limit_bottom = 336
+
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
+[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240734" to="Hazards/@Area2D@240734" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240735" to="Hazards/@Area2D@240735" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240736" to="Hazards/@Area2D@240736" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240737" to="Hazards/@Area2D@240737" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240738" to="Hazards/@Area2D@240738" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240739" to="Hazards/@Area2D@240739" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240740" to="Hazards/@Area2D@240740" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240741" to="Hazards/@Area2D@240741" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@240742" to="Hazards/@Area2D@240742" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]

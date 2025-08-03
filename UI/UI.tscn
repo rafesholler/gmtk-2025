@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2u55jh7c6oiu"]
+[gd_scene load_steps=11 format=3 uid="uid://d2u55jh7c6oiu"]
 
 [ext_resource type="Script" uid="uid://4b1dbktieryr" path="res://UI/ui.gd" id="1_d050y"]
 [ext_resource type="Script" uid="uid://dgld827l0pqco" path="res://UI/Loops/loops.gd" id="1_q0uhn"]
@@ -23,6 +23,10 @@ font_color = Color(0.0705882, 0.121569, 0.215686, 1)
 outline_size = 13
 outline_color = Color(0.945098, 0.964706, 0.945098, 1)
 shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_byuxr"]
+font = ExtResource("4_e707p")
+font_size = 80
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -82,5 +86,21 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Title" type="Label" parent="Transition/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.5
+offset_top = -40.0
+offset_right = 147.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "test text"
+label_settings = SubResource("LabelSettings_byuxr")
 
 [connection signal="timeout" from="Loops/Flash" to="Loops" method="_on_flash_timeout"]
