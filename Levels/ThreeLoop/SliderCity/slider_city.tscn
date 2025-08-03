@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dfhxr5g4l6gg" path="res://Objects/Platforms/slide_platform.tscn" id="5_k0530"]
 [ext_resource type="TileSet" uid="uid://c0fh2yuw37u4s" path="res://Environment/tileset.tres" id="6_40ajj"]
 [ext_resource type="PackedScene" uid="uid://bc4mudwsgjt1o" path="res://Objects/Portal/portal.tscn" id="8_4vst8"]
-[ext_resource type="TileSet" uid="uid://c3bbynk3ek2sb" path="res://Environment/hazards.tres" id="11_qlq3w"]
+[ext_resource type="TileSet" uid="uid://b2bi7bmwgp3qc" path="res://Environment/hazards.tres" id="11_qlq3w"]
 [ext_resource type="FontFile" uid="uid://cxibkck3y8243" path="res://Fonts/DigitalDisco.ttf" id="12_adhkw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qlq3w"]
@@ -37,16 +37,6 @@ position = Vector2(43, 96)
 
 [node name="Lever" parent="." instance=ExtResource("3_a6eit")]
 position = Vector2(30, 192)
-
-[node name="Player" parent="." instance=ExtResource("2_t8e8l")]
-position = Vector2(85, 192)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 755
-limit_bottom = 324
 
 [node name="SlidePlatform1" parent="." instance=ExtResource("5_k0530")]
 position = Vector2(328, 204)
@@ -126,6 +116,16 @@ color = 1
 position = Vector2(240, 76)
 color = 1
 
+[node name="Player" parent="." instance=ExtResource("2_t8e8l")]
+position = Vector2(85, 192)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 755
+limit_bottom = 324
+
 [node name="Label" type="Label" parent="."]
 offset_left = 19.0
 offset_top = 203.0
@@ -145,6 +145,15 @@ horizontal_alignment = 1
 [connection signal="just_pressed" from="Button3" to="." method="_on_button_3_just_pressed"]
 [connection signal="just_unpressed" from="Button3" to="." method="_on_button_3_just_unpressed"]
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
+[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238132" to="Hazards/@Area2D@238132" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238133" to="Hazards/@Area2D@238133" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238134" to="Hazards/@Area2D@238134" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238135" to="Hazards/@Area2D@238135" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238136" to="Hazards/@Area2D@238136" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238137" to="Hazards/@Area2D@238137" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238138" to="Hazards/@Area2D@238138" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@238139" to="Hazards/@Area2D@238139" method="_on_body_entered"]
 
 [editable path="SlidePlatform1"]
 [editable path="SlidePlatform2"]
