@@ -23,7 +23,7 @@ var rooms := {
 	13: "res://Levels/ThreeLoop/ControlRoom/control_room.tscn",
 	14: "res://Levels/ThreeLoop/Speedrun2/speedrun2.tscn",
 	15: "res://Levels/ThreeLoop/SimpleMachine/simple_machine.tscn",
-	16: "res://Levels/ThreeLoop/Block Falls/block_falls.tscn",
+	16: "res://Levels/ThreeLoop/BlockFalls/block_falls.tscn",
 	17: "res://Menu/Title.tscn",
 }
 
