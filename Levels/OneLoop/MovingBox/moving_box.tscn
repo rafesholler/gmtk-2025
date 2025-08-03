@@ -61,14 +61,6 @@ tile_map_data = PackedByteArray("AAAAAP//AgABAAEAAAAAAAAAAgABAAEAAAAAAAEAAgABAAE
 tile_set = ExtResource("1_i16y0")
 
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
-[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@250802" to="Hazards/@Area2D@250802" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@250803" to="Hazards/@Area2D@250803" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@250804" to="Hazards/@Area2D@250804" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@250805" to="Hazards/@Area2D@250805" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@250806" to="Hazards/@Area2D@250806" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@250807" to="Hazards/@Area2D@250807" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@250808" to="Hazards/@Area2D@250808" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]

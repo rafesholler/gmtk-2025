@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://du8iklgwqljco" path="res://Audio/Sounds/Slide.wav" id="3_ohvgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohvgd"]
-size = Vector2(75, 24)
+size = Vector2(75, 25.125)
 
 [node name="SlidePlatform" type="CharacterBody2D"]
 collision_layer = 17
