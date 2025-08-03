@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bc4mudwsgjt1o" path="res://Objects/Portal/portal.tscn" id="5_llhyv"]
 [ext_resource type="PackedScene" uid="uid://dfhxr5g4l6gg" path="res://Objects/Platforms/slide_platform.tscn" id="6_818qo"]
 [ext_resource type="PackedScene" uid="uid://d0y011d078tou" path="res://Objects/Box/box.tscn" id="8_sgx1w"]
-[ext_resource type="TileSet" uid="uid://c3bbynk3ek2sb" path="res://Environment/hazards.tres" id="9_dj3le"]
+[ext_resource type="TileSet" uid="uid://b2bi7bmwgp3qc" path="res://Environment/hazards.tres" id="9_dj3le"]
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="10_tx0mj"]
 [ext_resource type="PackedScene" uid="uid://d2ed68h0eog6" path="res://Objects/Lever/lever.tscn" id="11_q8bty"]
 
@@ -134,16 +134,6 @@ frame_delay = 1
 [node name="Endpoint" parent="EndPlatform3" index="0"]
 position = Vector2(745, 336)
 
-[node name="Player" parent="." instance=ExtResource("1_la4bf")]
-position = Vector2(47, 80)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 800
-limit_bottom = 384
-
 [node name="Box" parent="." instance=ExtResource("8_sgx1w")]
 position = Vector2(176, 256)
 
@@ -186,6 +176,16 @@ color = 2
 position = Vector2(20, 351)
 color = 2
 
+[node name="Player" parent="." instance=ExtResource("1_la4bf")]
+position = Vector2(47, 80)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 800
+limit_bottom = 384
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
@@ -197,18 +197,18 @@ color = 2
 [connection signal="switched" from="Lever2" to="." method="_on_lever_2_switched"]
 [connection signal="switched" from="Lever3" to="." method="_on_lever_3_switched"]
 [connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305152" to="Hazards/@Area2D@305152" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305153" to="Hazards/@Area2D@305153" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305154" to="Hazards/@Area2D@305154" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305155" to="Hazards/@Area2D@305155" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305156" to="Hazards/@Area2D@305156" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305157" to="Hazards/@Area2D@305157" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305158" to="Hazards/@Area2D@305158" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305159" to="Hazards/@Area2D@305159" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305160" to="Hazards/@Area2D@305160" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305161" to="Hazards/@Area2D@305161" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305162" to="Hazards/@Area2D@305162" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@305163" to="Hazards/@Area2D@305163" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239863" to="Hazards/@Area2D@239863" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239864" to="Hazards/@Area2D@239864" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239865" to="Hazards/@Area2D@239865" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239866" to="Hazards/@Area2D@239866" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239867" to="Hazards/@Area2D@239867" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239868" to="Hazards/@Area2D@239868" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239869" to="Hazards/@Area2D@239869" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239870" to="Hazards/@Area2D@239870" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239871" to="Hazards/@Area2D@239871" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239872" to="Hazards/@Area2D@239872" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239873" to="Hazards/@Area2D@239873" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@239874" to="Hazards/@Area2D@239874" method="_on_body_entered"]
 
 [editable path="SlidePlatform1"]
 [editable path="SlidePlatform2"]
