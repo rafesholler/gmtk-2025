@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		for i in get_slide_collision_count():
 			var c = get_slide_collision(i)
 			if c.get_collider() is Box or c.get_collider() is HeavyBox:
-				c.get_collider().velocity = -c.get_normal() * 100
+				c.get_collider().velocity.x = -c.get_normal().x * 100
 		
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	

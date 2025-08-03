@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://d2avi2pjk4k2b"]
 
-[ext_resource type="Script" uid="uid://c5omoc33bta2" path="res://Levels/ThreeLoop/Block Falls/Block Falls.gd" id="1_eb3n1"]
+[ext_resource type="Script" uid="uid://c5omoc33bta2" path="res://Levels/ThreeLoop/BlockFalls/block_falls.gd" id="1_eb3n1"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="2_kmfmq"]
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="3_pc4fw"]
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="4_ofxam"]
@@ -24,19 +24,15 @@ position = Vector2(794, 160)
 position = Vector2(426, 64)
 
 [node name="Button2" parent="." instance=ExtResource("4_ofxam")]
-position = Vector2(576, 191)
+position = Vector2(576, 192)
 
 [node name="Button3" parent="." instance=ExtResource("4_ofxam")]
 position = Vector2(807, -64)
 
-[node name="Box3" parent="." instance=ExtResource("5_iuix2")]
-position = Vector2(534, 175)
-rotation = 1.5708
-
 [node name="SlidePlatform" parent="." instance=ExtResource("6_d3dmy")]
-position = Vector2(446, 145)
+position = Vector2(446, 144)
 rotation = 1.5708
-scale = Vector2(1.3, 1)
+scale = Vector2(1.5, 1)
 
 [node name="Endpoint" parent="SlidePlatform" index="0"]
 position = Vector2(549, 145)
@@ -44,7 +40,7 @@ position = Vector2(549, 145)
 [node name="SlidePlatform2" parent="." instance=ExtResource("6_d3dmy")]
 position = Vector2(575, 144)
 rotation = 1.5708
-scale = Vector2(1.3, 1)
+scale = Vector2(1.5, 1)
 
 [node name="Endpoint" parent="SlidePlatform2" index="0"]
 position = Vector2(723, 144)
@@ -81,13 +77,15 @@ disable_inverse = true
 position = Vector2(353, -63)
 rotation = -1.5708
 
-[node name="Box" parent="." instance=ExtResource("5_iuix2")]
-position = Vector2(353, 172)
-
 [node name="Portal3" parent="." instance=ExtResource("10_57nq8")]
 position = Vector2(680, 383)
 rotation = 1.5708
 disable_inverse = true
+color = 1
+
+[node name="Portal4" parent="." instance=ExtResource("10_57nq8")]
+position = Vector2(674, -74)
+rotation = 1.5708
 color = 1
 
 [node name="Portal5" parent="." instance=ExtResource("10_57nq8")]
@@ -105,13 +103,8 @@ rotation = 1.5708
 scale = Vector2(2, 2)
 color = 2
 
-[node name="Portal4" parent="." instance=ExtResource("10_57nq8")]
-position = Vector2(674, -74)
-rotation = 1.5708
-color = 1
-
 [node name="Player" parent="." instance=ExtResource("7_fmbyp")]
-position = Vector2(157, 186)
+position = Vector2(157, 192)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
@@ -120,12 +113,31 @@ limit_top = -240
 limit_right = 913
 limit_bottom = 430
 
+[node name="Box" parent="." instance=ExtResource("5_iuix2")]
+position = Vector2(353, 172)
+
+[node name="Box2" parent="." instance=ExtResource("5_iuix2")]
+position = Vector2(534, 175)
+rotation = 1.5708
+
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
 [connection signal="just_pressed" from="Button2" to="." method="_on_button_2_just_pressed"]
 [connection signal="just_unpressed" from="Button2" to="." method="_on_button_2_just_unpressed"]
 [connection signal="just_pressed" from="Button3" to="." method="_on_button_3_just_pressed"]
 [connection signal="just_unpressed" from="Button3" to="." method="_on_button_3_just_unpressed"]
+[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63898" to="Hazards/@Area2D@63898" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63899" to="Hazards/@Area2D@63899" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63900" to="Hazards/@Area2D@63900" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63901" to="Hazards/@Area2D@63901" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63902" to="Hazards/@Area2D@63902" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63903" to="Hazards/@Area2D@63903" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63904" to="Hazards/@Area2D@63904" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63905" to="Hazards/@Area2D@63905" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63906" to="Hazards/@Area2D@63906" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63907" to="Hazards/@Area2D@63907" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63908" to="Hazards/@Area2D@63908" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]

@@ -102,7 +102,7 @@ func get_level_name(number: int) -> String:
 		15:
 			return "Simple Machine"
 		16:
-			return "Block Falls"
+			return "Alternate"
 		_:
 			printerr("Cannot find name of level " + str(number))
 			return "MISSING STRING"
