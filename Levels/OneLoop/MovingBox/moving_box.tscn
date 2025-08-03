@@ -61,14 +61,6 @@ position_smoothing_enabled = true
 position = Vector2(149, 144)
 
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
-[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@60131" to="Hazards/@Area2D@60131" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@60132" to="Hazards/@Area2D@60132" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@60133" to="Hazards/@Area2D@60133" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@60134" to="Hazards/@Area2D@60134" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@60135" to="Hazards/@Area2D@60135" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@60136" to="Hazards/@Area2D@60136" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@60137" to="Hazards/@Area2D@60137" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]
