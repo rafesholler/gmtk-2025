@@ -131,7 +131,7 @@ scale = Vector2(0.9, 0.9)
 [connection signal="just_pressed" from="Button4" to="." method="_on_button_4_just_pressed"]
 [connection signal="just_unpressed" from="Button4" to="." method="_on_button_4_just_unpressed"]
 [connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@70787" to="Hazards/@Area2D@70787" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@328533" to="Hazards/@Area2D@328533" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]
