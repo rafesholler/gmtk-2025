@@ -21,7 +21,7 @@ z_index = -1
 position = Vector2(57, 176)
 
 [node name="Door" parent="." instance=ExtResource("6_428gi")]
-position = Vector2(819, 223)
+position = Vector2(819, 224)
 
 [node name="Button2" parent="." instance=ExtResource("9_sp3i0")]
 position = Vector2(174, 208)
@@ -30,7 +30,7 @@ position = Vector2(174, 208)
 position = Vector2(99, 208)
 
 [node name="Button4" parent="." instance=ExtResource("9_sp3i0")]
-position = Vector2(221, 207)
+position = Vector2(221, 208)
 
 [node name="Button5" parent="." instance=ExtResource("9_sp3i0")]
 position = Vector2(448, 368)
@@ -71,14 +71,14 @@ position = Vector2(383, 416)
 position = Vector2(174, 129)
 
 [node name="SlidePlatform2" parent="." instance=ExtResource("7_lyp2f")]
-position = Vector2(221, 175)
+position = Vector2(221, 176)
 rotation = 1.5708
 
 [node name="Endpoint" parent="SlidePlatform2" index="0"]
 position = Vector2(221, 101)
 
 [node name="SlidePlatform3" parent="." instance=ExtResource("7_lyp2f")]
-position = Vector2(128, 175)
+position = Vector2(128, 176)
 rotation = 1.5708
 
 [node name="Endpoint" parent="SlidePlatform3" index="0"]
@@ -206,7 +206,7 @@ position = Vector2(612, 264)
 color = 2
 
 [node name="Player" parent="." instance=ExtResource("3_jasrm")]
-position = Vector2(59, 208)
+position = Vector2(734, 241)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -256,8 +256,6 @@ scale = Vector2(0.95, 0.95)
 [connection signal="just_pressed" from="ButtonNOTHING2" to="." method="_on_button_nothing_2_just_pressed"]
 [connection signal="just_unpressed" from="ButtonNOTHING2" to="." method="_on_button_nothing_2_just_unpressed"]
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
-[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@76108" to="Hazards/@Area2D@76108" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]
