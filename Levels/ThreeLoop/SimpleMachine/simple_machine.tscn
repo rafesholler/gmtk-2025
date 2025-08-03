@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="7_gdsn5"]
 [ext_resource type="PackedScene" uid="uid://bc4mudwsgjt1o" path="res://Objects/Portal/portal.tscn" id="9_wyayw"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="10_kkjqo"]
-[ext_resource type="TileSet" uid="uid://c3bbynk3ek2sb" path="res://Environment/hazards.tres" id="10_tkdmk"]
+[ext_resource type="TileSet" uid="uid://b2bi7bmwgp3qc" path="res://Environment/hazards.tres" id="10_tkdmk"]
 
 [node name="SimpleMachine" type="Node2D"]
 script = ExtResource("1_d3e5h")
@@ -64,16 +64,6 @@ rotation = 1.5708
 [node name="Endpoint" parent="SlidePlatform4" index="0"]
 position = Vector2(391, 180)
 
-[node name="Player" parent="." instance=ExtResource("6_tkdmk")]
-position = Vector2(58, 301)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 575
-limit_bottom = 300
-
 [node name="HeavyBox" parent="." instance=ExtResource("4_d3e5h")]
 position = Vector2(223, 72)
 scale = Vector2(0.45, 0.45)
@@ -122,6 +112,16 @@ color = 2
 position = Vector2(24, 286)
 color = 2
 
+[node name="Player" parent="." instance=ExtResource("6_tkdmk")]
+position = Vector2(58, 301)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 575
+limit_bottom = 300
+
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
 [connection signal="just_pressed" from="Button2" to="." method="_on_button_2_just_pressed"]
@@ -130,8 +130,6 @@ color = 2
 [connection signal="just_unpressed" from="Button3" to="." method="_on_button_3_just_unpressed"]
 [connection signal="just_pressed" from="Button4" to="." method="_on_button_4_just_pressed"]
 [connection signal="just_unpressed" from="Button4" to="." method="_on_button_4_just_unpressed"]
-[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@200916" to="Hazards/@Area2D@200916" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]
