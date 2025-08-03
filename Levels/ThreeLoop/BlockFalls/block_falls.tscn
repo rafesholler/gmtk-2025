@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://d2avi2pjk4k2b"]
 
-[ext_resource type="Script" uid="uid://c5omoc33bta2" path="res://Levels/ThreeLoop/BlockFalls/block_falls.gd" id="1_eb3n1"]
+[ext_resource type="Script" path="res://Levels/ThreeLoop/Block Falls/Block Falls.gd" id="1_eb3n1"]
 [ext_resource type="PackedScene" uid="uid://cc4n2fr13d1eh" path="res://Objects/DudDoor/DudDoor.tscn" id="2_kmfmq"]
 [ext_resource type="PackedScene" uid="uid://binoy2bpne3jf" path="res://Objects/Door/Door.tscn" id="3_pc4fw"]
 [ext_resource type="PackedScene" uid="uid://bjhkesuabemhh" path="res://Objects/Button/button.tscn" id="4_ofxam"]
