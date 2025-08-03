@@ -212,7 +212,7 @@ position = Vector2(59, 208)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 1150
+limit_right = 877
 limit_bottom = 460
 
 [node name="Box2" parent="." instance=ExtResource("5_sp3i0")]
@@ -256,8 +256,6 @@ scale = Vector2(0.95, 0.95)
 [connection signal="just_pressed" from="ButtonNOTHING2" to="." method="_on_button_nothing_2_just_pressed"]
 [connection signal="just_unpressed" from="ButtonNOTHING2" to="." method="_on_button_nothing_2_just_unpressed"]
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
-[connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@85923" to="Hazards/@Area2D@85923" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]
