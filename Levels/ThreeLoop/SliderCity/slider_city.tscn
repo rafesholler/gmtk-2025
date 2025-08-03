@@ -145,7 +145,6 @@ horizontal_alignment = 1
 [connection signal="just_pressed" from="Button3" to="." method="_on_button_3_just_pressed"]
 [connection signal="just_unpressed" from="Button3" to="." method="_on_button_3_just_unpressed"]
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
-<<<<<<< HEAD
 [connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
 [connection signal="body_entered" from="Hazards/@Area2D@73442" to="Hazards/@Area2D@73442" method="_on_body_entered"]
 [connection signal="body_entered" from="Hazards/@Area2D@73443" to="Hazards/@Area2D@73443" method="_on_body_entered"]
@@ -155,8 +154,6 @@ horizontal_alignment = 1
 [connection signal="body_entered" from="Hazards/@Area2D@73447" to="Hazards/@Area2D@73447" method="_on_body_entered"]
 [connection signal="body_entered" from="Hazards/@Area2D@73448" to="Hazards/@Area2D@73448" method="_on_body_entered"]
 [connection signal="body_entered" from="Hazards/@Area2D@73449" to="Hazards/@Area2D@73449" method="_on_body_entered"]
-=======
->>>>>>> parent of badb1b9 (End Screen)
 
 [editable path="SlidePlatform1"]
 [editable path="SlidePlatform2"]
