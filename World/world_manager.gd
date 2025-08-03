@@ -6,6 +6,7 @@ signal load_next_room #emits upon transition end to load in next room
 signal kill_player 
 
 var rooms := {
+	-2: "res://Menu/Title.tscn",
 	-1: "res://Menu/Title.tscn",
 	0: "res://Levels/OneLoop/BoxPush1/box_push1.tscn",
 	1: "res://Levels/OneLoop/ButtonPress1/button_press1.tscn",
