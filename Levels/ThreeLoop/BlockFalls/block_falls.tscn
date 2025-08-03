@@ -60,13 +60,6 @@ position = Vector2(759, 285)
 [node name="Endpoint" parent="SlidePlatform4" index="0"]
 position = Vector2(673, 285)
 
-[node name="Box" parent="." instance=ExtResource("5_iuix2")]
-position = Vector2(353, 172)
-
-[node name="Box2" parent="." instance=ExtResource("5_iuix2")]
-position = Vector2(534, 175)
-rotation = 1.5708
-
 [node name="Hazards" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAATAP//AAAAAAAAAQAUAP//AAAAAAAAAQAVAP//AAAAAAAAAQAWAP//AAAAAAAAAQATAAwAAAAAAAAAAQAUAAwAAAAAAAAAAQAVAAwAAAAAAAAAAQAWAAwAAAAAAAAAAQAJAAgAAAAAAAAAAQAKAAgAAAAAAAAAAQALAAgAAAAAAAAAAQAMAAgAAAAAAAAAAQA=")
 tile_set = ExtResource("8_26fdu")
@@ -120,6 +113,13 @@ limit_top = -240
 limit_right = 913
 limit_bottom = 430
 
+[node name="Box" parent="." instance=ExtResource("5_iuix2")]
+position = Vector2(353, 172)
+
+[node name="Box2" parent="." instance=ExtResource("5_iuix2")]
+position = Vector2(534, 175)
+rotation = 1.5708
+
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]
 [connection signal="just_unpressed" from="Button" to="." method="_on_button_just_unpressed"]
 [connection signal="just_pressed" from="Button2" to="." method="_on_button_2_just_pressed"]
@@ -127,17 +127,17 @@ limit_bottom = 430
 [connection signal="just_pressed" from="Button3" to="." method="_on_button_3_just_pressed"]
 [connection signal="just_unpressed" from="Button3" to="." method="_on_button_3_just_unpressed"]
 [connection signal="body_entered" from="Hazards/Laser" to="Hazards/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42845" to="Hazards/@Area2D@42845" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42846" to="Hazards/@Area2D@42846" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42847" to="Hazards/@Area2D@42847" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42848" to="Hazards/@Area2D@42848" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42849" to="Hazards/@Area2D@42849" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42850" to="Hazards/@Area2D@42850" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42851" to="Hazards/@Area2D@42851" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42852" to="Hazards/@Area2D@42852" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42853" to="Hazards/@Area2D@42853" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42854" to="Hazards/@Area2D@42854" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazards/@Area2D@42855" to="Hazards/@Area2D@42855" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63898" to="Hazards/@Area2D@63898" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63899" to="Hazards/@Area2D@63899" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63900" to="Hazards/@Area2D@63900" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63901" to="Hazards/@Area2D@63901" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63902" to="Hazards/@Area2D@63902" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63903" to="Hazards/@Area2D@63903" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63904" to="Hazards/@Area2D@63904" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63905" to="Hazards/@Area2D@63905" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63906" to="Hazards/@Area2D@63906" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63907" to="Hazards/@Area2D@63907" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/@Area2D@63908" to="Hazards/@Area2D@63908" method="_on_body_entered"]
 
 [editable path="SlidePlatform"]
 [editable path="SlidePlatform2"]
