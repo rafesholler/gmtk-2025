@@ -105,10 +105,10 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is Box and not c.get_collider().is_in_loop:
-			c.get_collider().velocity = -c.get_normal() * push_force
+			c.get_collider().velocity.x = -c.get_normal().x * push_force
 			#print(c.get_collider().velocity)
 		if c.get_collider() is HeavyBox and not c.get_collider().is_in_loop:
-			c.get_collider().velocity = -c.get_normal() * push_force
+			c.get_collider().velocity.x = -c.get_normal().x * push_force
 	
 	if not LoopManager.is_recording:
 		if Input.is_action_just_pressed("select_loop_1"):
