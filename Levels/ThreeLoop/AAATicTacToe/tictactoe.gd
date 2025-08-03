@@ -83,14 +83,6 @@ func _on_button_9_just_unpressed() -> void:
 	$SlidePlatform9.deactivate()
 
 
-func _on_button_final_1_just_pressed() -> void:
-	$SlidePlatformFinal1.activate()
-
-
-func _on_button_final_1_just_unpressed() -> void:
-	$SlidePlatformFinal1.deactivate()
-
-
 func _on_button_11_just_pressed() -> void:
 	$SlidePlatform11.activate()
 
