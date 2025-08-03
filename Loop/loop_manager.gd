@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			for part in loop.parts:
 				for object in part.loopable.properties:
 					if object is Box or object is HeavyBox:
-						if loop.index == 5 or loop.index == loop.max_index - 1:
+						if loop.index == 2 or loop.index == loop.max_index - 1:
 							object.toggle_collisions()
 					for property in part.loopable.properties[object]:
 						object.set(property, part.recorded_values[property][loop.index])
@@ -137,7 +137,7 @@ func clear_marked_objects() -> void:
 func _get_loop_color(loop_index: int) -> Color:
 	match loop_index:
 		0:
-			return Color(0.675, 0.286, 0.596)
+			return Color(0.675, 0.286, 0.596, .75)
 		1:
 			return Color(0.616, 0.694, 0.263, .75)
 		2:

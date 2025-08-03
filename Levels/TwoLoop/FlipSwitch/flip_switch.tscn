@@ -18,6 +18,15 @@ position = Vector2(47, 48)
 [node name="DudDoor" parent="." instance=ExtResource("4_bfes5")]
 position = Vector2(41, 336)
 
+[node name="Lever" parent="." instance=ExtResource("5_ga1d6")]
+position = Vector2(85, 368)
+
+[node name="Button" parent="." instance=ExtResource("7_h7jwe")]
+position = Vector2(465, 288)
+
+[node name="Button2" parent="." instance=ExtResource("7_h7jwe")]
+position = Vector2(235, 288)
+
 [node name="SlidePlatform1" parent="." instance=ExtResource("3_liv2v")]
 position = Vector2(200, 344)
 rotation = 1.5708
@@ -120,15 +129,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 576
 limit_bottom = 384
-
-[node name="Lever" parent="." instance=ExtResource("5_ga1d6")]
-position = Vector2(85, 368)
-
-[node name="Button" parent="." instance=ExtResource("7_h7jwe")]
-position = Vector2(465, 288)
-
-[node name="Button2" parent="." instance=ExtResource("7_h7jwe")]
-position = Vector2(235, 288)
 
 [connection signal="switched" from="Lever" to="." method="_on_lever_switched"]
 [connection signal="just_pressed" from="Button" to="." method="_on_button_just_pressed"]

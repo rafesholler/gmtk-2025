@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 			collision_mask = 0
 		else:
 			collision_layer = 4
-			collision_mask = 7
+			collision_mask = 23
 		
 		if not is_on_floor() and not is_being_pulled:
 			velocity.y += gravity * delta
@@ -61,7 +61,7 @@ func toggle_collisions() -> void:
 	can_collide = not can_collide
 	if can_collide:
 		collision_layer = 4
-		collision_mask = 7
+		collision_mask = 23
 	else:
 		collision_layer = 0
 		collision_mask = 0
